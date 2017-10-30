@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">FindFer</string>
+    <string name="action_settings">Configuração</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="title_activity_map_fragment">Map</string>
+    <string name="new_post">Escreva um Anúncio</string>
+    <string name="title_new_poster">Título do seu anúncio</string>
+    <string name="new_description">Descreva seu produto</string>
+    <string name="new_value">Preço</string>
+    <string name="new_coupon">Você vai criar um cupom de desconto?</string>
+    <string name="rb_yes">Sim</string>
+    <string name="rb_no">Não</string>
+    <string name="desc_value">Valor do desconto</string>
+    <string name="creat_poster">Criar anúncio</string>
+    <string name="sugest_set_image">Envie uma foto de seu produto!</string>
+    <string name="ac_new_user">Cadastre-se</string>
+    <string name="ac_login">Entre</string>
+    <string name="ac_logout">Sair</string>
+    <string name="request_promotion">Peça uma promoção</string>
+    <string name="et_new_name">Digite seu nome</string>
+    <string name="et_new_name_user">Escolha um nome de usuário</string>
+    <string name="et_new_password">Escolha uma senha</string>
+    <string name="rb_client_defin">Cliente</string>
+    <string name="rb_marketer_defin">Feirante</string>
+    <string name="type_user">Você é feirante ou cliente de feira?</string>
+    <string name="tv_image_profile">Envie uma foto de perfil</string>
+    <string name="bt_new_user">Cadastrar</string>
+    <string name="et_new_email">Informe seu email</string>
+    <string name="et_new_fone">Informe seu telefone</string>
+</resources>
