@@ -71,29 +71,11 @@ public class NewUser extends AppCompatActivity {
         setContentView(R.layout.activity_new_user);
         url = "http://www.findfer.com.br/FindFer/control/CreateUser.php";
         comboMaket = (Spinner)findViewById(R.id.combo_market);
-        etName = (EditText)findViewById(R.id.et_new_user);
-        etNameUser = (EditText)findViewById(R.id.et_name_user);
-        etPassword  = (EditText)findViewById(R.id.et_password);
-        etFone =(EditText)findViewById(R.id.et_new_fone);
+
         etEmail = (EditText)findViewById(R.id.et_new_email);
-        tvImgProfile = (TextView)findViewById(R.id.tv_img_profile);
-        ibtNewPhoto = (ImageButton)findViewById(R.id.ibt_photo_user);
+
         btNewUser = (Button)findViewById(R.id.bt_new_user);
-        rgTypeAccount = (RadioGroup)findViewById(R.id.rg_typeAccount);
         coordinates = new Coordinates(MainActivity.location.getLatitude(),MainActivity.location.getLongitude());
-        rgTypeAccount.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener(){
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int checkedId) {
-                switch (checkedId){
-                    case R.id.rb_client:
-                        typeAccount = 1;
-                        break;
-                    case R.id.rb_marketer:
-                        typeAccount = 2;
-                        break;
-                }
-            }
-        });
         List<String> listMarket = marketRequest();
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,listMarket);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_item);

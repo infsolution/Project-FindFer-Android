@@ -27,4 +27,5 @@
     <string name="bt_new_user">Cadastrar</string>
     <string name="et_new_email">Informe seu email</string>
     <string name="et_new_fone">Informe seu telefone</string>
+    <string name="tv_date">00/00/0000 00:00:00</string>
 </resources>

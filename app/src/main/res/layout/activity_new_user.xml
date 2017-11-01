@@ -15,35 +15,8 @@
         android:layout_height="match_parent"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp">
-        <TextView
-            android:text="@string/type_user"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"/>
-        <RadioGroup
-            android:layout_width="match_parent"
-            android:layout_height="66dp"
-            android:layout_marginTop="26dp"
-            android:orientation="horizontal"
-            android:id="@+id/rg_typeAccount">
 
-            <RadioButton
-                android:id="@+id/rb_client"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/rb_client_defin"
-                android:checked="false"/>
 
-            <RadioButton
-                android:id="@+id/rb_marketer"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/rb_marketer_defin"
-                android:checked="false"
-                />
-        </RadioGroup>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -56,52 +29,18 @@
             android:drawSelectorOnTop="true"
             android:visibility="visible"
             />
-    <EditText
-        android:id="@+id/et_new_user"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/et_new_name"
-        android:inputType="textAutoComplete"/>
+
     <EditText
         android:id="@+id/et_new_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/et_new_email"
         android:inputType="textAutoComplete"/>
-    <EditText
-        android:id="@+id/et_new_fone"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/et_new_fone"
-        android:inputType="textAutoComplete"/>
-    <EditText
-        android:id="@+id/et_name_user"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/et_new_name_user"
-        android:inputType="textAutoComplete"/>
-    <EditText
-        android:id="@+id/et_password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/et_new_password"
-        android:inputType="textPassword"
-        />
 
-    <TextView
-        android:id="@+id/tv_img_profile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="@string/tv_image_profile"/>
-    <ImageButton
-        android:id="@+id/ibt_photo_user"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_gravity="center"
-        app:srcCompat="@android:drawable/ic_menu_camera"
-        android:onClick="newImageUser"
-        />
+
+
+
+
     <Button
         android:id="@+id/bt_new_user"
         android:layout_width="100dp"

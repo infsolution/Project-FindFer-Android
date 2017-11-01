@@ -1,9 +1,136 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="br.com.findfer.findfer.PosterActivity">
+    android:orientation="vertical"
+    tools:context="br.com.findfer.findfer.PosterActivity"
+   >
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/tv_title_poster"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15pt"
+        android:text="@string/tv_title"
+        android:textStyle="bold"
+        android:layout_gravity="left"
+        />
+    <ImageButton
+        android:id="@+id/imbt_request_relatioship"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        app:srcCompat="@mipmap/request_health"
+        />
+</RelativeLayout>
 
-</android.support.constraint.ConstraintLayout>
+    <ImageView
+        android:id="@+id/img_poster"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        app:srcCompat="@drawable/banana"
+        android:layout_marginTop="10dp"
+        />
+
+    <RelativeLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <ImageButton
+        android:id="@+id/imb_profile_poster"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/profile48"
+        android:layout_alignParentLeft="true"
+        />
+    <TextView
+        android:id="@+id/tv_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tv_value"
+        android:textSize="15pt"
+        android:textStyle="bold"
+        android:gravity=""
+       android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        />
+
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tv_market_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_market_name"
+            android:textStyle="bold"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:textSize="8pt"/>
+        <ImageButton
+            android:id="@+id/imbt_request_promotion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            app:srcCompat="@mipmap/request_promotion"
+            />
+    </RelativeLayout>
+        <TextView
+            android:id="@+id/tv_date_poster"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_date"
+            android:textSize="6pt"
+            android:layout_marginTop="5dp"
+            />
+        <TextView
+        android:id="@+id/tv_poster_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/tv_poster_description"
+        android:textSize="8pt"
+        android:layout_marginTop="10dp"
+        />
+        <RatingBar
+            android:id="@+id/rtb_qualification"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:numStars="5"
+            android:stepSize="2.0"
+            android:rating="2.0"/>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp">
+        <Button
+            android:id="@+id/bt_location_market"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/bt_location_market"
+            android:layout_weight="1"/>
+        <Button
+            android:id="@+id/bt_sale"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/bt_sale"
+            android:layout_weight="1"/>
+    </LinearLayout>
+    </LinearLayout>
+    </ScrollView>
+</LinearLayout>

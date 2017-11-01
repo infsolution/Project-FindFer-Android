@@ -63,8 +63,10 @@
         <activity
             android:name=".NewUser"
             android:label="@string/ac_new_user" />
-        <activity android:name=".PosterActivity" />
-        <activity android:name=".ProfileActivity" />
+        <activity android:name=".PosterActivity"
+            android:label="@string/ac_poster"/>
+        <activity android:name=".ProfileActivity"
+            android:label="@string/ac_profile"/>
         <activity android:name=".RecordOneActivity" />
         <activity android:name=".RecordTwoActivity"></activity>
     </application>

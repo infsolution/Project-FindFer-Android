@@ -43,4 +43,17 @@
     <string name="answer_not_new_record">Faill record</string>
     <string name="request_fone">Inform your fone</string>
     <string name="user_existent">User already exist</string>
+    <string name="bt_record_fone_back">Back</string>
+    <string name="ac_profile">Profile</string>
+    <string name="ac_poster">Poster</string>
+    <string name="tv_title">Title</string>
+    <string name="tv_value">9.99</string>
+    <string name="bt_request_promtion">Requeste Promotion</string>
+    <string name="tv_poster_description">Description of your product</string>
+    <string name="tv_market_name">Market name</string>
+    <string name="bt_sale">To Sale</string>
+    <string name="bt_location_market">Location market</string>
+    <string name="dial_message_ok_record">User recorded successful</string>
+    <string name="dial_title_new_record">New record</string>
+    <string name="tv_date">00/00/0000 00:00:00</string>
 </resources>

@@ -14,13 +14,11 @@ public class Poster implements Parcelable {
     public static final String PATH = "http://www.findfer.com.br/FindFer/images/posters/__w-395-593-790-1185__";
     private long idPoster;
     private long marketPlace;
+    private long marketer;
     private String title;
     private Double value;
     private String description;
-    //private Media medias;
-    //private Media mediaCapa;
     private String date;
-    //private Coupon coupon;
     private String urlImage;
     private int photo;
     public Poster(String title){
@@ -66,6 +64,14 @@ public class Poster implements Parcelable {
 
     public void setMarketPlace(long marketPlace) {
         this.marketPlace = marketPlace;
+    }
+
+    public long getMarketer() {
+        return marketer;
+    }
+
+    public void setMarketer(long marketer) {
+        this.marketer = marketer;
     }
 
     public String getTitle() {

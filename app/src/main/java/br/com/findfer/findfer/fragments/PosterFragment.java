@@ -1,5 +1,6 @@
 package br.com.findfer.findfer.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -15,6 +16,8 @@ import com.google.gson.Gson;
 import org.json.JSONArray;
 import org.json.JSONException;
 
+import br.com.findfer.findfer.PosterActivity;
+import br.com.findfer.findfer.ProfileActivity;
 import br.com.findfer.findfer.extras.UtilTCM;
 import br.com.findfer.findfer.interfaces.RecyclerViewOnClickListenerHack;
 import br.com.findfer.findfer.model.Poster;
@@ -78,21 +81,27 @@ public class PosterFragment extends Fragment implements RecyclerViewOnClickListe
 
         return view;
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
+
     /*  @Override
-    public void onActivityCreated(Bundle savedInstanceState){
-         super.onActivityCreated(savedInstanceState);
-         if(savedInstanceState != null){
-             posters = savedInstanceState.getParcelableArrayList("poster");
-            PosterAdapter adapter = new PosterAdapter(getActivity(), posters);
-             pRecycle.setAdapter(adapter);
-             if(posters == null || posters.size() == 0){
+        public void onActivityCreated(Bundle savedInstanceState){
+             super.onActivityCreated(savedInstanceState);
+             if(savedInstanceState != null){
+                 posters = savedInstanceState.getParcelableArrayList("poster");
+                PosterAdapter adapter = new PosterAdapter(getActivity(), posters);
+                 pRecycle.setAdapter(adapter);
+                 if(posters == null || posters.size() == 0){
+                     callVolleyRequest();
+                 }
+             }else{
                  callVolleyRequest();
              }
-         }else{
-             callVolleyRequest();
-         }
 
-     }*/
+         }*/
     public void callVolleyRequest(){
         NetworkConncetion.getInstance(getActivity()).execute(this,PosterFragment.class.getName());
     }
@@ -104,6 +113,16 @@ public class PosterFragment extends Fragment implements RecyclerViewOnClickListe
 
     @Override
     public void onClickListner(View view, int position) {
+        Intent poster = new Intent(getActivity(), PosterActivity.class);
+        poster.putExtra("id_poster",posters.get(position).getIdPoster());
+        poster.putExtra("id_marketer",posters.get(position).getMarketer());
+        poster.putExtra("id_market_place", posters.get(position).getMarketPlace());
+        poster.putExtra("title",posters.get(position).getTitle());
+        poster.putExtra("description", posters.get(position).getDescription());
+        poster.putExtra("value", posters.get(position).getValue());
+        poster.putExtra("media_capa",posters.get(position).getUrlImage());
+        poster.putExtra("date_time", posters.get(position).getDate());
+        startActivity(poster);
 
     }
 
