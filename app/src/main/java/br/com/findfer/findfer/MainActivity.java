@@ -159,9 +159,13 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
                     for (int i = 0; i < jPosts.length(); i++) {
                         JSONObject jPost = jPosts.getJSONObject(i);
                         post = new Poster(jPost.getString("title"));
+                        post.setIdPoster(jPost.getLong("id_poster"));
+                        post.setMarketer(jPost.getLong("id_user"));
                         post.setDescription(jPost.getString("description"));
                         post.setValue(jPost.getDouble("value"));
+                        post.setMarketPlace(jPost.getLong("id_market_place"));
                         post.setUrlImage("http://www.findfer.com.br/FindFer" + jPost.getString("media_capa"));
+                        post.setDate(jPost.getString("date_time"));
                         posters.add(post);
                     }
                 } catch (JSONException e) {

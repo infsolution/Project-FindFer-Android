@@ -11,6 +11,7 @@ import android.widget.Toast;
 public class RecordOneActivity extends AppCompatActivity {
     private EditText firstName, lastName;
     private Button btNext;
+    private Bundle bundle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +20,11 @@ public class RecordOneActivity extends AppCompatActivity {
         firstName = (EditText)findViewById(R.id.et_first_name);
         lastName = (EditText)findViewById(R.id.et_last_name);
         btNext = (Button)findViewById(R.id.bt_next);
+        bundle = getIntent().getExtras();
+        if(bundle != null){
+            firstName.setText(bundle.getString("first_name"));
+            lastName.setText(bundle.getString("last_name"));
+        }
     }
 
     public void nextActivityFone(View view){
@@ -26,9 +32,11 @@ public class RecordOneActivity extends AppCompatActivity {
             Toast.makeText(this, R.string.request_name_user, Toast.LENGTH_SHORT).show();
         }else{
             Intent nextFone = new Intent(this, RecordTwoActivity.class);
-            nextFone.putExtra("name",setNameUser());
+            nextFone.putExtra("first_name",firstName.getText().toString());
+            nextFone.putExtra("last_name",lastName.getText().toString());
             startActivity(nextFone);
         }
+        finish();
     }
 
     private String setNameUser(){

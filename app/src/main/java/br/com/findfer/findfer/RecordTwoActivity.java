@@ -1,5 +1,8 @@
 package br.com.findfer.findfer;
 
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -30,9 +33,9 @@ import br.com.findfer.findfer.model.Record;
 
 public class RecordTwoActivity extends AppCompatActivity {
     private Bundle intent;
-    private String nameUser, code;
+    private String firstName, lastNmae, code;
     private EditText fone;
-    private Button newRecord;
+    private Button newRecord, back;
     private Record record;
     private RecordDao rDao;
     private RequestQueue requestQueue;
@@ -45,10 +48,12 @@ public class RecordTwoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_record_two);
         this.requestQueue = Volley.newRequestQueue(getApplicationContext());
         intent = getIntent().getExtras();
-        nameUser = intent.getString("name");
+        firstName = intent.getString("first_name");
+        lastNmae = intent.getString("last_name");
         pbLoad = (ProgressBar)findViewById(R.id.pb_load_record);
         fone = (EditText)findViewById(R.id.et_fone);
         newRecord = (Button)findViewById(R.id.bt_finish);
+        back = (Button)findViewById(R.id.bt_back);
         url ="http://www.findfer.com.br/FindFer/control/NewRecord.php";
     }
 
@@ -58,22 +63,33 @@ public class RecordTwoActivity extends AppCompatActivity {
         }else{
             pbLoad.setVisibility(View.VISIBLE);
             createRecordRemote();
-            pbLoad.setVisibility(View.GONE);
+
         }
     }
-    private void creatRecordLocal(Record record){
+    public void backRecord(View view){
+        Intent back = new Intent(this, RecordOneActivity.class);
+        back.putExtra("first_name",firstName);
+        back.putExtra("last_name",lastNmae);
+        startActivity(back);
+        finish();
+    }
+    private boolean creatRecordLocal(Record record){
         rDao = new RecordDao(this);
         long res = rDao.insertRecord(record);
+        pbLoad.setVisibility(View.GONE);
         if(res > 0){
-            Toast.makeText(this, R.string.answer_ok_new_record, Toast.LENGTH_SHORT).show();
+            return true;
+
         }
         if(res == -1){
-            Toast.makeText(this, R.string.user_existent, Toast.LENGTH_SHORT).show();
+            return false;
+            //Toast.makeText(this, R.string.user_existent, Toast.LENGTH_SHORT).show();
         }
-        else{
-            Toast.makeText(this, R.string.answer_not_new_record, Toast.LENGTH_SHORT).show();
+        if(res == 0){
+            return false;
+            //Toast.makeText(this, R.string.answer_not_new_record, Toast.LENGTH_SHORT).show();
         }
-
+        return false;
     }
     public void createRecordRemote(){
         final StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
@@ -86,7 +102,20 @@ public class RecordTwoActivity extends AppCompatActivity {
                         record = new Record(jRecord.getString("fone"));
                         record.setName("name");
                         record.setCode("code");
-                        creatRecordLocal(record);
+                        if(creatRecordLocal(record)){
+                            AlertDialog.Builder builder = new AlertDialog.Builder(RecordTwoActivity.this);
+                            builder.setTitle(R.string.dial_title_new_record);
+                            builder.setMessage(R.string.dial_message_ok_record);
+                            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    finish();
+                                    return;
+                                }
+                            });
+                            AlertDialog dialog = builder.create();
+                            dialog.show();
+                        }
                     }
                 } catch (JSONException e) {
                     Toast.makeText(RecordTwoActivity.this, "Erro Catch: " + e.toString(), Toast.LENGTH_LONG).show();
@@ -101,7 +130,7 @@ public class RecordTwoActivity extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> parameters = new HashMap<>();
-                parameters.put("name",nameUser);
+                parameters.put("name",getNameUser());
                 parameters.put("fone",getNumberFone());
                 return parameters;
             }
@@ -110,6 +139,11 @@ public class RecordTwoActivity extends AppCompatActivity {
         this.requestQueue.add(request);
 
     }
+
+    private String getNameUser() {
+        return firstName+" "+lastNmae;
+    }
+
     private String  getNumberFone(){
         if(!veriNumber()){
             return fone.getText().toString();
