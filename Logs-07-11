@@ -1,0 +1,310 @@
+11-07 20:43:50.255 9903-9903/? D/dalvikvm: Late-enabling CheckJNI
+11-07 20:43:50.895 9903-9903/br.com.findfer.findfer I/dalvikvm: Could not find method android.view.Window$Callback.onProvideKeyboardShortcuts, referenced from method android.support.v7.view.WindowCallbackWrapper.onProvideKeyboardShortcuts
+11-07 20:43:50.905 9903-9903/br.com.findfer.findfer W/dalvikvm: VFY: unable to resolve interface method 20887: Landroid/view/Window$Callback;.onProvideKeyboardShortcuts (Ljava/util/List;Landroid/view/Menu;I)V
+11-07 20:43:50.905 9903-9903/br.com.findfer.findfer D/dalvikvm: VFY: replacing opcode 0x72 at 0x0002
+11-07 20:43:50.905 9903-9903/br.com.findfer.findfer W/dalvikvm: VFY: unable to find class referenced in signature (Landroid/view/SearchEvent;)
+11-07 20:43:50.905 9903-9903/br.com.findfer.findfer I/dalvikvm: Could not find method android.view.Window$Callback.onSearchRequested, referenced from method android.support.v7.view.WindowCallbackWrapper.onSearchRequested
+11-07 20:43:50.905 9903-9903/br.com.findfer.findfer W/dalvikvm: VFY: unable to resolve interface method 20889: Landroid/view/Window$Callback;.onSearchRequested (Landroid/view/SearchEvent;)Z
+11-07 20:43:50.905 9903-9903/br.com.findfer.findfer D/dalvikvm: VFY: replacing opcode 0x72 at 0x0002
+11-07 20:43:50.905 9903-9903/br.com.findfer.findfer I/dalvikvm: Could not find method android.view.Window$Callback.onWindowStartingActionMode, referenced from method android.support.v7.view.WindowCallbackWrapper.onWindowStartingActionMode
+11-07 20:43:50.905 9903-9903/br.com.findfer.findfer W/dalvikvm: VFY: unable to resolve interface method 20893: Landroid/view/Window$Callback;.onWindowStartingActionMode (Landroid/view/ActionMode$Callback;I)Landroid/view/ActionMode;
+11-07 20:43:50.905 9903-9903/br.com.findfer.findfer D/dalvikvm: VFY: replacing opcode 0x72 at 0x0002
+11-07 20:43:50.905 9903-9903/br.com.findfer.findfer I/dalvikvm: Could not find method android.content.res.TypedArray.getChangingConfigurations, referenced from method android.support.v7.widget.TintTypedArray.getChangingConfigurations
+11-07 20:43:50.905 9903-9903/br.com.findfer.findfer W/dalvikvm: VFY: unable to resolve virtual method 650: Landroid/content/res/TypedArray;.getChangingConfigurations ()I
+11-07 20:43:50.905 9903-9903/br.com.findfer.findfer D/dalvikvm: VFY: replacing opcode 0x6e at 0x0002
+11-07 20:43:50.905 9903-9903/br.com.findfer.findfer I/dalvikvm: Could not find method android.content.res.TypedArray.getType, referenced from method android.support.v7.widget.TintTypedArray.getType
+11-07 20:43:50.915 9903-9903/br.com.findfer.findfer W/dalvikvm: VFY: unable to resolve virtual method 672: Landroid/content/res/TypedArray;.getType (I)I
+11-07 20:43:50.915 9903-9903/br.com.findfer.findfer D/dalvikvm: VFY: replacing opcode 0x6e at 0x0008
+11-07 20:43:50.935 9903-9903/br.com.findfer.findfer I/dalvikvm: Could not find method android.support.graphics.drawable.VectorDrawableCompat.getLayoutDirection, referenced from method android.support.graphics.drawable.VectorDrawableCompat.needMirroring
+11-07 20:43:50.935 9903-9903/br.com.findfer.findfer W/dalvikvm: VFY: unable to resolve virtual method 4410: Landroid/support/graphics/drawable/VectorDrawableCompat;.getLayoutDirection ()I
+11-07 20:43:50.935 9903-9903/br.com.findfer.findfer D/dalvikvm: VFY: replacing opcode 0x6e at 0x000f
+11-07 20:43:50.995 9903-9903/br.com.findfer.findfer I/dalvikvm: Could not find method android.content.Context.createDeviceProtectedStorageContext, referenced from method android.support.v4.content.ContextCompat.createDeviceProtectedStorageContext
+11-07 20:43:50.995 9903-9903/br.com.findfer.findfer W/dalvikvm: VFY: unable to resolve virtual method 409: Landroid/content/Context;.createDeviceProtectedStorageContext ()Landroid/content/Context;
+11-07 20:43:50.995 9903-9903/br.com.findfer.findfer D/dalvikvm: VFY: replacing opcode 0x6e at 0x0006
+11-07 20:43:51.005 9903-9903/br.com.findfer.findfer I/dalvikvm: Could not find method android.content.Context.getCodeCacheDir, referenced from method android.support.v4.content.ContextCompat.getCodeCacheDir
+11-07 20:43:51.005 9903-9903/br.com.findfer.findfer W/dalvikvm: VFY: unable to resolve virtual method 416: Landroid/content/Context;.getCodeCacheDir ()Ljava/io/File;
+11-07 20:43:51.005 9903-9903/br.com.findfer.findfer D/dalvikvm: VFY: replacing opcode 0x6e at 0x0006
+11-07 20:43:51.005 9903-9903/br.com.findfer.findfer I/dalvikvm: Could not find method android.content.Context.getColor, referenced from method android.support.v4.content.ContextCompat.getColor
+11-07 20:43:51.005 9903-9903/br.com.findfer.findfer W/dalvikvm: VFY: unable to resolve virtual method 417: Landroid/content/Context;.getColor (I)I
+11-07 20:43:51.005 9903-9903/br.com.findfer.findfer D/dalvikvm: VFY: replacing opcode 0x6e at 0x0006
+11-07 20:43:51.005 9903-9903/br.com.findfer.findfer I/dalvikvm: Could not find method android.content.Context.getColorStateList, referenced from method android.support.v4.content.ContextCompat.getColorStateList
+11-07 20:43:51.005 9903-9903/br.com.findfer.findfer W/dalvikvm: VFY: unable to resolve virtual method 418: Landroid/content/Context;.getColorStateList (I)Landroid/content/res/ColorStateList;
+11-07 20:43:51.005 9903-9903/br.com.findfer.findfer D/dalvikvm: VFY: replacing opcode 0x6e at 0x0006
+11-07 20:43:51.005 9903-9903/br.com.findfer.findfer I/dalvikvm: Could not find method android.content.Context.getDataDir, referenced from method android.support.v4.content.ContextCompat.getDataDir
+11-07 20:43:51.005 9903-9903/br.com.findfer.findfer W/dalvikvm: VFY: unable to resolve virtual method 420: Landroid/content/Context;.getDataDir ()Ljava/io/File;
+11-07 20:43:51.005 9903-9903/br.com.findfer.findfer D/dalvikvm: VFY: replacing opcode 0x6e at 0x0006
+11-07 20:43:51.005 9903-9903/br.com.findfer.findfer I/dalvikvm: Could not find method android.content.Context.getDrawable, referenced from method android.support.v4.content.ContextCompat.getDrawable
+11-07 20:43:51.015 9903-9903/br.com.findfer.findfer W/dalvikvm: VFY: unable to resolve virtual method 421: Landroid/content/Context;.getDrawable (I)Landroid/graphics/drawable/Drawable;
+11-07 20:43:51.015 9903-9903/br.com.findfer.findfer D/dalvikvm: VFY: replacing opcode 0x6e at 0x0006
+11-07 20:43:51.015 9903-9903/br.com.findfer.findfer I/dalvikvm: Could not find method android.content.Context.getExternalCacheDirs, referenced from method android.support.v4.content.ContextCompat.getExternalCacheDirs
+11-07 20:43:51.015 9903-9903/br.com.findfer.findfer W/dalvikvm: VFY: unable to resolve virtual method 423: Landroid/content/Context;.getExternalCacheDirs ()[Ljava/io/File;
+11-07 20:43:51.015 9903-9903/br.com.findfer.findfer D/dalvikvm: VFY: replacing opcode 0x6e at 0x0006
+11-07 20:43:51.015 9903-9903/br.com.findfer.findfer I/dalvikvm: Could not find method android.content.Context.getExternalFilesDirs, referenced from method android.support.v4.content.ContextCompat.getExternalFilesDirs
+11-07 20:43:51.015 9903-9903/br.com.findfer.findfer W/dalvikvm: VFY: unable to resolve virtual method 425: Landroid/content/Context;.getExternalFilesDirs (Ljava/lang/String;)[Ljava/io/File;
+11-07 20:43:51.015 9903-9903/br.com.findfer.findfer D/dalvikvm: VFY: replacing opcode 0x6e at 0x0006
+11-07 20:43:51.015 9903-9903/br.com.findfer.findfer I/dalvikvm: Could not find method android.content.Context.getNoBackupFilesDir, referenced from method android.support.v4.content.ContextCompat.getNoBackupFilesDir
+11-07 20:43:51.015 9903-9903/br.com.findfer.findfer W/dalvikvm: VFY: unable to resolve virtual method 428: Landroid/content/Context;.getNoBackupFilesDir ()Ljava/io/File;
+11-07 20:43:51.015 9903-9903/br.com.findfer.findfer D/dalvikvm: VFY: replacing opcode 0x6e at 0x0006
+11-07 20:43:51.025 9903-9903/br.com.findfer.findfer I/dalvikvm: Could not find method android.content.Context.getObbDirs, referenced from method android.support.v4.content.ContextCompat.getObbDirs
+11-07 20:43:51.025 9903-9903/br.com.findfer.findfer W/dalvikvm: VFY: unable to resolve virtual method 430: Landroid/content/Context;.getObbDirs ()[Ljava/io/File;
+11-07 20:43:51.025 9903-9903/br.com.findfer.findfer D/dalvikvm: VFY: replacing opcode 0x6e at 0x0006
+11-07 20:43:51.025 9903-9903/br.com.findfer.findfer I/dalvikvm: Could not find method android.content.Context.isDeviceProtectedStorage, referenced from method android.support.v4.content.ContextCompat.isDeviceProtectedStorage
+11-07 20:43:51.025 9903-9903/br.com.findfer.findfer W/dalvikvm: VFY: unable to resolve virtual method 441: Landroid/content/Context;.isDeviceProtectedStorage ()Z
+11-07 20:43:51.025 9903-9903/br.com.findfer.findfer D/dalvikvm: VFY: replacing opcode 0x6e at 0x0006
+11-07 20:43:51.066 9903-9903/br.com.findfer.findfer I/dalvikvm: Could not find method android.graphics.Bitmap.isPremultiplied, referenced from method com.facebook.imagepipeline.bitmaps.PlatformBitmapFactory.createBitmap
+11-07 20:43:51.066 9903-9903/br.com.findfer.findfer W/dalvikvm: VFY: unable to resolve virtual method 768: Landroid/graphics/Bitmap;.isPremultiplied ()Z
+11-07 20:43:51.066 9903-9903/br.com.findfer.findfer D/dalvikvm: VFY: replacing opcode 0x74 at 0x0071
+11-07 20:43:51.076 9903-9903/br.com.findfer.findfer I/dalvikvm: Could not find method android.os.StatFs.getBlockSizeLong, referenced from method com.facebook.common.statfs.StatFsHelper.getAvailableStorageSpace
+11-07 20:43:51.076 9903-9903/br.com.findfer.findfer W/dalvikvm: VFY: unable to resolve virtual method 1588: Landroid/os/StatFs;.getBlockSizeLong ()J
+11-07 20:43:51.076 9903-9903/br.com.findfer.findfer D/dalvikvm: VFY: replacing opcode 0x6e at 0x0014
+11-07 20:43:51.076 9903-9903/br.com.findfer.findfer I/dalvikvm: Could not find method android.os.StatFs.getBlockSizeLong, referenced from method com.facebook.common.statfs.StatFsHelper.getFreeStorageSpace
+11-07 20:43:51.076 9903-9903/br.com.findfer.findfer W/dalvikvm: VFY: unable to resolve virtual method 1588: Landroid/os/StatFs;.getBlockSizeLong ()J
+11-07 20:43:51.076 9903-9903/br.com.findfer.findfer D/dalvikvm: VFY: replacing opcode 0x6e at 0x0014
+11-07 20:43:51.076 9903-9903/br.com.findfer.findfer I/dalvikvm: Could not find method android.os.StatFs.getBlockSizeLong, referenced from method com.facebook.common.statfs.StatFsHelper.getTotalStorageSpace
+11-07 20:43:51.076 9903-9903/br.com.findfer.findfer W/dalvikvm: VFY: unable to resolve virtual method 1588: Landroid/os/StatFs;.getBlockSizeLong ()J
+11-07 20:43:51.076 9903-9903/br.com.findfer.findfer D/dalvikvm: VFY: replacing opcode 0x6e at 0x0014
+11-07 20:43:51.106 9903-9903/br.com.findfer.findfer I/dalvikvm: Could not find method android.widget.ImageView.<init>, referenced from method com.facebook.drawee.view.DraweeView.<init>
+11-07 20:43:51.106 9903-9903/br.com.findfer.findfer W/dalvikvm: VFY: unable to resolve direct method 21406: Landroid/widget/ImageView;.<init> (Landroid/content/Context;Landroid/util/AttributeSet;II)V
+11-07 20:43:51.106 9903-9903/br.com.findfer.findfer D/dalvikvm: VFY: replacing opcode 0x70 at 0x0001
+11-07 20:43:51.106 9903-9903/br.com.findfer.findfer I/dalvikvm: Could not find method com.facebook.drawee.view.DraweeView.getImageTintList, referenced from method com.facebook.drawee.view.DraweeView.init
+11-07 20:43:51.106 9903-9903/br.com.findfer.findfer W/dalvikvm: VFY: unable to resolve virtual method 24928: Lcom/facebook/drawee/view/DraweeView;.getImageTintList ()Landroid/content/res/ColorStateList;
+11-07 20:43:51.106 9903-9903/br.com.findfer.findfer D/dalvikvm: VFY: replacing opcode 0x6e at 0x0015
+11-07 20:43:51.186 9903-9909/br.com.findfer.findfer D/dalvikvm: GC_CONCURRENT freed 268K, 12% free 6960K/7879K, paused 25ms+11ms, total 99ms
+11-07 20:43:51.406 9903-9903/br.com.findfer.findfer I/dalvikvm: Could not find method android.view.ViewGroup.onRtlPropertiesChanged, referenced from method android.support.v7.widget.Toolbar.onRtlPropertiesChanged
+11-07 20:43:51.406 9903-9903/br.com.findfer.findfer W/dalvikvm: VFY: unable to resolve virtual method 20766: Landroid/view/ViewGroup;.onRtlPropertiesChanged (I)V
+11-07 20:43:51.406 9903-9903/br.com.findfer.findfer D/dalvikvm: VFY: replacing opcode 0x6f at 0x0007
+11-07 20:43:51.416 9903-9903/br.com.findfer.findfer I/dalvikvm: Could not find method android.content.Context.getColorStateList, referenced from method android.support.v7.content.res.AppCompatResources.getColorStateList
+11-07 20:43:51.416 9903-9903/br.com.findfer.findfer W/dalvikvm: VFY: unable to resolve virtual method 418: Landroid/content/Context;.getColorStateList (I)Landroid/content/res/ColorStateList;
+11-07 20:43:51.416 9903-9903/br.com.findfer.findfer D/dalvikvm: VFY: replacing opcode 0x6e at 0x0006
+11-07 20:43:51.436 9903-9903/br.com.findfer.findfer I/dalvikvm: Could not find method android.widget.LinearLayout$LayoutParams.<init>, referenced from method android.support.design.widget.AppBarLayout$LayoutParams.<init>
+11-07 20:43:51.436 9903-9903/br.com.findfer.findfer W/dalvikvm: VFY: unable to resolve direct method 21454: Landroid/widget/LinearLayout$LayoutParams;.<init> (Landroid/widget/LinearLayout$LayoutParams;)V
+11-07 20:43:51.436 9903-9903/br.com.findfer.findfer D/dalvikvm: VFY: replacing opcode 0x70 at 0x0000
+11-07 20:43:51.436 9903-9903/br.com.findfer.findfer I/dalvikvm: Could not find method android.widget.LinearLayout$LayoutParams.<init>, referenced from method android.support.design.widget.AppBarLayout$LayoutParams.<init>
+11-07 20:43:51.436 9903-9903/br.com.findfer.findfer W/dalvikvm: VFY: unable to resolve direct method 21454: Landroid/widget/LinearLayout$LayoutParams;.<init> (Landroid/widget/LinearLayout$LayoutParams;)V
+11-07 20:43:51.436 9903-9903/br.com.findfer.findfer D/dalvikvm: VFY: replacing opcode 0x70 at 0x0000
+11-07 20:43:51.466 9903-9903/br.com.findfer.findfer I/dalvikvm: Could not find method android.widget.LinearLayout.onRtlPropertiesChanged, referenced from method android.support.design.widget.TabLayout$SlidingTabStrip.onRtlPropertiesChanged
+11-07 20:43:51.466 9903-9903/br.com.findfer.findfer W/dalvikvm: VFY: unable to resolve virtual method 21479: Landroid/widget/LinearLayout;.onRtlPropertiesChanged (I)V
+11-07 20:43:51.466 9903-9903/br.com.findfer.findfer D/dalvikvm: VFY: replacing opcode 0x6f at 0x0000
+11-07 20:43:51.486 9903-9903/br.com.findfer.findfer D/ProgressBar: setProgress = 0
+11-07 20:43:51.486 9903-9903/br.com.findfer.findfer D/ProgressBar: setProgress = 0, fromUser = false
+11-07 20:43:51.496 9903-9903/br.com.findfer.findfer D/ProgressBar: mProgress = 0mIndeterminate = false, mMin = 0, mMax = 100
+11-07 20:43:51.496 9903-9903/br.com.findfer.findfer E/dalvikvm: Could not find class 'android.graphics.drawable.RippleDrawable', referenced from method android.support.v7.widget.AppCompatImageHelper.hasOverlappingRendering
+11-07 20:43:51.496 9903-9903/br.com.findfer.findfer W/dalvikvm: VFY: unable to resolve instanceof 187 (Landroid/graphics/drawable/RippleDrawable;) in Landroid/support/v7/widget/AppCompatImageHelper;
+11-07 20:43:51.506 9903-9903/br.com.findfer.findfer D/dalvikvm: VFY: replacing opcode 0x20 at 0x000c
+11-07 20:43:51.886 9903-9903/br.com.findfer.findfer I/dalvikvm: Could not find method android.content.res.Resources.getDrawable, referenced from method android.support.v7.widget.ResourcesWrapper.getDrawable
+11-07 20:43:51.886 9903-9903/br.com.findfer.findfer W/dalvikvm: VFY: unable to resolve virtual method 613: Landroid/content/res/Resources;.getDrawable (ILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
+11-07 20:43:51.886 9903-9903/br.com.findfer.findfer D/dalvikvm: VFY: replacing opcode 0x6e at 0x0002
+11-07 20:43:51.886 9903-9903/br.com.findfer.findfer I/dalvikvm: Could not find method android.content.res.Resources.getDrawableForDensity, referenced from method android.support.v7.widget.ResourcesWrapper.getDrawableForDensity
+11-07 20:43:51.896 9903-9903/br.com.findfer.findfer W/dalvikvm: VFY: unable to resolve virtual method 615: Landroid/content/res/Resources;.getDrawableForDensity (IILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
+11-07 20:43:51.896 9903-9903/br.com.findfer.findfer D/dalvikvm: VFY: replacing opcode 0x6e at 0x0002
+11-07 20:43:52.477 9903-9903/br.com.findfer.findfer I/dalvikvm: Could not find method android.content.pm.PackageManager.getPackageInstaller, referenced from method com.google.android.gms.common.zzo.zzy
+11-07 20:43:52.477 9903-9903/br.com.findfer.findfer W/dalvikvm: VFY: unable to resolve virtual method 555: Landroid/content/pm/PackageManager;.getPackageInstaller ()Landroid/content/pm/PackageInstaller;
+11-07 20:43:52.487 9903-9903/br.com.findfer.findfer D/dalvikvm: VFY: replacing opcode 0x6e at 0x0012
+11-07 20:43:52.487 9903-9903/br.com.findfer.findfer E/dalvikvm: Could not find class 'android.os.UserManager', referenced from method com.google.android.gms.common.zzo.zzy
+11-07 20:43:52.487 9903-9903/br.com.findfer.findfer W/dalvikvm: VFY: unable to resolve check-cast 283 (Landroid/os/UserManager;) in Lcom/google/android/gms/common/zzo;
+11-07 20:43:52.487 9903-9903/br.com.findfer.findfer D/dalvikvm: VFY: replacing opcode 0x1f at 0x0055
+11-07 20:43:52.567 9903-9972/br.com.findfer.findfer E/dalvikvm: Could not find class 'android.app.AppOpsManager', referenced from method com.google.android.gms.internal.zzbgz.zzf
+11-07 20:43:52.577 9903-9972/br.com.findfer.findfer W/dalvikvm: VFY: unable to resolve check-cast 37 (Landroid/app/AppOpsManager;) in Lcom/google/android/gms/internal/zzbgz;
+11-07 20:43:52.577 9903-9972/br.com.findfer.findfer D/dalvikvm: VFY: replacing opcode 0x1f at 0x0010
+11-07 20:43:52.647 9903-9909/br.com.findfer.findfer D/dalvikvm: GC_CONCURRENT freed 258K, 12% free 7221K/8135K, paused 49ms+16ms, total 151ms
+11-07 20:43:52.787 9903-9903/br.com.findfer.findfer D/ProgressBar: setProgress = 0
+11-07 20:43:52.787 9903-9903/br.com.findfer.findfer D/ProgressBar: setProgress = 0, fromUser = false
+11-07 20:43:52.787 9903-9903/br.com.findfer.findfer D/ProgressBar: mProgress = 0mIndeterminate = false, mMin = 0, mMax = 100
+11-07 20:43:52.807 9903-9903/br.com.findfer.findfer I/zzbx: Making Creator dynamically
+11-07 20:43:52.957 9903-9909/br.com.findfer.findfer D/dalvikvm: GC_CONCURRENT freed 225K, 11% free 7551K/8391K, paused 35ms+2ms, total 63ms
+11-07 20:43:52.957 9903-9903/br.com.findfer.findfer D/dalvikvm: WAIT_FOR_CONCURRENT_GC blocked 28ms
+11-07 20:43:53.057 9903-9903/br.com.findfer.findfer D/dalvikvm: GC_FOR_ALLOC freed 150K, 9% free 7935K/8711K, paused 20ms, total 20ms
+11-07 20:43:53.178 9903-9903/br.com.findfer.findfer D/dalvikvm: GC_FOR_ALLOC freed 148K, 9% free 8317K/9095K, paused 28ms, total 28ms
+11-07 20:43:53.298 9903-9903/br.com.findfer.findfer D/dalvikvm: GC_FOR_ALLOC freed 148K, 9% free 8698K/9479K, paused 24ms, total 24ms
+11-07 20:43:53.328 9903-9964/br.com.findfer.findfer D/dalvikvm: WAIT_FOR_CONCURRENT_GC blocked 391ms
+11-07 20:43:53.918 9903-9903/br.com.findfer.findfer I/dalvikvm: Could not find method android.content.ContextWrapper.createCredentialProtectedStorageContext, referenced from method hfi.createCredentialProtectedStorageContext
+11-07 20:43:53.918 9903-9903/br.com.findfer.findfer W/dalvikvm: VFY: unable to resolve virtual method 935: Landroid/content/ContextWrapper;.createCredentialProtectedStorageContext ()Landroid/content/Context;
+11-07 20:43:53.918 9903-9903/br.com.findfer.findfer D/dalvikvm: VFY: replacing opcode 0x6f at 0x0002
+11-07 20:43:53.918 9903-9903/br.com.findfer.findfer I/dalvikvm: Could not find method android.content.ContextWrapper.createDeviceProtectedStorageContext, referenced from method hfi.createDeviceProtectedStorageContext
+11-07 20:43:53.918 9903-9903/br.com.findfer.findfer W/dalvikvm: VFY: unable to resolve virtual method 936: Landroid/content/ContextWrapper;.createDeviceProtectedStorageContext ()Landroid/content/Context;
+11-07 20:43:53.918 9903-9903/br.com.findfer.findfer D/dalvikvm: VFY: replacing opcode 0x6f at 0x0002
+11-07 20:43:53.928 9903-9903/br.com.findfer.findfer I/dalvikvm: Could not find method android.content.ContextWrapper.createCredentialProtectedStorageContext, referenced from method com.google.android.chimera.ModuleContext.createCredentialProtectedStorageContext
+11-07 20:43:53.928 9903-9903/br.com.findfer.findfer W/dalvikvm: VFY: unable to resolve virtual method 935: Landroid/content/ContextWrapper;.createCredentialProtectedStorageContext ()Landroid/content/Context;
+11-07 20:43:53.928 9903-9903/br.com.findfer.findfer D/dalvikvm: VFY: replacing opcode 0x6f at 0x0002
+11-07 20:43:53.968 9903-9903/br.com.findfer.findfer I/dalvikvm: Could not find method android.content.ContextWrapper.createDeviceProtectedStorageContext, referenced from method com.google.android.chimera.ModuleContext.createDeviceProtectedStorageContext
+11-07 20:43:54.249 9903-9903/br.com.findfer.findfer W/dalvikvm: VFY: unable to resolve virtual method 936: Landroid/content/ContextWrapper;.createDeviceProtectedStorageContext ()Landroid/content/Context;
+11-07 20:43:54.249 9903-9903/br.com.findfer.findfer D/dalvikvm: VFY: replacing opcode 0x6f at 0x0002
+11-07 20:43:54.249 9903-9903/br.com.findfer.findfer I/dalvikvm: Could not find method com.google.android.chimera.ContextThemeWrapper.createDisplayContext, referenced from method com.google.android.chimera.ModuleContext.createDisplayContext
+11-07 20:43:54.249 9903-9903/br.com.findfer.findfer W/dalvikvm: VFY: unable to resolve virtual method 6176: Lcom/google/android/chimera/ContextThemeWrapper;.createDisplayContext (Landroid/view/Display;)Landroid/content/Context;
+11-07 20:43:54.249 9903-9903/br.com.findfer.findfer D/dalvikvm: VFY: replacing opcode 0x6f at 0x0008
+11-07 20:43:54.249 9903-9903/br.com.findfer.findfer I/dalvikvm: Could not find method android.content.Context.isCredentialProtectedStorage, referenced from method buc.a
+11-07 20:43:54.249 9903-9903/br.com.findfer.findfer W/dalvikvm: VFY: unable to resolve virtual method 916: Landroid/content/Context;.isCredentialProtectedStorage ()Z
+11-07 20:43:54.249 9903-9903/br.com.findfer.findfer D/dalvikvm: VFY: replacing opcode 0x6e at 0x0000
+11-07 20:43:54.249 9903-9903/br.com.findfer.findfer E/dalvikvm: Could not find class 'android.os.UserManager', referenced from method buc.a
+11-07 20:43:54.259 9903-9903/br.com.findfer.findfer W/dalvikvm: VFY: unable to resolve check-cast 355 (Landroid/os/UserManager;) in Lbuc;
+11-07 20:43:54.259 9903-9903/br.com.findfer.findfer D/dalvikvm: VFY: replacing opcode 0x1f at 0x0015
+11-07 20:43:54.259 9903-9903/br.com.findfer.findfer I/dalvikvm: Could not find method android.os.UserManager.isUserUnlocked, referenced from method buc.a
+11-07 20:43:54.259 9903-9903/br.com.findfer.findfer W/dalvikvm: VFY: unable to resolve virtual method 1507: Landroid/os/UserManager;.isUserUnlocked ()Z
+11-07 20:43:54.259 9903-9903/br.com.findfer.findfer D/dalvikvm: VFY: replacing opcode 0x6e at 0x001a
+11-07 20:43:54.259 9903-9903/br.com.findfer.findfer I/dalvikvm: Could not find method android.content.Context.isDeviceProtectedStorage, referenced from method buc.b
+11-07 20:43:54.259 9903-9903/br.com.findfer.findfer W/dalvikvm: VFY: unable to resolve virtual method 917: Landroid/content/Context;.isDeviceProtectedStorage ()Z
+11-07 20:43:54.259 9903-9903/br.com.findfer.findfer D/dalvikvm: VFY: replacing opcode 0x6e at 0x0000
+11-07 20:43:54.259 9903-9903/br.com.findfer.findfer I/dalvikvm: Could not find method android.content.Context.isDeviceProtectedStorage, referenced from method buc.c
+11-07 20:43:54.259 9903-9903/br.com.findfer.findfer W/dalvikvm: VFY: unable to resolve virtual method 917: Landroid/content/Context;.isDeviceProtectedStorage ()Z
+11-07 20:43:54.259 9903-9903/br.com.findfer.findfer D/dalvikvm: VFY: replacing opcode 0x6e at 0x0000
+11-07 20:43:57.051 9903-9909/br.com.findfer.findfer D/dalvikvm: GC_CONCURRENT freed 122K, 8% free 9229K/9991K, paused 35ms+9ms, total 2493ms
+11-07 20:43:57.061 9903-9903/br.com.findfer.findfer D/dalvikvm: WAIT_FOR_CONCURRENT_GC blocked 2474ms
+11-07 20:43:57.081 9903-9911/br.com.findfer.findfer D/dalvikvm: WAIT_FOR_CONCURRENT_GC blocked 1167ms
+11-07 20:43:57.161 9903-9964/br.com.findfer.findfer D/dalvikvm: WAIT_FOR_CONCURRENT_GC blocked 2567ms
+11-07 20:43:57.222 9903-9903/br.com.findfer.findfer D/dalvikvm: DexOpt: couldn't find static field Landroid/os/Build;.SUPPORTED_64_BIT_ABIS
+11-07 20:43:57.222 9903-9903/br.com.findfer.findfer W/dalvikvm: VFY: unable to resolve static field 350 (SUPPORTED_64_BIT_ABIS) in Landroid/os/Build;
+11-07 20:43:57.222 9903-9903/br.com.findfer.findfer D/dalvikvm: VFY: replacing opcode 0x62 at 0x0012
+11-07 20:43:57.222 9903-9903/br.com.findfer.findfer D/dalvikvm: DexOpt: couldn't find static field Landroid/os/Build;.SUPPORTED_32_BIT_ABIS
+11-07 20:43:57.222 9903-9903/br.com.findfer.findfer W/dalvikvm: VFY: unable to resolve static field 349 (SUPPORTED_32_BIT_ABIS) in Landroid/os/Build;
+11-07 20:43:57.222 9903-9903/br.com.findfer.findfer D/dalvikvm: VFY: replacing opcode 0x62 at 0x0021
+11-07 20:43:57.222 9903-9903/br.com.findfer.findfer D/dalvikvm: DexOpt: couldn't find static field Landroid/os/Build;.SUPPORTED_ABIS
+11-07 20:43:57.222 9903-9903/br.com.findfer.findfer W/dalvikvm: VFY: unable to resolve static field 351 (SUPPORTED_ABIS) in Landroid/os/Build;
+11-07 20:43:57.222 9903-9903/br.com.findfer.findfer D/dalvikvm: VFY: replacing opcode 0x62 at 0x0008
+11-07 20:43:57.222 9903-9903/br.com.findfer.findfer D/dalvikvm: DexOpt: couldn't find static field Landroid/os/Build;.SUPPORTED_64_BIT_ABIS
+11-07 20:43:57.222 9903-9903/br.com.findfer.findfer W/dalvikvm: VFY: unable to resolve static field 350 (SUPPORTED_64_BIT_ABIS) in Landroid/os/Build;
+11-07 20:43:57.222 9903-9903/br.com.findfer.findfer D/dalvikvm: VFY: replacing opcode 0x62 at 0x0008
+11-07 20:43:57.932 9903-9903/br.com.findfer.findfer I/Google Maps Android API: Google Play services client version: 11020000
+11-07 20:43:57.982 9903-9903/br.com.findfer.findfer I/Google Maps Android API: Google Play services package version: 11302030
+11-07 20:43:58.953 9903-9903/br.com.findfer.findfer I/dalvikvm: Could not find method android.content.pm.PackageManager.getPackageInstaller, referenced from method ji.a
+11-07 20:43:58.953 9903-9903/br.com.findfer.findfer W/dalvikvm: VFY: unable to resolve virtual method 2148: Landroid/content/pm/PackageManager;.getPackageInstaller ()Landroid/content/pm/PackageInstaller;
+11-07 20:43:58.953 9903-9903/br.com.findfer.findfer D/dalvikvm: VFY: replacing opcode 0x6e at 0x0017
+11-07 20:43:58.953 9903-9903/br.com.findfer.findfer E/dalvikvm: Could not find class 'android.os.UserManager', referenced from method ji.a
+11-07 20:43:58.953 9903-9903/br.com.findfer.findfer W/dalvikvm: VFY: unable to resolve check-cast 452 (Landroid/os/UserManager;) in Lji;
+11-07 20:43:58.953 9903-9903/br.com.findfer.findfer D/dalvikvm: VFY: replacing opcode 0x1f at 0x005a
+11-07 20:43:58.953 9903-9903/br.com.findfer.findfer I/dalvikvm: Could not find method android.content.pm.PackageManager.isInstantApp, referenced from method com.google.maps.api.android.lib6.drd.av.a
+11-07 20:43:58.963 9903-9903/br.com.findfer.findfer W/dalvikvm: VFY: unable to resolve virtual method 2153: Landroid/content/pm/PackageManager;.isInstantApp (Ljava/lang/String;)Z
+11-07 20:43:58.963 9903-9903/br.com.findfer.findfer D/dalvikvm: VFY: replacing opcode 0x6e at 0x0056
+11-07 20:44:00.224 9903-9909/br.com.findfer.findfer D/dalvikvm: GC_CONCURRENT freed 520K, 12% free 9495K/10695K, paused 59ms+320ms, total 601ms
+11-07 20:44:00.254 9903-9903/br.com.findfer.findfer I/dalvikvm: Could not find method android.widget.RelativeLayout$LayoutParams.setMarginStart, referenced from method com.google.maps.api.android.lib6.impl.o.a
+11-07 20:44:00.254 9903-9903/br.com.findfer.findfer W/dalvikvm: VFY: unable to resolve virtual method 2878: Landroid/widget/RelativeLayout$LayoutParams;.setMarginStart (I)V
+11-07 20:44:00.254 9903-9903/br.com.findfer.findfer D/dalvikvm: VFY: replacing opcode 0x6e at 0x0009
+11-07 20:44:00.715 9903-9903/br.com.findfer.findfer D/AbsListView: Get MotionRecognitionManager
+11-07 20:44:01.165 9903-10093/br.com.findfer.findfer W/age: copyMemory is missing from platform - proto runtime falling back to safer methods.
+11-07 20:44:01.976 9903-10055/br.com.findfer.findfer I/dalvikvm: Could not find method android.os.PowerManager.isInteractive, referenced from method com.google.maps.api.android.lib6.drd.aa.a
+11-07 20:44:01.976 9903-10055/br.com.findfer.findfer W/dalvikvm: VFY: unable to resolve virtual method 2493: Landroid/os/PowerManager;.isInteractive ()Z
+11-07 20:44:01.976 9903-10055/br.com.findfer.findfer D/dalvikvm: VFY: replacing opcode 0x6e at 0x0047
+11-07 20:44:02.026 9903-10055/br.com.findfer.findfer W/ActivityThread: ClassLoader.loadClass: The class loader returned by Thread.getContextClassLoader() may fail for processes that host multiple applications. You should explicitly specify a context class loader. For example: Thread.setContextClassLoader(getClass().getClassLoader());
+11-07 20:44:05.149 9903-9903/br.com.findfer.findfer D/libEGL: loaded /system/lib/egl/libGLES_rhea.so
+11-07 20:44:05.229 9903-9909/br.com.findfer.findfer D/dalvikvm: GC_CONCURRENT freed 470K, 10% free 9929K/11015K, paused 298ms+56ms, total 1492ms
+11-07 20:44:05.319 9903-9903/br.com.findfer.findfer D/BRCM_EGL: eglCreateContext() config: 19 context: 0x48558ce8, VC context 1, Thread 9903
+11-07 20:44:05.319 9903-9903/br.com.findfer.findfer D/BRCM_EGL: eglCreateWindowSurface() surface: 0x485f07b8, VC surface: 1, Thread: 9903
+11-07 20:44:05.319 9903-9903/br.com.findfer.findfer D/BRCM_EGL: eglMakeCurrent(0x48558ce8, 0x485f07b8, 0x485f07b8) Thread: 9903
+11-07 20:44:05.349 9903-9903/br.com.findfer.findfer D/OpenGLRenderer: Enabling debug mode 0
+11-07 20:44:05.369 9903-9903/br.com.findfer.findfer I/Choreographer: Skipped 763 frames!  The application may be doing too much work on its main thread.
+11-07 20:44:06.270 9903-9903/br.com.findfer.findfer I/Choreographer: Skipped 52 frames!  The application may be doing too much work on its main thread.
+11-07 20:44:06.611 9903-10122/br.com.findfer.findfer W/DynamiteModule: Local module descriptor class for com.google.android.gms.googlecertificates not found.
+11-07 20:44:06.931 9903-10122/br.com.findfer.findfer I/DynamiteModule: Considering local module com.google.android.gms.googlecertificates:0 and remote module com.google.android.gms.googlecertificates:4
+11-07 20:44:06.941 9903-10122/br.com.findfer.findfer I/DynamiteModule: Selected remote version of com.google.android.gms.googlecertificates, version >= 4
+11-07 20:44:06.971 9903-10122/br.com.findfer.findfer I/dalvikvm: Could not find method android.content.ContextWrapper.createCredentialProtectedStorageContext, referenced from method ax.createCredentialProtectedStorageContext
+11-07 20:44:06.971 9903-10122/br.com.findfer.findfer W/dalvikvm: VFY: unable to resolve virtual method 63: Landroid/content/ContextWrapper;.createCredentialProtectedStorageContext ()Landroid/content/Context;
+11-07 20:44:06.971 9903-10122/br.com.findfer.findfer D/dalvikvm: VFY: replacing opcode 0x6f at 0x0002
+11-07 20:44:06.981 9903-10122/br.com.findfer.findfer I/dalvikvm: Could not find method android.content.ContextWrapper.createDeviceProtectedStorageContext, referenced from method ax.createDeviceProtectedStorageContext
+11-07 20:44:06.981 9903-10122/br.com.findfer.findfer W/dalvikvm: VFY: unable to resolve virtual method 64: Landroid/content/ContextWrapper;.createDeviceProtectedStorageContext ()Landroid/content/Context;
+11-07 20:44:06.981 9903-10122/br.com.findfer.findfer D/dalvikvm: VFY: replacing opcode 0x6f at 0x0002
+11-07 20:44:06.981 9903-10122/br.com.findfer.findfer I/dalvikvm: Could not find method e.createCredentialProtectedStorageContext, referenced from method f.createCredentialProtectedStorageContext
+11-07 20:44:06.981 9903-10122/br.com.findfer.findfer W/dalvikvm: VFY: unable to resolve virtual method 365: Le;.createCredentialProtectedStorageContext ()Landroid/content/Context;
+11-07 20:44:06.981 9903-10122/br.com.findfer.findfer D/dalvikvm: VFY: replacing opcode 0x6f at 0x0002
+11-07 20:44:06.981 9903-10122/br.com.findfer.findfer I/dalvikvm: Could not find method e.createDeviceProtectedStorageContext, referenced from method f.createDeviceProtectedStorageContext
+11-07 20:44:06.991 9903-10122/br.com.findfer.findfer W/dalvikvm: VFY: unable to resolve virtual method 366: Le;.createDeviceProtectedStorageContext ()Landroid/content/Context;
+11-07 20:44:06.991 9903-10122/br.com.findfer.findfer D/dalvikvm: VFY: replacing opcode 0x6f at 0x0002
+11-07 20:44:06.991 9903-10122/br.com.findfer.findfer I/dalvikvm: Could not find method e.createDisplayContext, referenced from method f.createDisplayContext
+11-07 20:44:06.991 9903-10122/br.com.findfer.findfer W/dalvikvm: VFY: unable to resolve virtual method 367: Le;.createDisplayContext (Landroid/view/Display;)Landroid/content/Context;
+11-07 20:44:06.991 9903-10122/br.com.findfer.findfer D/dalvikvm: VFY: replacing opcode 0x6f at 0x0008
+11-07 20:44:07.011 9903-10122/br.com.findfer.findfer D/dalvikvm: DexOpt: couldn't find static field Landroid/os/Build;.SUPPORTED_64_BIT_ABIS
+11-07 20:44:07.011 9903-10122/br.com.findfer.findfer W/dalvikvm: VFY: unable to resolve static field 76 (SUPPORTED_64_BIT_ABIS) in Landroid/os/Build;
+11-07 20:44:07.021 9903-10122/br.com.findfer.findfer D/dalvikvm: VFY: replacing opcode 0x62 at 0x0012
+11-07 20:44:07.021 9903-10122/br.com.findfer.findfer D/dalvikvm: DexOpt: couldn't find static field Landroid/os/Build;.SUPPORTED_32_BIT_ABIS
+11-07 20:44:07.021 9903-10122/br.com.findfer.findfer W/dalvikvm: VFY: unable to resolve static field 75 (SUPPORTED_32_BIT_ABIS) in Landroid/os/Build;
+11-07 20:44:07.021 9903-10122/br.com.findfer.findfer D/dalvikvm: VFY: replacing opcode 0x62 at 0x0021
+11-07 20:44:07.021 9903-10122/br.com.findfer.findfer D/dalvikvm: DexOpt: couldn't find static field Landroid/os/Build;.SUPPORTED_64_BIT_ABIS
+11-07 20:44:07.021 9903-10122/br.com.findfer.findfer W/dalvikvm: VFY: unable to resolve static field 76 (SUPPORTED_64_BIT_ABIS) in Landroid/os/Build;
+11-07 20:44:07.021 9903-10122/br.com.findfer.findfer D/dalvikvm: VFY: replacing opcode 0x62 at 0x0008
+11-07 20:44:08.573 9903-9966/br.com.findfer.findfer D/Volley: [546] BasicNetwork.logSlowRequests: HTTP response for request=<[ ] http://www.findfer.com.br/FindFer/control/LoadPosters.php 0x6fee2648 NORMAL 1> [lifetime=10180], [size=4001], [rc=200], [retryCount=0]
+11-07 20:44:15.659 9903-9909/br.com.findfer.findfer D/dalvikvm: GC_CONCURRENT freed 564K, 11% free 10357K/11591K, paused 80ms+3ms, total 415ms
+11-07 20:44:52.886 9903-9903/br.com.findfer.findfer I/dalvikvm: Could not find method android.graphics.drawable.Drawable.setHotspot, referenced from method com.facebook.drawee.drawable.ForwardingDrawable.setHotspot
+11-07 20:44:52.886 9903-9903/br.com.findfer.findfer W/dalvikvm: VFY: unable to resolve virtual method 1049: Landroid/graphics/drawable/Drawable;.setHotspot (FF)V
+11-07 20:44:52.886 9903-9903/br.com.findfer.findfer D/dalvikvm: VFY: replacing opcode 0x6e at 0x0002
+11-07 20:44:52.896 9903-9903/br.com.findfer.findfer I/dalvikvm: Could not find method android.graphics.drawable.Drawable.setHotspot, referenced from method com.facebook.drawee.drawable.ArrayDrawable.setHotspot
+11-07 20:44:52.896 9903-9903/br.com.findfer.findfer W/dalvikvm: VFY: unable to resolve virtual method 1049: Landroid/graphics/drawable/Drawable;.setHotspot (FF)V
+11-07 20:44:52.896 9903-9903/br.com.findfer.findfer D/dalvikvm: VFY: replacing opcode 0x6e at 0x000c
+11-07 20:44:53.857 9903-10934/br.com.findfer.findfer D/dalvikvm: Trying to load lib /data/data/br.com.findfer.findfer/lib/libimagepipeline.so 0x417819f0
+11-07 20:44:54.567 9903-10934/br.com.findfer.findfer D/dalvikvm: Added shared lib /data/data/br.com.findfer.findfer/lib/libimagepipeline.so 0x417819f0
+11-07 20:44:54.728 9903-9903/br.com.findfer.findfer I/Choreographer: Skipped 122 frames!  The application may be doing too much work on its main thread.
+11-07 20:44:54.838 9903-10934/br.com.findfer.findfer I/dalvikvm: Could not find method android.graphics.Bitmap.getAllocationByteCount, referenced from method com.facebook.imageutils.BitmapUtil.getSizeInBytes
+11-07 20:44:54.838 9903-10934/br.com.findfer.findfer W/dalvikvm: VFY: unable to resolve virtual method 756: Landroid/graphics/Bitmap;.getAllocationByteCount ()I
+11-07 20:44:54.838 9903-10934/br.com.findfer.findfer D/dalvikvm: VFY: replacing opcode 0x6e at 0x000a
+11-07 20:44:56.019 9903-10973/br.com.findfer.findfer I/dalvikvm: Could not find method android.graphics.Bitmap.getAllocationByteCount, referenced from method com.facebook.imagepipeline.nativecode.Bitmaps.reconfigureBitmap
+11-07 20:44:56.019 9903-10973/br.com.findfer.findfer W/dalvikvm: VFY: unable to resolve virtual method 756: Landroid/graphics/Bitmap;.getAllocationByteCount ()I
+11-07 20:44:56.029 9903-10973/br.com.findfer.findfer D/dalvikvm: VFY: replacing opcode 0x6e at 0x0000
+11-07 20:44:56.509 9903-10973/br.com.findfer.findfer D/dalvikvm: Trying to load lib /data/data/br.com.findfer.findfer/lib/libimagepipeline.so 0x417819f0
+11-07 20:44:56.519 9903-10973/br.com.findfer.findfer D/dalvikvm: Shared lib '/data/data/br.com.findfer.findfer/lib/libimagepipeline.so' already loaded in same CL 0x417819f0
+11-07 20:44:56.820 9903-10117/br.com.findfer.findfer D/BRCM_EGL: eglCreateContext() config: 13 context: 0x50f01ed0, VC context 2, Thread 10117
+11-07 20:44:56.820 9903-10117/br.com.findfer.findfer D/BRCM_EGL: eglCreateWindowSurface() surface: 0x50d67d38, VC surface: 2, Thread: 10117
+11-07 20:44:56.820 9903-10117/br.com.findfer.findfer D/BRCM_EGL: eglMakeCurrent(0x50f01ed0, 0x50d67d38, 0x50d67d38) Thread: 10117
+11-07 20:44:59.302 9903-9903/br.com.findfer.findfer I/Choreographer: Skipped 145 frames!  The application may be doing too much work on its main thread.
+11-07 20:44:59.462 9903-9909/br.com.findfer.findfer D/dalvikvm: GC_CONCURRENT freed 752K, 12% free 10783K/12231K, paused 812ms+4ms, total 960ms
+11-07 20:44:59.462 9903-10117/br.com.findfer.findfer D/dalvikvm: WAIT_FOR_CONCURRENT_GC blocked 60ms
+11-07 20:44:59.542 9903-10117/br.com.findfer.findfer D/dalvikvm: GC_FOR_ALLOC freed 910K, 16% free 10654K/12615K, paused 40ms, total 42ms
+11-07 20:44:59.823 9903-9903/br.com.findfer.findfer E/dalvikvm: Could not find class 'android.transition.Transition', referenced from method android.support.v7.widget.MenuPopupWindow.setEnterTransition
+11-07 20:44:59.823 9903-9903/br.com.findfer.findfer W/dalvikvm: VFY: unable to resolve check-cast 2350 (Landroid/transition/Transition;) in Landroid/support/v7/widget/MenuPopupWindow;
+11-07 20:44:59.823 9903-9903/br.com.findfer.findfer D/dalvikvm: VFY: replacing opcode 0x1f at 0x0008
+11-07 20:44:59.823 9903-9903/br.com.findfer.findfer E/dalvikvm: Could not find class 'android.transition.Transition', referenced from method android.support.v7.widget.MenuPopupWindow.setExitTransition
+11-07 20:44:59.823 9903-9903/br.com.findfer.findfer W/dalvikvm: VFY: unable to resolve check-cast 2350 (Landroid/transition/Transition;) in Landroid/support/v7/widget/MenuPopupWindow;
+11-07 20:44:59.823 9903-9903/br.com.findfer.findfer D/dalvikvm: VFY: replacing opcode 0x1f at 0x0008
+11-07 20:44:59.833 9903-9903/br.com.findfer.findfer I/ListPopupWindow: Could not find method setEpicenterBounds(Rect) on PopupWindow. Oh well.
+11-07 20:44:59.863 9903-9903/br.com.findfer.findfer I/dalvikvm: Could not find method android.widget.PopupWindow.showAsDropDown, referenced from method android.support.v7.widget.AppCompatPopupWindow.showAsDropDown
+11-07 20:44:59.863 9903-9903/br.com.findfer.findfer W/dalvikvm: VFY: unable to resolve virtual method 21596: Landroid/widget/PopupWindow;.showAsDropDown (Landroid/view/View;III)V
+11-07 20:44:59.863 9903-9903/br.com.findfer.findfer D/dalvikvm: VFY: replacing opcode 0x6f at 0x000d
+11-07 20:45:00.013 9903-9903/br.com.findfer.findfer I/dalvikvm: Could not find method android.content.res.Configuration.getLayoutDirection, referenced from method android.support.v7.widget.MenuPopupWindow$MenuDropDownListView.<init>
+11-07 20:45:00.013 9903-9903/br.com.findfer.findfer W/dalvikvm: VFY: unable to resolve virtual method 592: Landroid/content/res/Configuration;.getLayoutDirection ()I
+11-07 20:45:00.013 9903-9903/br.com.findfer.findfer D/dalvikvm: VFY: replacing opcode 0x6e at 0x0016
+11-07 20:45:00.053 9903-9903/br.com.findfer.findfer I/dalvikvm: Could not find method android.support.v7.widget.DropDownListView.drawableHotspotChanged, referenced from method android.support.v7.widget.DropDownListView.setPressedItem
+11-07 20:45:00.053 9903-9903/br.com.findfer.findfer W/dalvikvm: VFY: unable to resolve virtual method 17132: Landroid/support/v7/widget/DropDownListView;.drawableHotspotChanged (FF)V
+11-07 20:45:00.053 9903-9903/br.com.findfer.findfer D/dalvikvm: VFY: replacing opcode 0x6e at 0x000a
+11-07 20:45:00.053 9903-9903/br.com.findfer.findfer I/dalvikvm: Could not find method android.view.View.drawableHotspotChanged, referenced from method android.support.v7.widget.DropDownListView.setPressedItem
+11-07 20:45:00.053 9903-9903/br.com.findfer.findfer W/dalvikvm: VFY: unable to resolve virtual method 20459: Landroid/view/View;.drawableHotspotChanged (FF)V
+11-07 20:45:00.053 9903-9903/br.com.findfer.findfer D/dalvikvm: VFY: replacing opcode 0x6e at 0x004a
+11-07 20:45:00.083 9903-9903/br.com.findfer.findfer D/AbsListView: Get MotionRecognitionManager
+11-07 20:45:00.293 9903-9903/br.com.findfer.findfer I/Choreographer: Skipped 37 frames!  The application may be doing too much work on its main thread.
+11-07 20:45:00.373 9903-9903/br.com.findfer.findfer D/BRCM_EGL: eglCreateWindowSurface() surface: 0x5135b2a8, VC surface: 3, Thread: 9903
+11-07 20:45:00.373 9903-9903/br.com.findfer.findfer D/BRCM_EGL: eglMakeCurrent(0x48558ce8, 0x5135b2a8, 0x5135b2a8) Thread: 9903
+11-07 20:45:00.723 9903-9903/br.com.findfer.findfer D/BRCM_EGL: eglMakeCurrent(0x48558ce8, 0x485f07b8, 0x485f07b8) Thread: 9903
+11-07 20:45:01.674 9903-9903/br.com.findfer.findfer D/BRCM_EGL: eglMakeCurrent(0x48558ce8, 0x5135b2a8, 0x5135b2a8) Thread: 9903
+11-07 20:45:08.992 9903-9903/br.com.findfer.findfer D/BRCM_EGL: eglMakeCurrent(NULL) Thread: 9903
+11-07 20:45:08.992 9903-9903/br.com.findfer.findfer D/BRCM_EGL: eglDestroySurface() surface: 0x5135b2a8, android window 0x5139a9f0, Thread: 9903
+11-07 20:45:09.232 9903-9903/br.com.findfer.findfer I/Choreographer: Skipped 96 frames!  The application may be doing too much work on its main thread.
+11-07 20:45:10.853 9903-10117/br.com.findfer.findfer D/BRCM_EGL: eglMakeCurrent(NULL) Thread: 10117
+11-07 20:45:10.853 9903-10117/br.com.findfer.findfer D/BRCM_EGL: eglDestroySurface() surface: 0x50d67d38, android window 0x50f4e058, Thread: 10117
+11-07 20:45:11.274 9903-9903/br.com.findfer.findfer I/dalvikvm: Could not find method android.widget.FrameLayout.startActionModeForChild, referenced from method android.support.v7.widget.ActionBarContainer.startActionModeForChild
+11-07 20:45:11.274 9903-9903/br.com.findfer.findfer W/dalvikvm: VFY: unable to resolve virtual method 21373: Landroid/widget/FrameLayout;.startActionModeForChild (Landroid/view/View;Landroid/view/ActionMode$Callback;I)Landroid/view/ActionMode;
+11-07 20:45:11.274 9903-9903/br.com.findfer.findfer D/dalvikvm: VFY: replacing opcode 0x6f at 0x0002
+11-07 20:45:12.055 9903-9903/br.com.findfer.findfer D/ProgressBar: setProgress = 0
+11-07 20:45:12.055 9903-9903/br.com.findfer.findfer D/ProgressBar: setProgress = 0, fromUser = false
+11-07 20:45:12.055 9903-9903/br.com.findfer.findfer D/ProgressBar: mProgress = 0mIndeterminate = false, mMin = 0, mMax = 100
+11-07 20:45:12.355 9903-9903/br.com.findfer.findfer I/dalvikvm: Could not find method android.widget.Spinner.getPopupContext, referenced from method android.support.v7.widget.AppCompatSpinner.getPopupContext
+11-07 20:45:12.365 9903-9903/br.com.findfer.findfer W/dalvikvm: VFY: unable to resolve virtual method 21685: Landroid/widget/Spinner;.getPopupContext ()Landroid/content/Context;
+11-07 20:45:12.365 9903-9903/br.com.findfer.findfer D/dalvikvm: VFY: replacing opcode 0x6f at 0x000d
+11-07 20:45:13.926 9903-9909/br.com.findfer.findfer W/dalvikvm: threadid=2: spin on suspend #1 threadid=23 (pcf=0)
+11-07 20:45:14.016 9903-9909/br.com.findfer.findfer D/dalvikvm: Temporarily raised priority on tid 10066 (9 -> 0)
+11-07 20:45:14.647 9903-9909/br.com.findfer.findfer W/dalvikvm: threadid=2: spin on suspend resolved in 2263 msec
+11-07 20:45:14.647 9903-9909/br.com.findfer.findfer D/dalvikvm: Restored priority on 10066 to 9
+11-07 20:45:14.957 9903-9903/br.com.findfer.findfer E/dalvikvm: Could not find class 'android.widget.ThemedSpinnerAdapter', referenced from method android.support.v7.widget.AppCompatSpinner$DropDownAdapter.<init>
+11-07 20:45:14.957 9903-9903/br.com.findfer.findfer W/dalvikvm: VFY: unable to resolve instanceof 2538 (Landroid/widget/ThemedSpinnerAdapter;) in Landroid/support/v7/widget/AppCompatSpinner$DropDownAdapter;
+11-07 20:45:14.957 9903-9903/br.com.findfer.findfer D/dalvikvm: VFY: replacing opcode 0x20 at 0x0016
+11-07 20:45:15.348 9903-9903/br.com.findfer.findfer D/BRCM_EGL: eglCreateWindowSurface() surface: 0x516a1730, VC surface: 4, Thread: 9903
+11-07 20:45:15.348 9903-9903/br.com.findfer.findfer D/BRCM_EGL: eglMakeCurrent(0x48558ce8, 0x516a1730, 0x516a1730) Thread: 9903
+11-07 20:45:15.418 9903-9903/br.com.findfer.findfer D/BRCM_EGL: eglMakeCurrent(0x48558ce8, 0x485f07b8, 0x485f07b8) Thread: 9903
+11-07 20:45:15.418 9903-9903/br.com.findfer.findfer D/BRCM_EGL: eglMakeCurrent(NULL) Thread: 9903
+11-07 20:45:15.418 9903-9903/br.com.findfer.findfer D/BRCM_EGL: eglDestroySurface() surface: 0x485f07b8, android window 0x485eb010, Thread: 9903
+11-07 20:45:15.558 9903-9903/br.com.findfer.findfer D/BRCM_EGL: eglMakeCurrent(0x48558ce8, 0x516a1730, 0x516a1730) Thread: 9903
+11-07 20:45:15.898 9903-9909/br.com.findfer.findfer D/dalvikvm: GC_CONCURRENT freed 757K, 12% free 11197K/12615K, paused 2575ms+60ms, total 3516ms
+11-07 20:45:15.898 9903-9903/br.com.findfer.findfer D/dalvikvm: WAIT_FOR_CONCURRENT_GC blocked 301ms
+11-07 20:45:15.908 9903-9911/br.com.findfer.findfer D/dalvikvm: WAIT_FOR_CONCURRENT_GC blocked 123ms
+11-07 20:45:15.958 9903-9914/br.com.findfer.findfer D/AbsListView: [unregisterDoubleTapMotionListener]
+11-07 20:45:15.978 9903-9914/br.com.findfer.findfer I/MotionRecognitionManager:   .unregisterListener : / listener count = 0->0,  
+11-07 20:45:16.139 9903-9903/br.com.findfer.findfer I/Choreographer: Skipped 32 frames!  The application may be doing too much work on its main thread.
+11-07 20:45:16.609 9903-9903/br.com.findfer.findfer E/SpannableStringBuilder: SPAN_EXCLUSIVE_EXCLUSIVE spans cannot have a zero length
+11-07 20:45:16.609 9903-9903/br.com.findfer.findfer E/SpannableStringBuilder: SPAN_EXCLUSIVE_EXCLUSIVE spans cannot have a zero length
+11-07 20:45:22.845 9903-9903/br.com.findfer.findfer I/Choreographer: Skipped 76 frames!  The application may be doing too much work on its main thread.
+11-07 20:45:23.706 9903-9903/br.com.findfer.findfer I/Choreographer: Skipped 32 frames!  The application may be doing too much work on its main thread.
+

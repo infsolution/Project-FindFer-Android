@@ -1,9 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="br.com.findfer.findfer.RequestPromotion">
+    android:orientation="vertical"
+    tools:context="br.com.findfer.findfer.RequestPromotion"
+    android:layout_marginRight="@dimen/fab_margin"
+    android:layout_marginLeft="@dimen/fab_margin"
+    android:layout_marginTop="@dimen/fab_margin"
+    >
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/et_especific_prodct"
+        android:layout_gravity="center"/>
+    <EditText
+        android:id="@+id/et_prodct_promotion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="14dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/et_especific_value"
+        android:layout_gravity="center"/>
+    <EditText
+        android:id="@+id/et_value_promotion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="14dp"
+        />
+
+    <Button
+        android:id="@+id/bt_request_promotion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        android:text="@string/ac_request_promotion"
+        android:onClick="requestPromotion"
+        />
+
+</LinearLayout>

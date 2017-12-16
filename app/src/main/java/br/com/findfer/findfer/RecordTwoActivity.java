@@ -1,5 +1,4 @@
 package br.com.findfer.findfer;
-
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AlertDialog;
@@ -10,37 +9,31 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
-
 import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.util.HashMap;
 import java.util.Map;
-
-import br.com.findfer.findfer.dao.RecordDao;
-import br.com.findfer.findfer.model.Record;
-
+import br.com.findfer.findfer.dao.UserDao;
+import br.com.findfer.findfer.model.User;
 public class RecordTwoActivity extends AppCompatActivity {
     private Bundle intent;
     private String firstName, lastNmae, code;
     private EditText fone;
     private Button newRecord, back;
-    private Record record;
-    private RecordDao rDao;
+    private UserDao uDao;
     private RequestQueue requestQueue;
     private  String url;
     private ProgressBar pbLoad;
+    private User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,17 +48,18 @@ public class RecordTwoActivity extends AppCompatActivity {
         newRecord = (Button)findViewById(R.id.bt_finish);
         back = (Button)findViewById(R.id.bt_back);
         url ="http://www.findfer.com.br/FindFer/control/NewRecord.php";
+        //url = "http://192.168.42.132/findfer/control/NewRecord.php";
     }
 
     public void finishRecord(View view){
-        if(getNumberFone()== null){
+        if(getNumberFone() == null){
             Toast.makeText(this, R.string.request_fone, Toast.LENGTH_SHORT).show();
         }else{
             pbLoad.setVisibility(View.VISIBLE);
             createRecordRemote();
-
         }
     }
+
     public void backRecord(View view){
         Intent back = new Intent(this, RecordOneActivity.class);
         back.putExtra("first_name",firstName);
@@ -73,21 +67,11 @@ public class RecordTwoActivity extends AppCompatActivity {
         startActivity(back);
         finish();
     }
-    private boolean creatRecordLocal(Record record){
-        rDao = new RecordDao(this);
-        long res = rDao.insertRecord(record);
-        pbLoad.setVisibility(View.GONE);
-        if(res > 0){
+    private boolean createRecordLocal(User user){
+        uDao = new UserDao(this);
+        if(uDao.insert(user) > 0){
+            pbLoad.setVisibility(View.GONE);
             return true;
-
-        }
-        if(res == -1){
-            return false;
-            //Toast.makeText(this, R.string.user_existent, Toast.LENGTH_SHORT).show();
-        }
-        if(res == 0){
-            return false;
-            //Toast.makeText(this, R.string.answer_not_new_record, Toast.LENGTH_SHORT).show();
         }
         return false;
     }
@@ -95,14 +79,21 @@ public class RecordTwoActivity extends AppCompatActivity {
         final StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-               try {
+                if(response != null){
+                try {
                     JSONArray jRecords = new JSONArray(response);
                     for (int i = 0; i < jRecords.length(); i++) {
                         JSONObject jRecord = jRecords.getJSONObject(i);
-                        record = new Record(jRecord.getString("fone"));
-                        record.setName("name");
-                        record.setCode("code");
-                        if(creatRecordLocal(record)){
+                        user = new User(jRecord.getString("name"));
+                        user.setCodUser(jRecord.getLong("id_user"));
+                        user.setFone(jRecord.getString("fone"));
+                        user.setPassword(jRecord.getString("password"));
+                        user.setTypeAccount(jRecord.getInt("id_conta"));
+                        user.setImage("http://www.findfer.com.br/FindFer"+jRecord.getString("media"));
+                        user.setEmail(jRecord.getString("email"));
+                        user.setDateRegister(jRecord.getString("register_date"));
+                        user.setIdMarket(jRecord.getLong("id_market"));
+                        if(createRecordLocal(user)){
                             AlertDialog.Builder builder = new AlertDialog.Builder(RecordTwoActivity.this);
                             builder.setTitle(R.string.dial_title_new_record);
                             builder.setMessage(R.string.dial_message_ok_record);
@@ -119,6 +110,9 @@ public class RecordTwoActivity extends AppCompatActivity {
                     }
                 } catch (JSONException e) {
                     Toast.makeText(RecordTwoActivity.this, "Erro Catch: " + e.toString(), Toast.LENGTH_LONG).show();
+                }
+                }else{
+                    Toast.makeText(RecordTwoActivity.this, "Desculpe! houve um erro ao realizar seu cadastro.\nPor favor, tente novamente.", Toast.LENGTH_LONG).show();
                 }
             }
         }, new Response.ErrorListener() {

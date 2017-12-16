@@ -5,7 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 /**
- * Created by infsolution on 16/10/17.
+ * Created by infsolution on 10/11/17.
  */
 
 public class DAO extends SQLiteOpenHelper {
@@ -18,32 +18,15 @@ public class DAO extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String sql = "CREATE TABLE user(id_user INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                "name VARCHAR(255) NOT NULL, name_user VARCHAR(255) NOT NULL, " +
-                "password VARCHAR(12) NOT NULL, type_account INTEGER NOT NULL, " +
-                "market_place INTEGER NOT NULL , coodinates INTEGER NO NULL);";
-        db.execSQL(sql);
-        sql ="CREATE TABLE log(loged INTEGER NOT NULL)";
-        db.execSQL(sql);
-        sql = "insert into log(loged) values(0);";
-        db.execSQL(sql);
-        sql = "CREATE TABLE coordinates(id_coordinates INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                "latitude VARCHAR(255) NOT NULL, logitude VARCHAR(255) NOT NULL, " +
-                "id_user INTEGER NOT NULL )";
-        db.execSQL(sql);
-        sql = "CREATE TABLE record(id_record INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(255) NOT NULL, " +
-                "fone VARCHAR(25) NOT NULL, code VARCHAR(6) NOT NULL)";
+                "name VARCHAR(255) NOT NULL, fone VARCHAR(18) NOT NULL, password VARCHAR(12) NOT NULL, " +
+                "type_account INTEGER NOT NULL, id_market INTEGER NOT NULL , " +
+                "id_coordinates INTEGER NO NULL, email VARCHAR(255), image VARCHAR(255), " +
+                "register_date VARCHAR(255) NOT NULL, cod_user INTEGER NOT NULL, actual_latitude REAL, actual_longitude REAL);";
         db.execSQL(sql);
     }
-
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
         String sql="DROP TABLE IF EXISTS user;";
-        db.execSQL(sql);
-        sql="DROP TABLE IF EXISTS log;";
-        db.execSQL(sql);
-        sql="DROP TABLE IF EXISTS coordinates;";
-        db.execSQL(sql);
-        sql="DROP TABLE IF EXISTS record;";
         db.execSQL(sql);
     }
 }

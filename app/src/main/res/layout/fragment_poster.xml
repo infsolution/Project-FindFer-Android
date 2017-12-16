@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="br.com.findfer.findfer.fragments.PosterFragment">
+    tools:context="br.com.findfer.findfer.fragments.PosterFragment"
+    android:id="@+id/frag_post">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_list"
@@ -14,8 +15,17 @@
 
     <ProgressBar
         android:visibility="gone"
-        android:layout_gravity="center"
-        android:id="@+id/pb_load"
+        android:id="@+id/pb_load_frag_poster"
         android:layout_width="60dp"
-        android:layout_height="60dp" />
+        android:layout_height="60dp"
+        android:layout_gravity="center"/>
+
+    <!--android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_margin="@dimen/fab_margin"
+        android:src="@mipmap/request_promotion" /-->
+
 </FrameLayout>

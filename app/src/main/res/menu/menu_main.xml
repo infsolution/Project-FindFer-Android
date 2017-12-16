@@ -3,10 +3,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="br.com.findfer.findfer.MainActivity">
 
-    <item
+    <!--item
         android:id="@+id/action_login"
         android:orderInCategory="100"
         android:title="@string/ac_login"
+        app:showAsAction="never" /-->
+    <item
+        android:id="@+id/action_searchable_activity"
+        android:orderInCategory="100"
+        android:icon="@mipmap/ic_magnify"
+        android:title="@string/action_searchable_activity"
+        app:showAsAction="ifRoom|collapseActionView"
+        app:actionViewClass="android.support.v7.widget.SearchView" />
+    <item
+        android:id="@+id/action_profile"
+        android:orderInCategory="100"
+        android:title="@string/ac_profile"
         app:showAsAction="never" />
     <item
         android:id="@+id/action_new_user"
@@ -14,13 +26,18 @@
         android:title="@string/ac_new_user"
         app:showAsAction="never" />
     <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:title="@string/action_settings"
-        app:showAsAction="never" />
-    <item
-        android:id="@+id/action_logout"
-        android:orderInCategory="100"
-        android:title="@string/ac_logout"
-        app:showAsAction="never" />
+    android:id="@+id/action_interaction"
+    android:orderInCategory="100"
+    android:title="@string/ac_request_promotion"
+    app:showAsAction="never" />
+<!--item
+    android:id="@+id/action_settings"
+    android:orderInCategory="100"
+    android:title="@string/action_settings"
+    app:showAsAction="never" />
+<item
+    android:id="@+id/action_relationship"
+    android:orderInCategory="100"
+    android:title="@string/ac_my_marketers"
+    app:showAsAction="never" /-->
 </menu>

@@ -14,6 +14,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <uses-feature android:name="android.hardware.location.gps" />
 
@@ -24,15 +25,16 @@
         android:roundIcon="@mipmap/ic_launcher_findfer"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <meta-data
+            android:name="android.app.default_searchable"
+            android:value="br.com.findfer.findfer.SearchableActivity" />
+
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan|adjustNothing">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".NewPoster"
@@ -55,20 +57,38 @@
             android:name="com.google.gms.version"
             android:value="@integer/google_play_services_version" />
 
-        <!--
-            activity
-            android:name=".fragments.MapFragment"
-            android:label="@string/title_activity_map_fragment"></activity
-        -->
         <activity
-            android:name=".NewUser"
-            android:label="@string/ac_new_user" />
-        <activity android:name=".PosterActivity"
-            android:label="@string/ac_poster"/>
-        <activity android:name=".ProfileActivity"
-            android:label="@string/ac_profile"/>
+            android:name=".PosterActivity"
+            android:label="@string/ac_poster" />
+        <activity
+            android:name=".ProfileActivity"
+            android:label="@string/ac_profile" />
         <activity android:name=".RecordOneActivity" />
-        <activity android:name=".RecordTwoActivity"></activity>
+        <activity android:name=".RecordTwoActivity" />
+        <activity android:name=".InitialActivity"
+            >
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".UpdateMarketer" />
+        <activity android:name=".NewMarketer" />
+        <activity
+            android:name=".Maps"
+            android:label="@string/title_activity_maps" />
+        <activity android:name=".SearchableActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
+        </activity>
+        <activity android:name=".ProfileEditActivity"></activity>
     </application>
 
 </manifest>

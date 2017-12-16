@@ -46,7 +46,6 @@ public class PosterAdapter extends RecyclerView.Adapter<PosterAdapter.PostViewHo
         mContext = context;
         this.posters = postList;
         layoutInflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
     }
 
     @Override
@@ -58,9 +57,9 @@ public class PosterAdapter extends RecyclerView.Adapter<PosterAdapter.PostViewHo
 
     @Override
     public void onBindViewHolder(PostViewHolder holder, int position) {
-        //holder.imagCapa.setImageResource(posters.get(position).getPhoto());
         holder.title.setText(posters.get(position).getTitle());
         holder.value.setText(posters.get(position).getStringValue());
+        holder.market.setText(posters.get(position).getNameMarket());
         ControllerListener listener = new BaseControllerListener(){
             @Override
             public void onFinalImageSet(String id, Object imageInfo, Animatable animatable) {
@@ -92,9 +91,9 @@ public class PosterAdapter extends RecyclerView.Adapter<PosterAdapter.PostViewHo
                 super.onSubmit(id, callerContext);
             }
         };
-        int w =0;
+        int w = 0;
         if(holder.imageCapa.getLayoutParams().width == FrameLayout.LayoutParams.MATCH_PARENT
-                || holder.imageCapa.getLayoutParams().width== FrameLayout.LayoutParams.WRAP_CONTENT){
+                || holder.imageCapa.getLayoutParams().width == FrameLayout.LayoutParams.WRAP_CONTENT){
             Display display = ((Activity) mContext).getWindowManager().getDefaultDisplay();
             Point size = new Point();
             display.getSize(size);
@@ -104,12 +103,9 @@ public class PosterAdapter extends RecyclerView.Adapter<PosterAdapter.PostViewHo
                 w = display.getWidth();
             }
         }
-        //Uri uri = Uri.parse(DataUrl.getUrlCostom(posters.get(position).getUrlImage(),w));
         Uri uri = Uri.parse(posters.get(position).getUrlImage());
         DraweeController dc = Fresco.newDraweeControllerBuilder().setUri(uri).setControllerListener(listener).setOldController(holder.imageCapa.getController()).build();
         holder.imageCapa.setController(dc);
-
-
     }
 
     @Override
@@ -127,23 +123,23 @@ public class PosterAdapter extends RecyclerView.Adapter<PosterAdapter.PostViewHo
     }
 
     public class PostViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-        ImageView imagCapa;
         SimpleDraweeView imageCapa ;
         TextView title;
         TextView value;
+        TextView market;
         public PostViewHolder (View itemView){
             super(itemView);
-            //imagCapa = (ImageView)itemView.findViewById(R.id.image_capa);
             imageCapa = (SimpleDraweeView)itemView.findViewById(R.id.image_capa_fresco);
             title = (TextView)itemView.findViewById(R.id.title_poster);
             value = (TextView)itemView.findViewById(R.id.value_poster);
+            market = (TextView)itemView.findViewById(R.id.market_poster) ;
             itemView.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View view) {
             if(recyclerViewOnClickListenerHack != null){
-                recyclerViewOnClickListenerHack.onClickListner(view,getPosition());
+                recyclerViewOnClickListenerHack.onClickListner(view,getAdapterPosition());
             }
         }
     }

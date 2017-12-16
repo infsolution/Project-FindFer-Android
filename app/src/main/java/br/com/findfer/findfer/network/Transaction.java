@@ -1,15 +1,16 @@
 package br.com.findfer.findfer.network;
 
-/**
- * Created by infsolution on 29/09/17.
- */
-
-import br.com.findfer.findfer.model.WrapObjToNetwork;
-
 import org.json.JSONArray;
 
+import java.util.Map;
 
+import br.com.findfer.findfer.model.Poster;
+
+/**
+ * Created by viniciusthiengo on 7/26/15.
+ */
 public interface Transaction {
-    public WrapObjToNetwork toBefore();
-    public void doAfeter(JSONArray jsonArray);
+    public Map<String, String> doBefore();
+
+    public void doAfter(String response);
 }

@@ -51,5 +51,13 @@ public class RecordDao {
         }
         return null;
     }
+    public long getIdRecord(){
+        String sql = "SELECT id_record FROM record limit 1;";
+        Cursor c = dao.getReadableDatabase().rawQuery(sql, null);
+        if(c != null && c.moveToFirst()){
+            return  c.getLong(c.getColumnIndex("id_record"));
+        }
+        return 0;
+    }
 
 }

@@ -1,0 +1,43 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="br.com.findfer.findfer.MainActivity">
+
+    <!--item
+        android:id="@+id/action_login"
+        android:orderInCategory="100"
+        android:title="@string/ac_login"
+        app:showAsAction="never" /-->
+    <item
+        android:id="@+id/action_searchable_activity"
+        android:orderInCategory="100"
+        android:icon="@mipmap/ic_magnify"
+        android:title="@string/action_searchable_activity"
+        app:showAsAction="ifRoom|collapseActionView"
+        app:actionViewClass="android.support.v7.widget.SearchView" />
+    <item
+        android:id="@+id/action_profile"
+        android:orderInCategory="100"
+        android:title="@string/ac_profile"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_new_user"
+        android:orderInCategory="100"
+        android:title="@string/ac_update_marketer"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_interaction"
+        android:orderInCategory="100"
+        android:title="@string/ac_creat_post"
+        app:showAsAction="never" />
+    <!--item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="@string/action_settings"
+        app:showAsAction="never" /
+    <item
+        android:id="@+id/action_relationship"
+        android:orderInCategory="100"
+        android:title="@string/ac_my_clients"
+        app:showAsAction="never" /-->>
+</menu>

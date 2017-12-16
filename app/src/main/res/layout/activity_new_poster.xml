@@ -113,17 +113,28 @@
                     android:onClick="newImagePost"
                     />
             </LinearLayout>
+
             <Button
                 android:id="@+id/bt_new_post"
-                android:layout_width="202dp"
-                android:layout_height="42dp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
                 android:text="@string/creat_poster"
                 android:textStyle="bold"
                 android:fontFamily="Arial"
                 tools:layout_editor_absoluteX="92dp"
                 android:layout_marginTop="20dp"
                 android:layout_gravity="center"
-                android:onClick="creatPoster"/>
+                android:onClick="creatPoster"
+                android:background="@color/colorAccent"/>
+            <ProgressBar
+                android:id="@+id/pb_load_new_poster"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                />
+
         </LinearLayout>
     </ScrollView>
 

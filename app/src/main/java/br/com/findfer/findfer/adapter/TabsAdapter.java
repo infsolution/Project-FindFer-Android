@@ -7,7 +7,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import br.com.findfer.findfer.MainActivity;
-import br.com.findfer.findfer.fragments.MapFragment;
 import br.com.findfer.findfer.fragments.PosterFragment;
 import br.com.findfer.findfer.fragments.UserFragment;
 
@@ -18,7 +17,7 @@ import br.com.findfer.findfer.fragments.UserFragment;
 public class TabsAdapter extends FragmentPagerAdapter {
     private FragmentManager fragmentManager;
     private Context tContext;
-    private String [] titles= {"ANUNCIOS","MAPA", MainActivity.relationship};
+    private String [] titles= {"ANUNCIOS", MainActivity.relationship};
     public TabsAdapter(FragmentManager fm, Context context) {
         super(fm);
         tContext = context;
@@ -31,10 +30,6 @@ public class TabsAdapter extends FragmentPagerAdapter {
             frag = new PosterFragment();
         }
         if(position == 1){
-
-            frag = new MapFragment();
-        }
-        if(position == 2){
             frag = new UserFragment();
         }
         Bundle bd = new Bundle();
