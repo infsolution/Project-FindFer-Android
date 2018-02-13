@@ -100,6 +100,7 @@ public class RecordTwoActivity extends AppCompatActivity {
                             builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialogInterface, int i) {
+                                    start();
                                     finish();
                                     return;
                                 }
@@ -146,5 +147,10 @@ public class RecordTwoActivity extends AppCompatActivity {
     }
     private boolean veriNumber(){
         return fone.getText().toString().equals("") || fone.getText().toString().equals(" ");
+    }
+
+    public void start(){
+        Intent start = new Intent(this, InitialActivity.class);
+        startActivity(start);
     }
 }

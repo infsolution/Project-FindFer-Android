@@ -10,6 +10,36 @@
     android:layout_marginLeft="20dp"
     android:layout_marginRight="20dp"
     android:layout_marginBottom="40dp">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_launcher_findfer"
+        android:layout_gravity="center"/>
+    <View
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tv_next_step"
+        android:textSize="20dp"
+        android:layout_gravity="center"/>
+    <View
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tv_final_instruction"
+        android:textSize="14dp"
+        android:layout_gravity="center"/>
+    <View
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"/>
+
     <ProgressBar
         android:visibility="gone"
         android:layout_gravity="center"
@@ -54,6 +84,16 @@
             android:text="@string/bt_record_fone_finish"
             android:onClick="finishRecord"/>
     </LinearLayout>
+    <View
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tv_terms_information"
+        android:textSize="14dp"
+        android:layout_gravity="center"/>
 
 </LinearLayout>
 

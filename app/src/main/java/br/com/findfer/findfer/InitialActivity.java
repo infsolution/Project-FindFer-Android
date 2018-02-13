@@ -33,21 +33,28 @@ public class InitialActivity extends AppCompatActivity implements   GoogleApiCli
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_initial);
         user = getUser();
-        callConnection();
-        Handler handler = new Handler();
+        if(user == null){
+            Log.i("MYLOG","UUSUARIO NULL");
+            chooseStart();
+        }else{
+            Log.i("MYLOG","CHAMADA DE CALLCONNECTION");
+            callConnection();
+        }
+
+        /*Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                startApp();
+
             }
-        },5000);
+        },5000);*/
     }
 
     @Override
     protected void onStop() {
         super.onStop();
         if(fGoogleApiClient != null){
-            stopLocationUpdate();
+            //stopLocationUpdate();
         }
     }
 
@@ -56,26 +63,28 @@ public class InitialActivity extends AppCompatActivity implements   GoogleApiCli
         return uDao.getUser();
     }
     public void startApp(){
-        if(user == null){
-            chooseStart();
-        }else{
-        Intent goMain = new Intent(this, MainActivity.class);
-        startActivity(goMain);
-        }
+        Log.i("MYLOG","Entrou no start app");
+            if(user.getTypeAccount() == 1){
+                Log.i("MYLOG","Type acount 1 intent in mainactivity");
+                Intent goMain = new Intent(this, MainActivity.class);
+                startActivity(goMain);
+            }else{
+                Log.i("MYLOG","Type acount 2 intent in mainactivityMarketer");
+                Intent goMain = new Intent(this, MainActivityMarketer.class);
+                startActivity(goMain);
+            }
         finish();
     }
     private void chooseStart(){
         if(user == null){
-            actionRecord();
+            Intent record = new Intent(this, RecordOneActivity.class);
+            startActivity(record);
         }
     }
-    private void actionRecord(){
-        Intent record = new Intent(this, RecordOneActivity.class);
-        startActivity(record);
-    }
+
 
     private synchronized void callConnection() {
-        Log.i("LOG","CallConnection start InitActivity");
+        Log.i("MYLOG","CallConnection start InitActivity");
         fGoogleApiClient = new GoogleApiClient.Builder(this)
                 .addOnConnectionFailedListener(this)
                 .addConnectionCallbacks(this)
@@ -85,19 +94,12 @@ public class InitialActivity extends AppCompatActivity implements   GoogleApiCli
     }
     @Override
     public void onConnected(Bundle bundle) {
-        Location locationConn = LocationServices.FusedLocationApi.getLastLocation(fGoogleApiClient);
-        if(locationConn != null){
-            Log.i("LOG","Localização atualizada no sqlite com onConnected");
-            UserDao userDao = new UserDao(this);
-            user.setActualLatitude(locationConn.getLatitude());
-            user.setActualLongitude(locationConn.getLongitude());
-            userDao.updateCoordinate(user);
-        }else{
-            startLocationUpdate();
-        }
+        location = LocationServices.FusedLocationApi.getLastLocation(fGoogleApiClient);
+        startLocationUpdate();
     }
 
     private void initLocationRequest() {
+        Log.i("MYLOG"," In InitLocation -- location request--");
         locationRequest = new LocationRequest();
         locationRequest.setInterval(5000);
         locationRequest.setFastestInterval(2000);
@@ -105,11 +107,12 @@ public class InitialActivity extends AppCompatActivity implements   GoogleApiCli
     }
 
     private void startLocationUpdate() {
-        Log.i("LOG","InitLocatio in StartLocation start");
+        Log.i("MYLOG","InitLocatio in StartLocation start");
         initLocationRequest();
         LocationServices.FusedLocationApi.requestLocationUpdates(fGoogleApiClient, locationRequest, InitialActivity.this);
     }
     private void stopLocationUpdate(){
+        Log.i("MYLOG","Call stopLocation");
         LocationServices.FusedLocationApi.removeLocationUpdates(fGoogleApiClient,InitialActivity.this);
     }
     @Override
@@ -126,13 +129,16 @@ public class InitialActivity extends AppCompatActivity implements   GoogleApiCli
     @Override
     public void onLocationChanged(Location location) {
         if(location != null){
-        Log.i("LOG","Localização atualizada no sqlite com OnChanged");
-        UserDao userDao = new UserDao(this);
-        user.setActualLatitude(location.getLatitude());
-        user.setActualLongitude(location.getLongitude());
-        userDao.updateCoordinate(user);
+            Log.i("MYLOG","Localização atualizada no sqlite com OnChanged");
+            UserDao userDao = new UserDao(this);
+            user.setActualLatitude(location.getLatitude());
+            user.setActualLongitude(location.getLongitude());
+            userDao.updateCoordinate(user);
+            stopLocationUpdate();
+            startApp();
         }else{
-            Log.i("LOG","Update da localização indisponivel");
+            Log.i("MYLOG","Update da localização indisponivel");
+            startApp();
         }
     }
 }

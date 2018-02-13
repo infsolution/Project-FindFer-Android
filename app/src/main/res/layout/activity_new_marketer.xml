@@ -15,12 +15,31 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_launcher_findfer"
+                android:layout_gravity="center"/>
+            <View
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"/>
             <ProgressBar
                 android:id="@+id/pb_load_market"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_gravity="center"
                 android:visibility="gone"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_new_marketer"
+                android:visibility="visible"
+                android:textSize="16dp"/>
+            <View
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"/>
 
             <TextView
                 android:layout_width="wrap_content"

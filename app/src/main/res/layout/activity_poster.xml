@@ -84,6 +84,7 @@
             fresco:placeholderImage="@drawable/profile48"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
+            android:layout_marginLeft="16dp"
             app:roundAsCircle="true"
             android:onClick="goProfileMarketer"
             />
@@ -93,8 +94,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/img_profile_poster"
+        android:layout_alignParentLeft="true"
         android:text="@string/tv_name_user"
-        android:layout_marginTop="5dp"
+        android:layout_marginLeft="16dp"
         android:textSize="6pt"
         />
         <ImageButton
@@ -116,6 +118,13 @@
             android:layout_alignParentRight="true"
             android:layout_marginRight="@dimen/fab_margin"
             android:layout_marginTop="@dimen/fab_margin"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imbt_request_promotion"
+            android:text= "@string/aks_for_discount"
+            android:layout_alignParentRight="true"
+            />
 
     </RelativeLayout>
         <View
@@ -177,18 +186,20 @@
             android:layout_height="wrap_content"
             android:text="@string/bt_location_market"
             android:layout_weight="1"
-            android:background="@color/colorAccent"
+            android:background="@color/white"
             android:layout_marginRight="1pt"
-            android:onClick="goLocationMarket"/>
+            android:onClick="goLocationMarket"
+            android:visibility="gone"/>
         <Button
             android:id="@+id/bt_sale"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/bt_buy"
-            android:background="@color/colorAccent"
+            android:background="@color/white"
             android:layout_marginLeft="1pt"
             android:layout_weight="1"
             android:onClick="toBuy"
+            android:visibility="gone"
             />
     </LinearLayout>
     </LinearLayout>

@@ -17,6 +17,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -57,9 +58,7 @@ import br.com.findfer.findfer.model.User;
 import br.com.findfer.findfer.network.NetworkConnection;
 import br.com.findfer.findfer.network.Transaction;
 
-public class NewPoster extends AppCompatActivity implements GoogleApiClient.ConnectionCallbacks,
-        GoogleApiClient.OnConnectionFailedListener,
-        LocationListener, Transaction{
+public class NewPoster extends AppCompatActivity implements Transaction{
     private Poster poster;
     private int optCoupon = 0;
     private ImageButton imgBtt;
@@ -80,16 +79,22 @@ public class NewPoster extends AppCompatActivity implements GoogleApiClient.Conn
     private Coordinates coordinates;
     private ProgressBar progressBar;
     private Button btCreate;
+    private ImageView imgProduct;
+    private Bundle intent;
+    private long idMarket;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_poster);
         url="http://www.findfer.com.br/FindFer/control/ObservablePoster.php";
         user = getUser();
+        intent = getIntent().getExtras();
+        idMarket = intent.getLong("id_market");
         etTitle = (EditText)findViewById(R.id.et_titulo_new_poster);
         etDescri =(EditText)findViewById(R.id.et_new_description);
         etValue =(EditText)findViewById(R.id.et_new_value);
         etValueCoupon = (EditText)findViewById(R.id.et_coupon_value);
+        imgProduct = (ImageView)findViewById(R.id.imgview_product);
         progressBar = (ProgressBar)findViewById(R.id.pb_load_new_poster);
         tvNameImage = (TextView)findViewById(R.id.tv_set_image);
         imgBtt = (ImageButton)findViewById(R.id.ib_camera);
@@ -113,14 +118,12 @@ public class NewPoster extends AppCompatActivity implements GoogleApiClient.Conn
                 }
             }
         });
-        callConnection();
     }
     private User getUser(){
         UserDao uDao = new UserDao(this);
         return uDao.getUser();
     }
     public void creatPoster(View view) {
-        startLocationUpdate();
         callVolleyRequest();
             }
     public void callVolleyRequest(){
@@ -140,14 +143,18 @@ public class NewPoster extends AppCompatActivity implements GoogleApiClient.Conn
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if(requestCode == 0 && resultCode == RESULT_OK){
-            tvNameImage.setText(imageName);
+            //tvNameImage.setText(imageName);
+            tvNameImage.setVisibility(View.GONE);
             Bundle bundle = data.getExtras();
             bitmap =(Bitmap) bundle.get("data");
             ByteArrayOutputStream stream = new ByteArrayOutputStream();
             bitmap.compress(Bitmap.CompressFormat.JPEG,100,stream);
             byte [] array = stream.toByteArray();
             encod = Base64.encodeToString(array, 0);
-            imgBtt.setImageBitmap(bitmap);
+            imgProduct.setImageBitmap(bitmap);
+            imgProduct.setVisibility(View.VISIBLE);
+            imgBtt.setVisibility(View.GONE);
+
         }
     }
     private String setImageName() {
@@ -160,67 +167,24 @@ public class NewPoster extends AppCompatActivity implements GoogleApiClient.Conn
         SimpleDateFormat dt = new SimpleDateFormat ("yyyy-MM-dd");
         return dt.format(datefor);
     }
-    private void initLocationRequest() {
-        locationRequest = new LocationRequest();
-        locationRequest.setInterval(5000);
-        locationRequest.setFastestInterval(2000);
-        locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
-    }
-    private void startLocationUpdate() {
-        initLocationRequest();
-        LocationServices.FusedLocationApi.requestLocationUpdates(fGoogleApiClient, locationRequest, NewPoster.this);
-    }
-    private void stopLocationUpdate(){
-        LocationServices.FusedLocationApi.removeLocationUpdates(fGoogleApiClient,NewPoster.this);
-    }
-    private synchronized void callConnection() {
-        fGoogleApiClient = new GoogleApiClient.Builder(this)
-                .addConnectionCallbacks(this)
-                .addOnConnectionFailedListener(this)
-                .addApi(LocationServices.API)
-                .build();
-        fGoogleApiClient.connect();
-    }
-    @Override
-    public void onConnectionSuspended(int i) {
 
-    }
 
-    @Override
-    public void onConnectionFailed(ConnectionResult connectionResult) {
 
-    }
 
-    @Override
-    public void onLocationChanged(Location location) {
-        Log.i("FINDFERLOG","New Poster- Latitude onChangeed: "+location.getLatitude() +"\nLongitude onChangeed: "+location.getLongitude());
-        if(coordinates == null){
-            coordinates = new Coordinates(location.getLatitude(), location.getLongitude());
-        }
 
-    }
-    @Override
-    public void onConnected(Bundle bundle) {
-        location = LocationServices.FusedLocationApi.getLastLocation(fGoogleApiClient);
-        startLocationUpdate();
-        if(location != null){
-            coordinates = new Coordinates(location.getLatitude(), location.getLongitude());
-            Toast.makeText(this, "Latitude: "+coordinates.getLatitude()+" Longitude: "+coordinates.getLongitude(), Toast.LENGTH_SHORT).show();
-        }
-        stopLocationUpdate();
-    }
+
     @Override
     public Map<String, String> doBefore() {
         progressBar.setVisibility(View.VISIBLE);
         btCreate.setVisibility(View.GONE);
-        Log.i("LOG","doBefore NewPoster");
+        Log.i("MYLOG","doBefore NewPoster");
         if(UtilTCM.verifyConnection(this)){
             if(encod.equals("") || encod == null){
                 return null;
             }else{
             Map<String, String> parameters = new HashMap<>();
             parameters.put("encod_string", encod);
-            parameters.put("market_place",Long.toString(user.getIdMarket()));
+            parameters.put("market_place",Long.toString(idMarket));
             parameters.put("marketer",Long.toString(user.getCodUser()));
             parameters.put("image_name",imageName);
             parameters.put("title",etTitle.getText().toString());
@@ -229,8 +193,6 @@ public class NewPoster extends AppCompatActivity implements GoogleApiClient.Conn
             parameters.put("add_coupon",Integer.toString(optCoupon));
             parameters.put("desconto",etValueCoupon.getText().toString());
             parameters.put("validity",getValidity());
-            parameters.put("latitude",Double.toString(coordinates.getLatitude()));
-            parameters.put("longitude",Double.toString(coordinates.getLongitude()));
             return parameters;
             }
         }else{
@@ -241,6 +203,7 @@ public class NewPoster extends AppCompatActivity implements GoogleApiClient.Conn
 
     @Override
     public void doAfter(String response) {
+        Log.i("MYLOG","Valor do response new poster"+response);
         progressBar.setVisibility(View.GONE);
         btCreate.setVisibility(View.VISIBLE);
         int result = 0;
@@ -249,10 +212,10 @@ public class NewPoster extends AppCompatActivity implements GoogleApiClient.Conn
                 JSONArray res = new JSONArray(response);
                 JSONObject obj = res.getJSONObject(0);
                 result = obj.getInt("result");
-                if(result == -1){
+                if(result == 0){
                     AlertDialog.Builder builder = new AlertDialog.Builder(NewPoster.this);
-                    builder.setTitle(R.string.dial_title_alert_no_market);
-                    builder.setMessage(R.string.dial_message_poster_no_is_market);
+                    builder.setTitle(R.string.dial_title_alert_poster_faill);
+                    builder.setMessage(R.string.dial_title_alert_faill);
                     builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
@@ -277,12 +240,8 @@ public class NewPoster extends AppCompatActivity implements GoogleApiClient.Conn
                 }
 
             }catch (JSONException e){
-                Log.i("ERRORLOG",e.toString());
+                Log.i("MYLOG","Erro no New Poster: "+e.toString());
             }
         }
     }
-
-
-
-
 }

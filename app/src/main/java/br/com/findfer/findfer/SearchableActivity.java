@@ -98,7 +98,7 @@ public class SearchableActivity extends AppCompatActivity implements RecyclerVie
             parameters.put("latitude",Double.toString(user.getActualLatitude()));
             parameters.put("longitude",Double.toString(user.getActualLongitude()));
             parameters.put("query",query);
-            parameters.put("id_user",Long.toString(MainActivity.user.getCodUser()));
+            parameters.put("id_user",Long.toString(user.getCodUser()));
             return parameters;
         }else{
             Toast.makeText(this, "Você não está conectado à internet.", Toast.LENGTH_SHORT).show();
@@ -109,10 +109,10 @@ public class SearchableActivity extends AppCompatActivity implements RecyclerVie
 
     @Override
     public void doAfter(String response) {
-        Log.i("LOG","Response no doAfter:"+response);
+        Log.i("MYLOG","Response no doAfter:"+response);
         pbLoad.setVisibility(View.GONE);
         posters = loadPosters(response);
-        Log.i("LOG","poster: "+posters.size());
+        Log.i("MTLOG","poster: "+posters.size());
         if( posters.size() > 0){
             pAdapter = new PosterAdapter(this,posters);
             pAdapter.setRecyclerViewOnClickListenerHack(this);
@@ -166,6 +166,7 @@ public class SearchableActivity extends AppCompatActivity implements RecyclerVie
 
     }
     private List<Poster> loadPosters(String response){
+        Log.i("MYLOG",response);
         List<Poster> posts = new ArrayList<>();
         try {
             Poster post;

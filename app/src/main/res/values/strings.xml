@@ -74,7 +74,7 @@
     <string name="dial_message_no_is_market">You are not at the market,to register as a Marketer you must be at the market!</string>
     <string name="ac_update_marketer">Change for premium</string>
     <string name="ac_title_poster">Title</string>
-    <string name="ac_value_poster">R$ 9.99</string>
+    <string name="ac_value_poster">9.99</string>
     <string name="ac_market_poster">Market</string>
     <string name="ac_my_marketers">My marketers</string>
     <string name="ac_my_clients">My clients</string>
@@ -123,4 +123,25 @@
     <string name="dial_title_poster_successfull">Congratulation!!!</string>
     <string name="dial_title_congratuletion">Congratulation</string>
     <string name="dial_message_poster_successfull">Your poster was successfully created!</string>
+    <string name="dial_title_alert_faill">Fail in the creating of poster</string>
+    <string name="dial_title_alert_poster_faill">Error</string>
+    <string name="aks_for_discount">Ask for discount</string>
+    <string name="ac_value_cif">R$</string>
+    <string name="action_help">Help</string>
+    <string name="tv_help_faq">FAQ</string>
+    <string name="tv_help_feedback">SEND FEEDBACK</string>
+    <string name="tv_help_terms">USE TERMS</string>
+    <string name="tv_well_come">Well Come to FindFer</string>
+    <string name="tv_initial_instruction">Lets go to create your account, inform your first name and last name after click in NEXT</string>
+    <string name="tv_final_instruction">Now inform your number fone for to continue the register</string>
+    <string name="tv_next_step">Next step</string>
+    <string name="tv_terms_information">When to click in the FINISH, you accept the use terms</string>
+    <string name="tv_new_marketer">Congratulations! By registering as a marketer, you can create ads and win customers and you can still continue to be a customer of other marketers.</string>
+    <string name="ac_manage_poster">My Posters</string>
+    <string name="bt_edit">To Edit</string>
+    <string name="bt_delete">Delete</string>
+    <string name="edit_information">Click to edit</string>
+    <string name="tv_edit_information">You can edit the title, value, and description of the ad by clicking on each.</string>
+    <string name="et_new_value_edit_poster">Inform the new value</string>
+    <string name="et_edit_new_title">Informe o novo titulo</string>
 </resources>

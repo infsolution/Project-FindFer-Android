@@ -17,10 +17,11 @@ import br.com.findfer.findfer.fragments.UserFragment;
 public class TabsAdapter extends FragmentPagerAdapter {
     private FragmentManager fragmentManager;
     private Context tContext;
-    private String [] titles= {"ANUNCIOS", MainActivity.relationship};
-    public TabsAdapter(FragmentManager fm, Context context) {
+    private String [] titles;// = {"ANUNCIOS", "CLIENTES"};
+    public TabsAdapter(FragmentManager fm, Context context, String [] titles) {
         super(fm);
         tContext = context;
+        this.titles = titles;
     }
 
     @Override

@@ -1,0 +1,134 @@
+package br.com.findfer.findfer;
+
+import android.content.DialogInterface;
+import android.net.Uri;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.drawee.interfaces.DraweeController;
+import com.facebook.drawee.view.SimpleDraweeView;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import br.com.findfer.findfer.dao.UserDao;
+import br.com.findfer.findfer.extras.UtilTCM;
+import br.com.findfer.findfer.model.User;
+import br.com.findfer.findfer.network.NetworkConnection;
+import br.com.findfer.findfer.network.Transaction;
+
+public class PosterEditActivity extends AppCompatActivity implements Transaction{
+    private User user;
+    private Bundle intent;
+    private SimpleDraweeView imgPoster;
+    private TextView title, value, description;
+    private String url, newtitle, newValue, newDescription, deleted;
+    private long idPoster, idMarket;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_poster_edit);
+        user = getUser();
+        imgPoster = (SimpleDraweeView)findViewById(R.id.img_poster_edit);
+        title = (TextView)findViewById(R.id.tv_edit_title_poster);
+        value = (TextView)findViewById(R.id.tv_edit_value);
+        description = (TextView)findViewById(R.id.tv_edit_poster_description);
+        idPoster = intent.getLong("id_poster");
+        idMarket = intent.getLong("id_market");
+        newtitle = "";
+        newDescription = "";
+        newValue = "";
+        deleted = "";
+        loadData();
+    }
+
+
+
+    private void loadData() {
+        title.setText(intent.getString("title"));
+        description.setText(intent.getString("description"));
+        value.setText("R$ "+intent.getString("value"));
+        loadImage(intent.getString("media_capa"), imgPoster);
+    }
+    public void callVolleyRequest(){
+        NetworkConnection.getInstance(this).execute(this, url);
+    }
+
+    private User getUser(){
+        UserDao uDao = new UserDao(this);
+        return uDao.getUser();
+    }
+    private void loadImage(String media, SimpleDraweeView image){
+        Uri uri = Uri.parse(media);
+        DraweeController dc = Fresco.newDraweeControllerBuilder()
+                .setUri(uri)
+                .setOldController(image.getController())
+                .build();
+        image.setController(dc);
+    }
+
+    public void editTitle(View view){
+        AlertDialog.Builder builder = new AlertDialog.Builder(PosterEditActivity.this);
+        LayoutInflater inflater = this.getLayoutInflater();
+        final View layoutView = inflater.inflate(R.layout.edit_poster_title, null);
+        builder.setTitle(R.string.dial_title_request_promotion);
+        builder.setMessage(R.string.dial_message_request_promotion_successful);
+        builder.setView(layoutView);
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                final EditText title = (EditText) layoutView.findViewById(R.id.et_edit_new_title);
+                newtitle = title.getText().toString();
+                callVolleyRequest();
+            }
+        }).setNegativeButton("CANCELAR", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
+
+    }
+    public void editValue(View view){
+
+    }
+
+    public void editDescription(View view){
+
+    }
+    public void deletePoster(View view){
+
+    }
+    @Override
+    public Map<String, String> doBefore() {
+        if(UtilTCM.verifyConnection(this)){
+            Map<String, String> parameters = new HashMap<>();
+            parameters.put("id_poster",Long.toString(idPoster));
+            parameters.put("id_market",Long.toString(idMarket));
+            parameters.put("title",newtitle);
+            parameters.put("description",newDescription);
+            parameters.put("value",newValue);
+            parameters.put("deleted", deleted);
+            return parameters;
+        }else{
+            Toast.makeText(this, "Sem conexão!", Toast.LENGTH_SHORT).show();
+        }
+        return null;
+    }
+
+    @Override
+    public void doAfter(String response) {
+
+    }
+
+}

@@ -25,7 +25,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-            <com.facebook.drawee.view.SimpleDraweeView
+            <!--com.facebook.drawee.view.SimpleDraweeView
                 android:id="@+id/img_profile"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
@@ -33,7 +33,15 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
 
-                />
+                /-->
+                <ImageView
+                    android:id="@id/img_profile"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+
+                    />
                 <ImageButton
                     android:id="@+id/imb_update_image"
                     android:layout_width="wrap_content"
@@ -70,7 +78,7 @@
                 android:textSize="6pt"
                 android:layout_marginTop="5dp"
                 />
-            <TextView
+            <!--TextView
                 android:id="@+id/tv_type_account"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -109,12 +117,12 @@
                 android:text="@string/local"
                 android:textSize="6pt"
                 android:layout_marginTop="5dp"
-                />
+                /-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
-            <TextView
+            <!--TextView
                 android:id="@+id/tv_local_latitude"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -131,7 +139,7 @@
                 android:textSize="6pt"
                 android:layout_marginTop="5dp"
                 android:layout_weight="1"
-                />
+                /-->
             </LinearLayout>
             <RatingBar
                 android:id="@+id/rtb_qualification"

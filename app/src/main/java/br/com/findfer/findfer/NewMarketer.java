@@ -42,43 +42,40 @@ package br.com.findfer.findfer;
         import java.util.Map;
 
         import br.com.findfer.findfer.dao.UserDao;
+        import br.com.findfer.findfer.extras.UtilTCM;
         import br.com.findfer.findfer.model.Coordinates;
         import br.com.findfer.findfer.model.Market;
         import br.com.findfer.findfer.model.User;
+        import br.com.findfer.findfer.network.NetworkConnection;
+        import br.com.findfer.findfer.network.Transaction;
 
-public class NewMarketer extends AppCompatActivity implements GoogleApiClient.ConnectionCallbacks,
-        GoogleApiClient.OnConnectionFailedListener,
-        LocationListener {
+public class NewMarketer extends AppCompatActivity implements Transaction{
     private User user;
     private Spinner comboMaket;
     private EditText etName, etconfirPassword, etPassword, etFone, etEmail;
     private Button btNewUser;
     private ProgressBar pbLoadMarket;
     private UserDao uDao;
-    private GoogleApiClient fGoogleApiClient;
-    private Location location;
-    private LocationRequest locationRequest;
-    private Coordinates coordinates;
     private String url;
     private Market market;
     private Double distance;
     private int itSInMarket;
-    private RequestQueue requestQueue;
+    private Bundle intent;
+    private long idMarket;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_marketer);
         user = getUser();
+        //idMarket = intent.getLong("id_market");
         comboMaket = (Spinner) findViewById(R.id.combo_market);
         etEmail = (EditText) findViewById(R.id.et_new_email);
         etPassword = (EditText) findViewById(R.id.et_new_passwword);
         etconfirPassword = (EditText) findViewById(R.id.et_confirm_password);
         pbLoadMarket = (ProgressBar) findViewById(R.id.pb_load_market);
         btNewUser = (Button) findViewById(R.id.bt_new_user);
-        this.requestQueue = Volley.newRequestQueue(getApplicationContext());
         url = "http://www.findfer.com.br/FindFer/control/CreateMarketer.php";
         //url = "http://192.168.42.132/findfer/control/CreateMarketer.php";
-        callConnection();
     }
 
     private User getUser() {
@@ -90,11 +87,12 @@ public class NewMarketer extends AppCompatActivity implements GoogleApiClient.Co
     @Override
     protected void onStop() {
         super.onStop();
-        if(fGoogleApiClient != null){
-            stopLocationUpdate();
-        }
+
     }
 
+    public void callVolleyRequest(){
+        NetworkConnection.getInstance(this).execute(this, url);
+    }
     protected boolean comparePasswords(String pass1, String pass2) {
         return pass1.equals(pass2);
     }
@@ -106,9 +104,8 @@ public class NewMarketer extends AppCompatActivity implements GoogleApiClient.Co
     }
 
     public void updateUser(View view) {
-        pbLoadMarket.setVisibility(View.VISIBLE);
         if (comparePasswords(etPassword.getText().toString(), etconfirPassword.getText().toString())) {
-            updateRemote();
+            callVolleyRequest();
         } else {
             Toast.makeText(this, R.string.dif_pass, Toast.LENGTH_SHORT).show();
         }
@@ -123,119 +120,68 @@ public class NewMarketer extends AppCompatActivity implements GoogleApiClient.Co
         return uDao.updateUser(user);
     }
 
-    private void initLocationRequest() {
-        locationRequest = new LocationRequest();
-        locationRequest.setInterval(5000);
-        locationRequest.setFastestInterval(2000);
-        locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
-    }
 
-    private void startLocationUpdate() {
-        initLocationRequest();
-        LocationServices.FusedLocationApi.requestLocationUpdates(fGoogleApiClient, locationRequest, NewMarketer.this);
-    }
-    private void stopLocationUpdate(){
-        LocationServices.FusedLocationApi.removeLocationUpdates(fGoogleApiClient,NewMarketer.this);
-    }
-    private synchronized void callConnection() {
-        fGoogleApiClient = new GoogleApiClient.Builder(this)
-                .addConnectionCallbacks(this)
-                .addOnConnectionFailedListener(this)
-                .addApi(LocationServices.API)
-                .build();
-        fGoogleApiClient.connect();
-    }
+
+
     @Override
-    public void onConnected(@Nullable Bundle bundle) {
-        location = LocationServices.FusedLocationApi.getLastLocation(fGoogleApiClient);
-        startLocationUpdate();
+    public Map<String, String> doBefore() {
+        pbLoadMarket.setVisibility(View.VISIBLE);
+        if(UtilTCM.verifyConnection(this)) {
+            Map<String, String> parameters = new HashMap<>();
+            parameters.put("email",etEmail.getText().toString());
+            parameters.put("latitude",Double.toString(user.getActualLatitude()));
+            parameters.put("longitude",Double.toString(user.getActualLongitude()));
+            parameters.put("password",etconfirPassword.getText().toString());
+            parameters.put("id_user",Long.toString(user.getCodUser()));
+            return parameters;
+        }else{
+                Toast.makeText(this, "Sem conexão!", Toast.LENGTH_SHORT).show();
+            }
+        return null;
     }
 
-    private void updateRemote(){
-        if(coordinates == null) {
-            startLocationUpdate();
-        }
-        final StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                pbLoadMarket.setVisibility(View.GONE);
-                try {
-                    JSONArray jUpdates = new JSONArray(response);
-                    for (int i = 0; i < jUpdates.length(); i++) {
-                        JSONObject jUpdate = jUpdates.getJSONObject(i);
-                        market = new Market(jUpdate.getString("name"));
-                        market.setIdMarket(jUpdate.getLong("id_market"));
-                        distance = jUpdate.getDouble("distance");
-                        itSInMarket = jUpdate.getInt("itsinmarket");
-                        if(itSInMarket == 0){
-                            AlertDialog.Builder builder = new AlertDialog.Builder(NewMarketer.this);
-                            builder.setTitle(R.string.dial_title_alert_no_market);
-                            builder.setMessage(R.string.dial_message_no_is_market);
-                            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialogInterface, int i) {
+    @Override
+    public void doAfter(String response) {
+        pbLoadMarket.setVisibility(View.GONE);
+        try {
+            JSONArray jUpdates = new JSONArray(response);
+            for (int i = 0; i < jUpdates.length(); i++) {
+                JSONObject jUpdate = jUpdates.getJSONObject(i);
+                market = new Market(jUpdate.getString("name"));
+                market.setIdMarket(jUpdate.getLong("id_market"));
+                distance = jUpdate.getDouble("distance");
+                itSInMarket = jUpdate.getInt("itsinmarket");
+                if(itSInMarket == 0){
+                    AlertDialog.Builder builder = new AlertDialog.Builder(NewMarketer.this);
+                    builder.setTitle(R.string.dial_title_alert_no_market);
+                    builder.setMessage(R.string.dial_message_no_is_market);
+                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
 
-                                }
-                            });
-                            AlertDialog dialog = builder.create();
-                            dialog.show();
-                        }else{
-                        if(newMarketer(etPassword.getText().toString(), etconfirPassword.getText().toString(),market.getIdMarket())>0){
-                            AlertDialog.Builder builder = new AlertDialog.Builder(NewMarketer.this);
-                            builder.setTitle(R.string.dial_title_new_record);
-                            builder.setMessage(R.string.dial_message_ok_record);
-                            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialogInterface, int i) {
-                                    stopLocationUpdate();
-                                    finish();
-                                    return;
-                                }
-                            });
-                            AlertDialog dialog = builder.create();
-                            dialog.show();
-                            }
                         }
+                    });
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
+                }else{
+                    if(newMarketer(etPassword.getText().toString(), etconfirPassword.getText().toString(),market.getIdMarket())>0){
+                        AlertDialog.Builder builder = new AlertDialog.Builder(NewMarketer.this);
+                        builder.setTitle(R.string.dial_title_new_record);
+                        builder.setMessage(R.string.dial_message_ok_record);
+                        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                finish();
+                                return;
+                            }
+                        });
+                        AlertDialog dialog = builder.create();
+                        dialog.show();
                     }
-                } catch (JSONException e) {
-                    Toast.makeText(NewMarketer.this, "Houve um erro em sua solicitação!\nCodigo do erro: " + e.toString(), Toast.LENGTH_LONG).show();
                 }
             }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(NewMarketer.this, "Erro Response: " + error.toString(), Toast.LENGTH_LONG).show();
-            }
-        }) {
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String, String> parameters = new HashMap<>();
-                parameters.put("email",etEmail.getText().toString());
-                parameters.put("latitude",Double.toString(coordinates.getLatitude()));
-                parameters.put("longitude",Double.toString(coordinates.getLongitude()));
-                parameters.put("password",etconfirPassword.getText().toString());
-                parameters.put("id_user",Long.toString(user.getCodUser()));
-                return parameters;
-            }
-        };
-        request.setRetryPolicy(new DefaultRetryPolicy(2000,3,2));
-        this.requestQueue.add(request);
-
-    }
-    @Override
-    public void onConnectionSuspended(int i) {
-
-    }
-    @Override
-    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
-
-    }
-    @Override
-    public void onLocationChanged(Location location) {
-        Log.i("LOG","Latitude: "+location.getLatitude()+" Longitude: "+location.getLongitude());
-        if(coordinates == null){
-            coordinates = new Coordinates(location.getLatitude(), location.getLongitude());
+        } catch (JSONException e) {
+            Toast.makeText(NewMarketer.this, "Houve um erro em sua solicitação!\nCodigo do erro: " + e.toString(), Toast.LENGTH_LONG).show();
         }
-        stopLocationUpdate();
     }
 }

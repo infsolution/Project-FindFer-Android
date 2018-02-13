@@ -9,7 +9,39 @@
     android:layout_marginRight="20dp"
     android:layout_marginTop="40dp"
     android:layout_marginBottom="40dp"
+    android:background="@color/white"
     tools:context="br.com.findfer.findfer.RecordOneActivity">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_launcher_findfer"
+        android:layout_gravity="center"/>
+    <View
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tv_well_come"
+        android:textSize="20dp"
+        android:layout_gravity="center"/>
+    <View
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tv_initial_instruction"
+        android:textSize="14dp"
+        android:layout_gravity="center"/>
+
+    <View
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"/>
+
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"

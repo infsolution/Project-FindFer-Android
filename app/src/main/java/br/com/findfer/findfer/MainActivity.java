@@ -55,9 +55,11 @@ import br.com.findfer.findfer.fragments.PosterFragment;
 import br.com.findfer.findfer.interfaces.FragmentComunication;
 import br.com.findfer.findfer.model.Account;
 import br.com.findfer.findfer.model.Coordinates;
+import br.com.findfer.findfer.model.ItIsMarket;
 import br.com.findfer.findfer.model.Poster;
 import br.com.findfer.findfer.model.Record;
 import br.com.findfer.findfer.model.User;
+import br.com.findfer.findfer.network.NetworkConnection;
 import br.com.findfer.findfer.network.Transaction;
 
 import java.util.ArrayList;
@@ -65,18 +67,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class MainActivity extends AppCompatActivity /*implements   GoogleApiClient.ConnectionCallbacks,
-        GoogleApiClient.OnConnectionFailedListener,
-        LocationListener*/ {
+public class MainActivity extends AppCompatActivity implements Transaction{
 
     public static String relationship;
     public static User user;
     public static Coordinates coordinates;
     private UserDao uDao;
     private ViewPager mViewPager;
-    private Location location;
-    private GoogleApiClient fGoogleApiClient;
-    private LocationRequest locationRequest;
+    private ProgressBar load;
+    private String url;
+    private String [] titulos = {"ANUNCIOS", "FEIRANTES"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,16 +86,15 @@ public class MainActivity extends AppCompatActivity /*implements   GoogleApiClie
         user = getUser();
         chooseStart();
         relationship = setRelationship();
-        //callConnection();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         setTitle("FindFer");
         mViewPager = (ViewPager) findViewById(R.id.container);
-        mViewPager.setAdapter(new TabsAdapter(getSupportFragmentManager(), this));
+        mViewPager.setAdapter(new TabsAdapter(getSupportFragmentManager(), this, titulos));
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
-
-        //FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        load = (ProgressBar)findViewById(R.id.pb_load_main);
+        url = "http://www.findfer.com.br/FindFer/control/ItisinMarket.php";
      }
     private String setRelationship(){
         if(user != null && user.getTypeAccount()<= 1){
@@ -109,7 +108,6 @@ public class MainActivity extends AppCompatActivity /*implements   GoogleApiClie
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         if(user != null && user.getTypeAccount() <= 1) {
             getMenuInflater().inflate(R.menu.menu_main, menu);
         }else{
@@ -133,8 +131,9 @@ public class MainActivity extends AppCompatActivity /*implements   GoogleApiClie
         }
          if (id == R.id.action_new_user) {
             if(user.getTypeAccount() == 1) {
-                Intent addUser = new Intent(this, NewMarketer.class);
-                startActivity(addUser);
+                //Intent addUser = new Intent(this, NewMarketer.class);
+                //startActivity(addUser);
+                callVolleyRequest();
                 return true;
             }else{
                 Intent updateUser = new Intent(this, UpdateMarketer.class);
@@ -143,7 +142,7 @@ public class MainActivity extends AppCompatActivity /*implements   GoogleApiClie
             }
         }
         if(id == R.id.action_interaction){
-            if(user.getTypeAccount() == 1){
+            //f(user.getTypeAccount() == 1){
                 //Intent reqProm = new Intent(this,RequestPromotion.class);
                 //startActivity(reqProm);
                 AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
@@ -157,10 +156,15 @@ public class MainActivity extends AppCompatActivity /*implements   GoogleApiClie
                 });
                 AlertDialog dialog = builder.create();
                 dialog.show();
-            }else{
-                Intent newPost = new Intent(this,NewPoster.class);
-                startActivity(newPost);
-            }
+            /*}else{
+                callVolleyRequest();
+
+            }*/
+        }
+        if(id == R.id.action_help){
+            Intent help = new Intent(this, HelpActivity.class);
+            startActivity(help);
+            return true;
         }
 
         return super.onOptionsItemSelected(item);
@@ -174,6 +178,62 @@ public class MainActivity extends AppCompatActivity /*implements   GoogleApiClie
     private void actionRecord(){
         Intent record = new Intent(this, RecordOneActivity.class);
         startActivity(record);
+    }
+
+    public void callVolleyRequest(){
+        NetworkConnection.getInstance(this).execute(this, url);
+    }
+    @Override
+    public Map<String, String> doBefore() {
+        load.setVisibility(View.VISIBLE);
+        if(UtilTCM.verifyConnection(this)){
+            Map<String, String> parameters = new HashMap<>();
+            parameters.put("latitude",Double.toString(user.getActualLatitude()));
+            parameters.put("longitude",Double.toString(user.getActualLongitude()));
+            parameters.put("id_user",Long.toString(user.getCodUser()));
+            return parameters;
+        }else{
+            Toast.makeText(this, "Sem conexão!", Toast.LENGTH_SHORT).show();
+            load.setVisibility(View.GONE);
+        }
+        return null;
+    }
+
+    @Override
+    public void doAfter(String response) {
+        load.setVisibility(View.GONE);
+        ItIsMarket mark = getLocation(response);
+        if(mark.getItIsMarket() == 1){
+            Intent addUser = new Intent(this, NewMarketer.class);
+            //addUser.putExtra("id_market", user.getIdMarket());
+            startActivity(addUser);
+        }else{
+            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+            builder.setTitle("Desculpe!");
+            builder.setMessage(mark.toString());
+            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+
+                }
+            });
+            AlertDialog dialog = builder.create();
+            dialog.show();
+        }
+    }
+
+    public ItIsMarket getLocation(String response){
+        ItIsMarket isMarket = null;
+        try{
+            JSONArray mark = new JSONArray(response);
+            JSONObject mkt = mark.getJSONObject(0);
+            isMarket = new ItIsMarket(mkt.getString("name"),mkt.getInt("itsinmarket"));
+            isMarket.setDistance(mkt.getDouble("distance"));
+
+        }catch (JSONException e){
+
+        }
+        return isMarket;
     }
    /* private synchronized void callConnection() {
         fGoogleApiClient = new GoogleApiClient.Builder(this)

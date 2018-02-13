@@ -47,16 +47,16 @@ public class ProfileEditActivity extends AppCompatActivity implements Transactio
         user = getUser();
         //intent = getIntent().getExtras();
         imbUpdateImaage =(ImageButton)findViewById(R.id.imb_update_image);
-        imgProfile =(SimpleDraweeView)findViewById(R.id.img_profile);
+        //imgProfile =(SimpleDraweeView)findViewById(R.id.img_profile);
         userName = (TextView)findViewById(R.id.tv_name_user);
         market = (TextView)findViewById(R.id.tv_market_name);
         dateTime = (TextView)findViewById(R.id.tv_date_poster);
-        codUser = (TextView) findViewById(R.id.tv_cod_usesr);
-        email = (TextView)findViewById(R.id.tv_email);
-        fone = (TextView)findViewById(R.id.tv_fone);
-        longitude = (TextView)findViewById(R.id.tv_local_longitude);
-        latitude = (TextView)findViewById(R.id.tv_local_latitude);
-        type = (TextView)findViewById(R.id.tv_type_account);
+        //codUser = (TextView) findViewById(R.id.tv_cod_usesr);
+       // email = (TextView)findViewById(R.id.tv_email);
+        //fone = (TextView)findViewById(R.id.tv_fone);
+        //longitude = (TextView)findViewById(R.id.tv_local_longitude);
+        //latitude = (TextView)findViewById(R.id.tv_local_latitude);
+        //type = (TextView)findViewById(R.id.tv_type_account);
         mediaProfile = user.getImage();
         url = "";
         loadData();
@@ -72,8 +72,8 @@ public class ProfileEditActivity extends AppCompatActivity implements Transactio
         codUser.setText(Long.toString(user.getCodUser()));
         email.setText(user.getEmail());
         fone.setText(user.getFone());
-        latitude.setText(Double.toString(user.getActualLatitude()));
-        longitude.setText(Double.toString(user.getActualLongitude()));
+        //latitude.setText(Double.toString(user.getActualLatitude()));
+        //longitude.setText(Double.toString(user.getActualLongitude()));
         type.setText(Integer.toString(user.getTypeAccount()));
         loadImage(mediaProfile, imgProfile);
     }

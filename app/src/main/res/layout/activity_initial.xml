@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="br.com.findfer.findfer.InitialActivity"
-    android:background="@drawable/telainit"
+    android:background="@drawable/telainity"
     style="@style/AppTheme.NoActionBar"
     tools:actionBarNavMode="standard"
     >
