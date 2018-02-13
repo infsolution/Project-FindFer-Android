@@ -8,10 +8,11 @@ import java.util.List;
 
 public class Market {
     private long idMarket;
-    private List<MarketStall> marketStalls;
     private Perimeter perimeter;
     private String nameMarket;
     private String description;
+    private long idCoordinateMarker;
+    private Coordinates coordinates;
     public Market(String nameMarket){
         this.nameMarket = nameMarket;
     }
@@ -24,13 +25,6 @@ public class Market {
         this.idMarket = idMarket;
     }
 
-    public List<MarketStall> getMarketStalls() {
-        return marketStalls;
-    }
-
-    public void setMarketStalls(List<MarketStall> marketStalls) {
-        this.marketStalls = marketStalls;
-    }
 
     public Perimeter getPerimeter() {
         return perimeter;
@@ -54,5 +48,26 @@ public class Market {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public long getIdCoordinateMarker() {
+        return idCoordinateMarker;
+    }
+
+    public void setIdCoordinateMarker(long idCoordinateMarker) {
+        this.idCoordinateMarker = idCoordinateMarker;
+    }
+
+    public Coordinates getCoordinates() {
+        return coordinates;
+    }
+
+    public void setCoordinates(Coordinates coordinates) {
+        this.coordinates = coordinates;
+    }
+
+    @Override
+    public String toString() {
+        return this.getNameMarket();
     }
 }

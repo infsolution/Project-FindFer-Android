@@ -13,7 +13,7 @@
     <string name="desc_value">Coupon value</string>
     <string name="creat_poster">Create a new Poster</string>
     <string name="sugest_set_image">Send a Photo of your product!</string>
-    <string name="ac_new_user">Sign up</string>
+    <string name="ac_new_user">Sign up like marketer</string>
     <string name="ac_login">Login</string>
     <string name="ac_logout">Logout</string>
     <string name="request_promotion">Requeste a Promotion</string>
@@ -52,8 +52,96 @@
     <string name="tv_poster_description">Description of your product</string>
     <string name="tv_market_name">Market name</string>
     <string name="bt_sale">To Sale</string>
-    <string name="bt_location_market">Location market</string>
+    <string name="bt_location_market">Location</string>
     <string name="dial_message_ok_record">User recorded successful</string>
     <string name="dial_title_new_record">New record</string>
     <string name="tv_date">00/00/0000 00:00:00</string>
+    <string name="real_cifrao">R$</string>
+    <string name="bt_buy">To Buy</string>
+    <string name="tv_name_user">Name user</string>
+    <string name="tv_desc_user">User description</string>
+    <string name="question_email">Enter your email for easy password recovery</string>
+    <string name="et_password">Password</string>
+    <string name="et_conf_password">Confirm Password</string>
+    <string name="dif_pass">The password are distinctes</string>
+    <string name="dial_tt_update">Update account</string>
+    <string name="dial_tt_update_account_ok">Update account successfull</string>
+    <string name="dial_message_faill_record">Faill to update account</string>
+    <string name="dial_tt_update_account_faill">Faill to update account</string>
+    <string name="dial_title_new_marketer">New Marketer</string>
+    <string name="dial_message_ok_new_marketer">Congratulation! You are is a marketer</string>
+    <string name="dial_title_alert_no_market">Invalid local</string>
+    <string name="dial_message_no_is_market">You are not at the market,to register as a Marketer you must be at the market!</string>
+    <string name="ac_update_marketer">Change for premium</string>
+    <string name="ac_title_poster">Title</string>
+    <string name="ac_value_poster">9.99</string>
+    <string name="ac_market_poster">Market</string>
+    <string name="ac_my_marketers">My marketers</string>
+    <string name="ac_my_clients">My clients</string>
+
+    <!--ARRAYS-->
+    <string-array name="spin_market">
+        <item>CEAPI</item>
+        <item>Central</item>
+        <item>Dircel</item>
+        <item>Mafua</item>
+        <item>Parque Piaui</item>
+        <item>Piçarra</item>
+        <item>São Joaquim</item>
+        <item>Vermelha</item>
+    </string-array>
+    <string name="title_activity_maps">Map</string>
+    <string name="search_hint">Search a product or people</string>
+    <string name="action_searchable_activity">Search</string>
+    <string name="ac_creat_post">Create a post</string>
+    <string name="ac_request_promotion">Request a promotion</string>
+    <string name="et_especific_prodct">Inform the product for request a promotion!</string>
+    <string name="tv_result_no_result_search">Your search don\'t find result</string>
+    <string name="dial_searcg_resul">Search Result</string>
+    <string name="back">Back</string>
+    <string name="dial_title_request_promotion">Requeste Promotion</string>
+    <string name="dial_message_request_promotion_successful">Requeste Promotion sended succesfull</string>
+    <string name="dial_title_request_value">Inform a age of value</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="event_cancel">The request was canceled</string>
+    <string name="tv_age_value_request">Inform a age of value</string>
+    <string name="et_especific_value">Infrome a age of value</string>
+    <string name="dial_title_request_relationShip">Request Relationship</string>
+    <string name="dial_message_request_relationship_successful">Now you is client this marketer</string>
+    <string name="dial_title_function_development">Function in development</string>
+    <string name="dial_message_function_in_development">Wait this function is in development</string>
+    <string name="inform_value">Is needed inform a value</string>
+    <string name="cod_user">0000</string>
+    <string name="email">email don\'t record</string>
+    <string name="fone">Fone</string>
+    <string name="local">Location</string>
+    <string name="longitude">Logitude</string>
+    <string name="latitude">Latitude</string>
+    <string name="tv_type_account">0</string>
+    <string name="dial_message_poster_no_is_market">You are not at the market,to create  a poster you must be at the market!</string>
+    <string name="dial_title_poster_successfull">Congratulation!!!</string>
+    <string name="dial_title_congratuletion">Congratulation</string>
+    <string name="dial_message_poster_successfull">Your poster was successfully created!</string>
+    <string name="dial_title_alert_faill">Fail in the creating of poster</string>
+    <string name="dial_title_alert_poster_faill">Error</string>
+    <string name="aks_for_discount">Ask for discount</string>
+    <string name="ac_value_cif">R$</string>
+    <string name="action_help">Help</string>
+    <string name="tv_help_faq">FAQ</string>
+    <string name="tv_help_feedback">SEND FEEDBACK</string>
+    <string name="tv_help_terms">USE TERMS</string>
+    <string name="tv_well_come">Well Come to FindFer</string>
+    <string name="tv_initial_instruction">Lets go to create your account, inform your first name and last name after click in NEXT</string>
+    <string name="tv_final_instruction">Now inform your number fone for to continue the register</string>
+    <string name="tv_next_step">Next step</string>
+    <string name="tv_terms_information">When to click in the FINISH, you accept the use terms</string>
+    <string name="tv_new_marketer">Congratulations! By registering as a marketer, you can create ads and win customers and you can still continue to be a customer of other marketers.</string>
+    <string name="ac_manage_poster">My Posters</string>
+    <string name="bt_edit">To Edit</string>
+    <string name="bt_delete">Delete</string>
+    <string name="edit_information">Click to edit</string>
+    <string name="tv_edit_information">You can edit the title, value, and description of the ad by clicking on each.</string>
+    <string name="et_new_value_edit_poster">Inform the new value</string>
+    <string name="et_edit_new_title">Informe o novo titulo</string>
 </resources>

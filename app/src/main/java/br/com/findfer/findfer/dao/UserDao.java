@@ -1,6 +1,5 @@
 package br.com.findfer.findfer.dao;
 
-import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -8,12 +7,10 @@ import android.database.sqlite.SQLiteDatabase;
 
 import java.sql.SQLException;
 
-import br.com.findfer.findfer.MainActivity;
-import br.com.findfer.findfer.model.Coordinates;
 import br.com.findfer.findfer.model.User;
 
 /**
- * Created by infsolution on 16/10/17.
+ * Created by infsolution on 10/11/17.
  */
 
 public class UserDao {
@@ -31,13 +28,20 @@ public class UserDao {
     }
     public long insert(User user){
         long res=0;
-        if(getUser().getNameUser().equals("Default")){
+        if(getUser() == null){
             ContentValues cv = new ContentValues();
-            cv.put("name",user.getUser());
-            cv.put("name_user",user.getNameUser());
+            cv.put("name",user.getName());
+            cv.put("fone",user.getFone());
             cv.put("password",user.getPassword());
-            cv.put("account",user.getAccount().getTypeAccount());
-            cv.put("market_place",user.getMarketPlace());
+            cv.put("type_account",user.getTypeAccount());
+            cv.put("id_market",user.getIdMarket());
+            cv.put("image",user.getImage());
+            cv.put("id_coordinates", user.getIdCoordinate());
+            cv.put("register_date",user.getDateRegister());
+            cv.put("id_market",user.getIdMarket());
+            cv.put("cod_user",user.getCodUser());
+            cv.put("actual_latitude",user.getActualLatitude());
+            cv.put("actual_longitude",user.getActualLongitude());
             res = dao.getWritableDatabase().insert("user",null,cv);
             dao.close();
         }
@@ -48,26 +52,36 @@ public class UserDao {
         Cursor c = dao.getReadableDatabase().rawQuery(sql, null);
         if(c != null && c.moveToFirst()){
             user = new User("");
-            user.setIdUser(c.getInt(c.getColumnIndex("id_user")));
-            user.setUser(c.getString(c.getColumnIndex("name")));
-            user.setNameUser(c.getString(c.getColumnIndex("name_user")));
+            user.setCodUser(c.getInt(c.getColumnIndex("cod_user")));
+            user.setName(c.getString(c.getColumnIndex("name")));
+            user.setFone(c.getString(c.getColumnIndex("fone")));
             user.setPassword(c.getString(c.getColumnIndex("password")));
-            //user.setAccount();
-            user.setMarketPlace(c.getLong(c.getColumnIndex("market_place")));
+            user.setTypeAccount(c.getInt(c.getColumnIndex("type_account")));
+            user.setImage(c.getString(c.getColumnIndex("image")));
+            user.setIdCoordinate(c.getLong(c.getColumnIndex("id_coordinates")));
+            user.setEmail(c.getString(c.getColumnIndex("email")));
+            user.setDateRegister(c.getString(c.getColumnIndex("register_date")));
+            user.setIdMarket(c.getLong(c.getColumnIndex("id_market")));
+            user.setActualLatitude(c.getDouble(c.getColumnIndex("actual_latitude")));
+            user.setActualLongitude(c.getDouble(c.getColumnIndex("actual_longitude")));
             return user;
         }
-        return user = new User("Default");
+        return null;
     }
-    /*public boolean getNameUser(String nameUser){
-        String sql = "SELECT id_user FROM user WHERE name_user = '"+nameUser+"';";
-        Cursor c = dao.getReadableDatabase().rawQuery(sql, null);
-        return c == null;
-    }*/
-    public int getState(){
-        String sql = "SELECT * FROM log;";
-        Cursor c = dao.getReadableDatabase().rawQuery(sql, null);
-        c.moveToFirst();
-        return c.getInt(c.getColumnIndex("loged"));
+
+    public long updateUser(User user){
+        ContentValues cv = new ContentValues();
+        cv.put("password",user.getPassword());
+        cv.put("email",user.getEmail());
+        cv.put("type_account",user.getTypeAccount());
+        cv.put("id_market",user.getIdMarket());
+        return dao.getWritableDatabase().update("user",cv,null,null);
+    }
+    public long updateCoordinate(User user){
+        ContentValues cv = new ContentValues();
+        cv.put("actual_latitude",user.getActualLatitude());
+        cv.put("actual_longitude",user.getActualLongitude());
+       return dao.getWritableDatabase().update("user",cv,null,null);
     }
 
 }

@@ -20,6 +20,10 @@ public class Poster implements Parcelable {
     private String description;
     private String date;
     private String urlImage;
+    private String nameUser;
+    private String urlImageUser;
+    private String nameMarket;
+    private float quaflification;
     private int photo;
     public Poster(String title){
         this.title = title;
@@ -102,8 +106,29 @@ public class Poster implements Parcelable {
         this.description = description;
     }
 
+    public String getNameUser() {
+        return nameUser;
+    }
 
+    public void setNameUser(String nameUser) {
+        this.nameUser = nameUser;
+    }
 
+    public String getUrlImageUser() {
+        return urlImageUser;
+    }
+
+    public void setUrlImageUser(String urlImageUser) {
+        this.urlImageUser = urlImageUser;
+    }
+
+    public float getQuaflification() {
+        return quaflification;
+    }
+
+    public void setQuaflification(float quaflification) {
+        this.quaflification = quaflification;
+    }
 
     public String getDate() {
         return date;
@@ -119,6 +144,14 @@ public class Poster implements Parcelable {
 
     public void setUrlImage(String urlImage) {
         this.urlImage = urlImage;
+    }
+
+    public String getNameMarket() {
+        return nameMarket;
+    }
+
+    public void setNameMarket(String nameMarket) {
+        this.nameMarket = nameMarket;
     }
 
     public int getPhoto() {

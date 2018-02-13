@@ -1,0 +1,64 @@
+public class fragmentlistavideos extends Fragment {
+    private static final String TAG = "Log";
+    private TextView txtteste;
+    private RecyclerView mRecyclerView;
+    private RecyclerView.Adapter mAdapter;
+    private List<PlaylistItem> mylistadevideo;
+
+
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
+        View v = inflater.inflate(R.layout.fragmentlistavideos, container, false);
+
+        //Se a RecyclerView estiver dentro do layout do fragment, pegue ele direto da View v inflada
+        try {
+            mRecyclerView = v.findViewById(R.id.mRecicleview);
+            Log.d(TAG, "pegou o recycle do layout");
+
+        } catch (Exception e) {
+            Log.d(TAG, "Erro ao pegar o recycle do layout " + e);
+        }
+
+        return v;
+    }
+
+    @Override   
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        //Aqui você faz o preenchimento da lista.
+
+        mRecyclerView.setHasFixedSize(true);
+        Log.d(TAG, "definiu setHasFixedSize como true");
+
+        // defininado o LinearLayoutManager
+        LinearLayoutManager llm = new LinearLayoutManager(getActivity());
+        llm.setOrientation(LinearLayoutManager.VERTICAL);
+        mRecyclerView.setLayoutManager(llm);
+        Log.d(TAG, "definiu LinearLayoutManager");
+
+        //Dica, não passe desta forma, sempre passe como parametro para o construtor
+        //da fragment, ou use o pattern getInstance para fragments.
+        mylistadevideo = ((MainActivity) getActivity()).getlistavideos();
+        Log.d(TAG, "Salvou a lista no mylistadevideo");
+
+
+        //Toda RecyclerView tem que obrigatóriamente ter um adapter, mesmo que seja com uma 
+        //lista vazia, nunca null
+        if (mylistadevideo == null) {           
+            mRecyclerView.setAdapter(new ArrayList<PlaylistItem>());
+            Log.d(TAG, "Setou o Adapter");
+            Log.d(TAG, "Lista nula");
+        } else {
+            mAdapter = new Adapter(mylistadevideo);
+            Log.d(TAG, "Definiu o Adapter");
+        }
+    }
+
+    @Override
+    public void onActivityCreated (@Nullable Bundle savedInstanceState){
+        super.onActivityCreated(savedInstanceState);
+    }
+}
+=====================================================================================================
+

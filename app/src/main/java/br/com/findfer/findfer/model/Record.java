@@ -5,11 +5,20 @@ package br.com.findfer.findfer.model;
  */
 
 public class Record {
+    private long idRecord;
     private String name;
     private String fone;
     private String code;
     public Record(String fone){
         this.fone = fone;
+    }
+
+    public long getIdRecord() {
+        return idRecord;
+    }
+
+    public void setIdRecord(long idRecord) {
+        this.idRecord = idRecord;
     }
 
     public String getName() {

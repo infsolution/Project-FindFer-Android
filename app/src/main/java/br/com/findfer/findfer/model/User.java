@@ -1,25 +1,25 @@
 package br.com.findfer.findfer.model;
 
-import java.util.List;
-import java.util.regex.Matcher;
-
 /**
- * Created by infsolution on 22/09/17.
+ * Created by infsolution on 10/11/17.
  */
 
 public class User {
     private long idUser;
-    private String user;
+    private String name;
+    private String fone;
     private String password;
-    private String nameUser;
-    private float qualification;
-    private List<User>users;
-    private Media media;
-    private Account account;
-    private long marketPlace;
-    private Coordinates coordinates;
-    public User(String nameUser){
-        this.nameUser = nameUser;
+    private String dateRegister;
+    private String email;
+    private int typeAccount;
+    private String image;
+    private long idMarket;
+    private long idCoordinate;
+    private long codUser;
+    private Double ActualLatitude;
+    private Double ActualLongitude;
+    public User(String name){
+        this.name = name;
     }
 
     public long getIdUser() {
@@ -30,12 +30,20 @@ public class User {
         this.idUser = idUser;
     }
 
-    public String getUser() {
-        return user;
+    public String getName() {
+        return name;
     }
 
-    public void setUser(String user) {
-        this.user = user;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getFone() {
+        return fone;
+    }
+
+    public void setFone(String fone) {
+        this.fone = fone;
     }
 
     public String getPassword() {
@@ -46,59 +54,80 @@ public class User {
         this.password = password;
     }
 
-    public String getNameUser() {
-        return nameUser;
+    public String getDateRegister() {
+        return dateRegister;
     }
 
-    public void setNameUser(String nameUser) {
-        this.nameUser = nameUser;
+    public void setDateRegister(String dateRegister) {
+        this.dateRegister = dateRegister;
     }
 
-    public float getQualification() {
-        return qualification;
+    public String getEmail() {
+        return email;
     }
 
-    public void setQualification(float qualification) {
-        this.qualification = qualification;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public List<User> getUsers() {
-        return users;
+    public int getTypeAccount() {
+        return typeAccount;
     }
 
-    public void setUsers(List<User> users) {
-        this.users = users;
+    public void setTypeAccount(int typeAccount) {
+        this.typeAccount = typeAccount;
     }
 
-    public Media getMedia() {
-        return media;
+    public String getImage() {
+        return image;
     }
 
-    public void setMedia(Media media) {
-        this.media = media;
+    public void setImage(String image) {
+        this.image = image;
     }
 
-    public Account getAccount() {
-        return account;
+    public long getIdMarket() {
+        return idMarket;
     }
 
-    public void setAccount(Account account) {
-        this.account = account;
+    public void setIdMarket(long idMarket) {
+        this.idMarket = idMarket;
     }
 
-    public long getMarketPlace() {
-        return marketPlace;
+    public long getIdCoordinate() {
+        return idCoordinate;
     }
 
-    public void setMarketPlace(long marketPlace) {
-        this.marketPlace = marketPlace;
+    public void setIdCoordinate(long idCoordinate) {
+        this.idCoordinate = idCoordinate;
     }
 
-    public Coordinates getCoordinates() {
-        return coordinates;
+    public long getCodUser() {
+        return codUser;
     }
 
-    public void setCoordinates(Coordinates coordinates) {
-        this.coordinates = coordinates;
+    public void setCodUser(long codUser) {
+        this.codUser = codUser;
+    }
+
+    public Double getActualLatitude() {
+        return ActualLatitude;
+    }
+
+    public void setActualLatitude(Double actualLatitude) {
+        ActualLatitude = actualLatitude;
+    }
+
+    public Double getActualLongitude() {
+        return ActualLongitude;
+    }
+
+    public void setActualLongitude(Double actualLongitude) {
+        ActualLongitude = actualLongitude;
+    }
+
+    @Override
+    public String toString() {
+        return getName();
     }
 }

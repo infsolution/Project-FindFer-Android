@@ -4,46 +4,76 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    <!--ImageView
-        android:id="@+id/image_capa"
-        android:layout_alignParentLeft="true"
-        android:layout_width="match_parent"
-        android:layout_height="70pt"
-        android:layout_marginRight="6dp"
-        android:src="@null"
-        /-->
-    <TextView
-        android:id="@+id/title_poster"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:textColor="@android:color/holo_blue_dark"
-        android:paddingRight="16pt"
-        android:textSize="13pt"
-        android:layout_alignParentTop="true"
-        />
+    android:layout_height="wrap_content"
+
+    >
     <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/image_capa_fresco"
         android:layout_width="match_parent"
-        android:layout_height="70pt"
+        android:layout_height="90pt"
         fresco:actualImageScaleType="centerCrop"
         fresco:placeholderImage="@drawable/banana"
         app:progressBarImageScaleType="center"
         android:layout_centerHorizontal="true"
-        android:layout_marginRight="5dp"
-        android:layout_marginLeft="5dp"/>
+        android:layout_marginRight="5pt"
+        android:layout_marginLeft="5pt"
+        android:layout_marginTop="5pt"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+        <TextView
+            android:id="@+id/title_poster"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textColor="@android:color/black"
+            android:text="@string/ac_title_poster"
+            android:layout_marginLeft="5pt"
+            android:paddingRight="16pt"
+            android:textSize="10pt"
+            android:layout_alignParentTop="true"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:layout_marginRight="5pt"
+        android:layout_marginLeft="5pt">
+        <TextView
+            android:id="@+id/value_cifr"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textColor="@android:color/black"
+            android:text="@string/ac_value_cif"
+            android:paddingRight="1pt"
+            android:textSize="8pt"/>
 
-    <TextView
-        android:id="@+id/value_poster"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:textColor="@android:color/holo_blue_dark"
-        android:paddingRight="16pt"
-        android:textSize="12pt"/>
+        <TextView
+            android:id="@+id/value_poster"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:textColor="@android:color/black"
+            android:text="@string/ac_value_poster"
+            android:paddingRight="10pt"
+            android:textSize="8pt"/>
+        <TextView
+            android:id="@+id/market_poster"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:textColor="@android:color/black"
+            android:text="@string/ac_market_poster"
+            android:paddingRight="16pt"
+            android:textSize="8pt"/>
+    </LinearLayout>
     <View
         android:layout_width="match_parent"
-        android:layout_height="0.8dp"
-        android:background="@color/colorPrimaryDark"
+        android:layout_height="5pt"
+        android:background="@color/gray2"
         />
 
 </LinearLayout>
