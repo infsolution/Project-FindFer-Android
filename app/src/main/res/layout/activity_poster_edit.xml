@@ -48,6 +48,7 @@
                     android:text="@string/tv_title"
                     android:onClick="editTitle"
                     />
+
                 <TextView
                     android:id="@+id/tv_edit_value"
                     android:layout_width="wrap_content"
@@ -74,6 +75,12 @@
                 android:layout_marginTop="10dp"
                 android:onClick="editDescription"
                 />
+            <ProgressBar
+                android:id="@+id/pb_load_edit"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:visibility="gone"/>
             <View
                 android:layout_width="match_parent"
                 android:layout_height="5pt"

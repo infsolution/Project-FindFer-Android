@@ -126,7 +126,7 @@
     <string name="dial_title_alert_faill">Fail in the creating of poster</string>
     <string name="dial_title_alert_poster_faill">Error</string>
     <string name="aks_for_discount">Ask for discount</string>
-    <string name="ac_value_cif">R$</string>
+    <string name="ac_value_cif">U$</string>
     <string name="action_help">Help</string>
     <string name="tv_help_faq">FAQ</string>
     <string name="tv_help_feedback">SEND FEEDBACK</string>
@@ -144,4 +144,10 @@
     <string name="tv_edit_information">You can edit the title, value, and description of the ad by clicking on each.</string>
     <string name="et_new_value_edit_poster">Inform the new value</string>
     <string name="et_edit_new_title">Informe o novo titulo</string>
+    <string name="et_edit_new_value">Novo Valor</string>
+    <string name="et_edit_new_description">New Description</string>
+    <string name="dial_title_edit_poster_value">New Value</string>
+    <string name="dial_title_edit_poster_title">Informe a new title</string>
+    <string name="dial_title_edit_poster_description">Informe a new description</string>
+    <string name="dial_title_delete_poster">Caution! You go delete this poster</string>
 </resources>

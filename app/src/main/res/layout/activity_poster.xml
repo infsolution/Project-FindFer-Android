@@ -46,7 +46,6 @@
             android:layout_height="wrap_content"
             android:textSize="8pt"
             android:text="@string/tv_title"
-            android:textStyle="bold"
             />
     <TextView
         android:id="@+id/tv_value"
@@ -54,7 +53,6 @@
         android:layout_height="wrap_content"
         android:text="@string/tv_value"
         android:textSize="8pt"
-        android:textStyle="bold"
         android:layout_alignParentRight="true"
 
 
@@ -140,7 +138,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/tv_market_name"
-            android:textStyle="bold"
             android:layout_alignParentLeft="true"
             android:layout_alignParentBottom="true"
             android:textSize="6pt"/>

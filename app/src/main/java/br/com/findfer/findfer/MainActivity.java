@@ -126,8 +126,9 @@ public class MainActivity extends AppCompatActivity implements Transaction{
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if(id == R.id.action_profile){
-            Intent profile = new Intent(this, ProfileEditActivity.class);
-            startActivity(profile);
+            //Intent profile = new Intent(this, ProfileEditActivity.class);
+            //startActivity(profile);
+            Toast.makeText(this, "Aquarde, funcionalidade em desenvolvimento.", Toast.LENGTH_SHORT).show();
         }
          if (id == R.id.action_new_user) {
             if(user.getTypeAccount() == 1) {

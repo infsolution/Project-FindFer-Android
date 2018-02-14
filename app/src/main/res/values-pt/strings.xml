@@ -48,8 +48,17 @@
     <string name="ac_poster">Anúncio</string>
     <string name="tv_title">Titulo</string>
     <string name="tv_value">9.99</string>
+    <string name="dial_title_new_marketer">Novo Feirante</string>
+    <string name="ac_update_marketer">Mudar para premium</string>
+    <string name="ac_market_poster">Feira</string>
+    <string name="search_hint">Pesquise um produto</string>
+    <string name="action_searchable_activity">Pesquisar</string>
+    <string name="ac_creat_post">Crie um anúncio</string>
+    <string name="tv_result_no_result_search">Sua busca não encontrou nemhum resultado</string>
+    <string name="dial_searcg_resul">Resultado da busca</string>
     <string name="bt_request_promtion">Pedir uma promoção</string>
     <string name="tv_poster_description">Descreva aqui seus produto</string>
+    <string name="dial_title_request_promotion">Solicitar uma promoção</string>
     <string name="tv_market_name">Feira</string>
     <string name="bt_sale">Vender</string>
     <string name="bt_location_market">Localização</string>
@@ -57,18 +66,18 @@
     <string name="dial_title_new_record">Novo usuário</string>
     <string name="tv_date">00/00/0000 00:00:00</string>
     <string name="real_cifrao">R$</string>
-
+    <string name="dial_message_request_promotion_successful">Seu pedido foi enviado com sucesso</string>
     <string name="dial_message_poster_no_is_market">Este local não está cadastrado como uma feira!</string>
     <string name="dial_title_poster_successfull">Parabéns!!!</string>
     <string name="dial_title_congratuletion">Parabéns</string>
     <string name="dial_message_poster_successfull">Parabéns! Seu anúncio foi criado com sucesso!</string>
     <string name="dial_title_alert_faill">Falha ao criar o anúncio</string>
     <string name="aks_for_discount">Peça um desconto</string>
-    <string name="ac_value_cif">U$</string>
+    <string name="ac_value_cif">R$</string>
     <string name="action_help">Ajuda</string>
     <string name="tv_help_faq">FAQ</string>
     <string name="tv_help_feedback">NOS ENVIE UM FEEDBACK</string>
-    <string name="tv_help_terms">Termos de use</string>
+    <string name="tv_help_terms">TERMOS DE USO</string>
     <string name="tv_well_come">Bem vindo ao FindFer</string>
     <string name="tv_initial_instruction">Vamos criar sua conta, só leva um minuto. Informe seu nome e sobre nome e clique em próximo.</string>
     <string name="tv_final_instruction">Agora informe seu número de telefone para continuar o cadastro.</string>
@@ -80,4 +89,11 @@
     <string name="bt_delete">Excluir</string>
     <string name="edit_information">Clique para editar</string>
     <string name="tv_edit_information">Você pode editar o titulo, o valor e a descrição do anúncio, clicando em cada um.</string>
+    <string name="dif_pass">As senhas são diferentes</string>
+    <string name="tv_name_user">Nome de usuário</string>
+    <string name="tv_desc_user">Descrição</string>
+    <string name="question_email">Informe seu email</string>
+    <string name="et_password">Senha</string>
+    <string name="et_conf_password">Confirm Password</string>
+
 </resources>
