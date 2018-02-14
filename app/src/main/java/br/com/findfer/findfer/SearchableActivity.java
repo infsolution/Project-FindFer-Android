@@ -54,7 +54,6 @@ public class SearchableActivity extends AppCompatActivity implements RecyclerVie
         clContainer = (CoordinatorLayout) findViewById(R.id.cl_container);
         url = "http://www.findfer.com.br/FindFer/control/LoadPosters.php";
         pbLoad = (ProgressBar) findViewById(R.id.pb_search);
-
         hendleSearch(getIntent());
         posters = new ArrayList<>();
         pRecyclerView = (RecyclerView) findViewById(R.id.rv_search);
@@ -65,7 +64,6 @@ public class SearchableActivity extends AppCompatActivity implements RecyclerVie
         pAdapter = new PosterAdapter(this, posters);
         pAdapter.setRecyclerViewOnClickListenerHack(this);
         pRecyclerView.setAdapter(pAdapter);
-
     }
     private User getUser(){
         UserDao uDao = new UserDao(this);
@@ -78,15 +76,11 @@ public class SearchableActivity extends AppCompatActivity implements RecyclerVie
         hendleSearch(intent);
         callVolleyRequest();
     }
-
     public void hendleSearch(Intent intent){
         if(intent.ACTION_SEARCH.equalsIgnoreCase(intent.getAction())){
             query = intent.getStringExtra(SearchManager.QUERY);
         }
     }
-
-
-
     public void callVolleyRequest(){
         NetworkConnection.getInstance(this).execute(this, url);
     }
@@ -106,7 +100,6 @@ public class SearchableActivity extends AppCompatActivity implements RecyclerVie
         }
         return null;
     }
-
     @Override
     public void doAfter(String response) {
         Log.i("MYLOG","Response no doAfter:"+response);
@@ -163,7 +156,6 @@ public class SearchableActivity extends AppCompatActivity implements RecyclerVie
         poster.putExtra("media",posters.get(position).getUrlImageUser());
         poster.putExtra("flag_visible","");
         startActivity(poster);
-
     }
     private List<Poster> loadPosters(String response){
         Log.i("MYLOG",response);

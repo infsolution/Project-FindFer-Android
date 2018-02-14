@@ -71,19 +71,16 @@ public class PosterManger extends AppCompatActivity implements RecyclerViewOnCli
 
     @Override
     public void onClickListner(View view, int position) {
-        Intent poster = new Intent(this, PosterActivity.class);
+        Intent poster = new Intent(this, PosterEditActivity.class);
         poster.putExtra("id_poster",posters.get(position).getIdPoster());
         poster.putExtra("id_marketer",posters.get(position).getMarketer());
-        poster.putExtra("id_market_place", posters.get(position).getMarketPlace());
+       poster.putExtra("id_market_place", posters.get(position).getMarketPlace());
         poster.putExtra("title",posters.get(position).getTitle());
         poster.putExtra("description", posters.get(position).getDescription());
         poster.putExtra("value", posters.get(position).getStringValue());
         poster.putExtra("media_capa",posters.get(position).getUrlImage());
-        poster.putExtra("date_time", posters.get(position).getDate());
-       // poster.putExtra("name_market",posters.get(position).getNameMarket());
-        //poster.putExtra("name_user",posters.get(position).getNameUser());
-        //poster.putExtra("media",posters.get(position).getUrlImageUser());
-        poster.putExtra("flag_visible","");
+        //poster.putExtra("date_time", posters.get(position).getDate());
+        //poster.putExtra("flag_visible","");
         startActivity(poster);
     }
 
