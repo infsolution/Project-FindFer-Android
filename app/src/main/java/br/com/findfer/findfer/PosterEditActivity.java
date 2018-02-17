@@ -105,7 +105,6 @@ public class PosterEditActivity extends AppCompatActivity implements Transaction
         });
         AlertDialog dialog = builder.create();
         dialog.show();
-
     }
     public void editValue(View view){
         AlertDialog.Builder builder = new AlertDialog.Builder(PosterEditActivity.this);
@@ -130,7 +129,6 @@ public class PosterEditActivity extends AppCompatActivity implements Transaction
         AlertDialog dialog = builder.create();
         dialog.show();
     }
-
     public void editDescription(View view){
         AlertDialog.Builder builder = new AlertDialog.Builder(PosterEditActivity.this);
         LayoutInflater inflater = this.getLayoutInflater();
@@ -186,15 +184,14 @@ public class PosterEditActivity extends AppCompatActivity implements Transaction
             parameters.put("deleted", deleted);
             return parameters;
         }else{
-            Toast.makeText(this, "Sem conexão!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Você não está conectado à internet!", Toast.LENGTH_SHORT).show();
         }
         return null;
     }
-
     @Override
     public void doAfter(String response) {
         pbLoad.setVisibility(View.GONE);
-        Log.i("MYLOG","Valor do respopnse no edit: "+response);
+        //Log.i("MYLOG","Valor do respopnse no edit: "+response);
         try {
             JSONArray jResponse = new JSONArray(response);
             JSONObject jREs = jResponse.getJSONObject(0);

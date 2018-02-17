@@ -102,10 +102,10 @@ public class SearchableActivity extends AppCompatActivity implements RecyclerVie
     }
     @Override
     public void doAfter(String response) {
-        Log.i("MYLOG","Response no doAfter:"+response);
+        //Log.i("MYLOG","Response no doAfter:"+response);
         pbLoad.setVisibility(View.GONE);
         posters = loadPosters(response);
-        Log.i("MTLOG","poster: "+posters.size());
+        //Log.i("MTLOG","poster: "+posters.size());
         if( posters.size() > 0){
             pAdapter = new PosterAdapter(this,posters);
             pAdapter.setRecyclerViewOnClickListenerHack(this);
@@ -158,7 +158,7 @@ public class SearchableActivity extends AppCompatActivity implements RecyclerVie
         startActivity(poster);
     }
     private List<Poster> loadPosters(String response){
-        Log.i("MYLOG",response);
+        //Log.i("MYLOG",response);
         List<Poster> posts = new ArrayList<>();
         try {
             Poster post;
@@ -181,7 +181,7 @@ public class SearchableActivity extends AppCompatActivity implements RecyclerVie
             }
 
         } catch (JSONException e) {
-            Toast.makeText(this, "Erro Catch: " + e.toString(), Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Desculpe! Houve um erro, por favor tente novamente em alguns minutos.", Toast.LENGTH_LONG).show();
         }
         return posts;
     }

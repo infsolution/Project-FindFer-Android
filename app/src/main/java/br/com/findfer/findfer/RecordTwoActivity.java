@@ -110,7 +110,7 @@ public class RecordTwoActivity extends AppCompatActivity {
                         }
                     }
                 } catch (JSONException e) {
-                    Toast.makeText(RecordTwoActivity.this, "Erro Catch: " + e.toString(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(RecordTwoActivity.this, "Desculpe! houve um erro ao realizar seu cadastro.\nPor favor, tente novamente. ", Toast.LENGTH_LONG).show();
                 }
                 }else{
                     Toast.makeText(RecordTwoActivity.this, "Desculpe! houve um erro ao realizar seu cadastro.\nPor favor, tente novamente.", Toast.LENGTH_LONG).show();
@@ -119,7 +119,7 @@ public class RecordTwoActivity extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(RecordTwoActivity.this, "Erro Response: " + error.toString(), Toast.LENGTH_LONG).show();
+                Toast.makeText(RecordTwoActivity.this, "Desculpe! Houve um erro ao processar sua solicitação, por favor tente novamente em alguns minutos", Toast.LENGTH_LONG).show();
             }
         }) {
             @Override

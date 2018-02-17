@@ -87,17 +87,11 @@ public class MainActivityMarketer extends AppCompatActivity implements Transacti
             Intent manage = new Intent(this, PosterManger.class);
             startActivity(manage);
         }
-         if (id == R.id.action_new_user) {
-            if(user.getTypeAccount() == 1) {
-                Intent addUser = new Intent(this, NewMarketer.class);
-                startActivity(addUser);
-                return true;
-            }else{
+         /*if (id == R.id.action_new_user) {
                 Intent updateUser = new Intent(this, UpdateMarketer.class);
                 startActivity(updateUser);
                 return true;
-            }
-        }
+        }*/
         if(id == R.id.action_interaction){
                 callVolleyRequest();
         }
@@ -176,64 +170,6 @@ public class MainActivityMarketer extends AppCompatActivity implements Transacti
         }
         return isMarket;
     }
-   /* private synchronized void callConnection() {
-        fGoogleApiClient = new GoogleApiClient.Builder(this)
-                .addConnectionCallbacks(this)
-                .addOnConnectionFailedListener(this)
-                .addApi(LocationServices.API)
-                .build();
-        fGoogleApiClient.connect();
-    }
-    private void initLocationRequest() {
-        locationRequest = new LocationRequest();
-        locationRequest.setInterval(5000);
-        locationRequest.setFastestInterval(2000);
-        locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
-    }
-    private void startLocationUpdate() {
-        initLocationRequest();
-        LocationServices.FusedLocationApi.requestLocationUpdates(fGoogleApiClient, locationRequest, MainActivity.this);
-    }
-    private void stopLocationUpdate(){
-        LocationServices.FusedLocationApi.removeLocationUpdates(fGoogleApiClient,MainActivity.this);
-    }
-
-
-
-    @Override
-    public void onConnected(Bundle bundle) {
-        location = LocationServices.FusedLocationApi.getLastLocation(fGoogleApiClient);
-        startLocationUpdate();
-        if(location != null){
-            //coordinates = new Coordinates(location.getLatitude(), location.getLongitude());
-            //sendCoordinate(Double.toString(location.getLatitude()),Double.toString(location.getLongitude()), posterFragment);
-            UserDao userDao = new UserDao(this);
-            user.setActualLatitude(location.getLatitude());
-            user.setActualLongitude(location.getLongitude());
-            userDao.updateCoordinate(user);
-            Toast.makeText(this, "Latitude: "+location.getLatitude()+" Longitude: "+location.getLongitude(), Toast.LENGTH_SHORT).show();
-        }else{
-            Toast.makeText(this, "Location Nullo ", Toast.LENGTH_SHORT).show();
-        }
-        stopLocationUpdate();
-    }
-
-    @Override
-    public void onConnectionSuspended(int i) {
-
-    }
-
-    @Override
-    public void onConnectionFailed(ConnectionResult connectionResult) {
-
-    }
-
-    @Override
-    public void onLocationChanged(Location location) {
-        if(coordinates == null){
-            coordinates = new Coordinates(location.getLatitude(), location.getLongitude());
-        }
-    }*/
 
 
 

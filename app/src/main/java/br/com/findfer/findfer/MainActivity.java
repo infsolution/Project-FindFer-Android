@@ -125,27 +125,26 @@ public class MainActivity extends AppCompatActivity implements Transaction{
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if(id == R.id.action_profile){
-            //Intent profile = new Intent(this, ProfileEditActivity.class);
-            //startActivity(profile);
+       /* if(id == R.id.action_profile){
+            Intent profile = new Intent(this, ProfileEditActivity.class);
+            startActivity(profile);
             Toast.makeText(this, "Aquarde, funcionalidade em desenvolvimento.", Toast.LENGTH_SHORT).show();
-        }
+        }*/
          if (id == R.id.action_new_user) {
-            if(user.getTypeAccount() == 1) {
+           // if(user.getTypeAccount() == 1) {
                 //Intent addUser = new Intent(this, NewMarketer.class);
                 //startActivity(addUser);
                 callVolleyRequest();
                 return true;
-            }else{
+           /* }else{
                 Intent updateUser = new Intent(this, UpdateMarketer.class);
                 startActivity(updateUser);
                 return true;
-            }
+            }*/
         }
-        if(id == R.id.action_interaction){
-            //f(user.getTypeAccount() == 1){
-                //Intent reqProm = new Intent(this,RequestPromotion.class);
-                //startActivity(reqProm);
+        /*if(id == R.id.action_interaction){
+                Intent reqProm = new Intent(this,RequestPromotion.class);
+                startActivity(reqProm);
                 AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
                 builder.setTitle("Funcionalidade em desenvolvimento");
                 builder.setMessage("Para pedir uma promoção abra um anúncio com o produto que vocẽ deseja e click no icone pedir promoção.");
@@ -157,11 +156,8 @@ public class MainActivity extends AppCompatActivity implements Transaction{
                 });
                 AlertDialog dialog = builder.create();
                 dialog.show();
-            /*}else{
-                callVolleyRequest();
 
-            }*/
-        }
+        }*/
         if(id == R.id.action_help){
             Intent help = new Intent(this, HelpActivity.class);
             startActivity(help);
@@ -236,64 +232,6 @@ public class MainActivity extends AppCompatActivity implements Transaction{
         }
         return isMarket;
     }
-   /* private synchronized void callConnection() {
-        fGoogleApiClient = new GoogleApiClient.Builder(this)
-                .addConnectionCallbacks(this)
-                .addOnConnectionFailedListener(this)
-                .addApi(LocationServices.API)
-                .build();
-        fGoogleApiClient.connect();
-    }
-    private void initLocationRequest() {
-        locationRequest = new LocationRequest();
-        locationRequest.setInterval(5000);
-        locationRequest.setFastestInterval(2000);
-        locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
-    }
-    private void startLocationUpdate() {
-        initLocationRequest();
-        LocationServices.FusedLocationApi.requestLocationUpdates(fGoogleApiClient, locationRequest, MainActivity.this);
-    }
-    private void stopLocationUpdate(){
-        LocationServices.FusedLocationApi.removeLocationUpdates(fGoogleApiClient,MainActivity.this);
-    }
-
-
-
-    @Override
-    public void onConnected(Bundle bundle) {
-        location = LocationServices.FusedLocationApi.getLastLocation(fGoogleApiClient);
-        startLocationUpdate();
-        if(location != null){
-            //coordinates = new Coordinates(location.getLatitude(), location.getLongitude());
-            //sendCoordinate(Double.toString(location.getLatitude()),Double.toString(location.getLongitude()), posterFragment);
-            UserDao userDao = new UserDao(this);
-            user.setActualLatitude(location.getLatitude());
-            user.setActualLongitude(location.getLongitude());
-            userDao.updateCoordinate(user);
-            Toast.makeText(this, "Latitude: "+location.getLatitude()+" Longitude: "+location.getLongitude(), Toast.LENGTH_SHORT).show();
-        }else{
-            Toast.makeText(this, "Location Nullo ", Toast.LENGTH_SHORT).show();
-        }
-        stopLocationUpdate();
-    }
-
-    @Override
-    public void onConnectionSuspended(int i) {
-
-    }
-
-    @Override
-    public void onConnectionFailed(ConnectionResult connectionResult) {
-
-    }
-
-    @Override
-    public void onLocationChanged(Location location) {
-        if(coordinates == null){
-            coordinates = new Coordinates(location.getLatitude(), location.getLongitude());
-        }
-    }*/
 
 
 

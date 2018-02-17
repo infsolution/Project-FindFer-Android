@@ -18,6 +18,7 @@ public class User {
     private long codUser;
     private Double ActualLatitude;
     private Double ActualLongitude;
+    private String description;
     public User(String name){
         this.name = name;
     }
@@ -124,6 +125,14 @@ public class User {
 
     public void setActualLongitude(Double actualLongitude) {
         ActualLongitude = actualLongitude;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     @Override

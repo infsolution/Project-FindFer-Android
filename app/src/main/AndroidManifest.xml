@@ -37,7 +37,8 @@
             android:windowSoftInputMode="adjustPan|adjustNothing" />
         <activity
             android:name=".NewPoster"
-            android:label="@string/new_post" />
+            android:label="@string/new_post"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".RequestPromotion"
             android:label="@string/request_promotion" />

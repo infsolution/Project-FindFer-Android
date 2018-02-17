@@ -181,7 +181,7 @@ public class NewMarketer extends AppCompatActivity implements Transaction{
                 }
             }
         } catch (JSONException e) {
-            Toast.makeText(NewMarketer.this, "Houve um erro em sua solicitação!\nCodigo do erro: " + e.toString(), Toast.LENGTH_LONG).show();
+            Toast.makeText(NewMarketer.this, "Houve um erro em sua solicitação!", Toast.LENGTH_LONG).show();
         }
     }
 }

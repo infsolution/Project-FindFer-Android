@@ -40,6 +40,7 @@ import br.com.findfer.findfer.network.NetworkConnection;
 import br.com.findfer.findfer.network.Transaction;
 
 import static android.R.attr.bitmap;
+import static android.R.attr.id;
 
 public class ProfileActivity extends AppCompatActivity implements Transaction{
     private SimpleDraweeView  imgProfile;
@@ -74,6 +75,7 @@ public class ProfileActivity extends AppCompatActivity implements Transaction{
         mediaProfile = intent.getString("media_profile");
         url = "http://www.findfer.com.br/FindFer/control/RequestRelationShip.php";
         loadData();
+        setButtonNoClick(user.getCodUser(), idUserPoster);
     }
     private User getUser(){
         UserDao uDao = new UserDao(this);
@@ -89,7 +91,11 @@ public class ProfileActivity extends AppCompatActivity implements Transaction{
     public void requestRelation(View view){
                 callVolleyRequest();
     }
-
+    public void setButtonNoClick(long idClient, long idMarketer){
+        if(idClient == idMarketer){
+            ibtRelation.setClickable(false);
+        }
+    }
     public void loadData(){
         userName.setText(intent.getString("name_user"));
         market.setText(intent.getString("name_market"));
@@ -167,13 +173,15 @@ public class ProfileActivity extends AppCompatActivity implements Transaction{
     public Map<String, String> doBefore() {
         pbLoadRelation.setVisibility(View.VISIBLE);
         ibtRelation.setVisibility(View.GONE);
-        Log.i("LOG","Abriu o doBefore profileActivity");
+        //Log.i("MYLOG","Abriu o doBefore profileActivity");
         if(UtilTCM.verifyConnection(this)){
             Map<String, String> parameters = new HashMap<>();
             parameters.put("id_client",Long.toString(user.getCodUser()));
             parameters.put("id_marketer",Long.toString(idUserPoster));
             parameters.put("type_account",Integer.toString(user.getTypeAccount()));
             return parameters;
+        }else{
+            Toast.makeText(this, "Você não está conectado à internet!", Toast.LENGTH_SHORT).show();
         }
         return null;
     }
@@ -182,7 +190,8 @@ public class ProfileActivity extends AppCompatActivity implements Transaction{
     public void doAfter(String response) {
         pbLoadRelation.setVisibility(View.GONE);
         ibtRelation.setVisibility(View.VISIBLE);
-        if(createRelationship(response)>0){
+        long resp = createRelationship(response);
+        if(resp > 0){
             AlertDialog.Builder builder = new AlertDialog.Builder(ProfileActivity.this);
             builder.setTitle(R.string.dial_title_request_relationShip);
             builder.setMessage(R.string.dial_message_request_relationship_successful);
@@ -194,8 +203,9 @@ public class ProfileActivity extends AppCompatActivity implements Transaction{
             });
             AlertDialog dialog = builder.create();
             dialog.show();
-        }else if(createRelationship(response)==-1){
-            Toast.makeText(this, "Você já é cliente!", Toast.LENGTH_SHORT).show();
+        }else if(resp == -1){
+            ibtRelation.setClickable(false);
+            Toast.makeText(this, "Opa! Você já é cliente deste feirante!", Toast.LENGTH_SHORT).show();
         }else{
             Toast.makeText(this, "Opa! Houve um erro ao processar sua solicitação!", Toast.LENGTH_SHORT).show();
         }
@@ -208,7 +218,7 @@ public class ProfileActivity extends AppCompatActivity implements Transaction{
                 JSONObject relationship = relation.getJSONObject(0);
                 result = relationship.getInt("retorno");
             } catch (JSONException e) {
-                e.printStackTrace();
+                Toast.makeText(this, "Opa! Houve um erro ao processar sua solicitação!", Toast.LENGTH_SHORT).show();
             }
         }
         return result;

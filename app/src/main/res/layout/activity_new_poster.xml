@@ -5,9 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/white"
     tools:context="br.com.findfer.findfer.NewPoster"
     >
-
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_launcher_findfer"
+        android:layout_gravity="center"/>
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -19,7 +24,17 @@
             android:layout_marginRight="20dp"
             android:orientation="vertical"
             >
-
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_create_poster"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                />
+            <View
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="10dp"/>
             <EditText
                 android:id="@+id/et_titulo_new_poster"
                 android:layout_width="match_parent"
@@ -27,7 +42,10 @@
                 android:layout_gravity="center"
                 android:ems="10"
                 android:hint="@string/title_new_poster"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                />
 
             <EditText
                 android:id="@+id/et_new_description"
@@ -36,7 +54,9 @@
                 android:layout_gravity="center"
                 android:ems="10"
                 android:hint="@string/new_description"
-                android:inputType="textMultiLine" />
+                android:inputType="textMultiLine"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"/>
 
             <EditText
                 android:id="@+id/et_new_value"
@@ -45,7 +65,9 @@
                 android:layout_gravity="center"
                 android:ems="10"
                 android:hint="@string/new_value"
-                android:inputType="numberDecimal" />
+                android:inputType="numberDecimal"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"/>
 
             <TextView
                 android:id="@+id/tv_new_coupon"
@@ -54,14 +76,18 @@
                 android:layout_gravity="center"
                 android:text="@string/new_coupon"
                 android:textSize="17dp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:visibility="gone"
+                />
 
             <RadioGroup
                 android:id="@+id/rg_new_coupon"
                 android:layout_width="match_parent"
                 android:layout_height="66dp"
                 android:layout_marginTop="26dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:visibility="gone"
+                >
 
                 <RadioButton
                     android:id="@+id/rb_yes"
@@ -103,7 +129,7 @@
                     android:layout_marginBottom="30dp"
                     android:layout_marginTop="30dp"
                     android:text="@string/sugest_set_image"
-                    android:textSize="13dp"
+                    android:textSize="16dp"
                     android:textStyle="bold"
 
                     app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
@@ -111,16 +137,17 @@
                 <ImageView
                     android:id="@+id/imgview_product"
                     android:layout_width="match_parent"
-                    android:layout_height="80pt"
+                    android:layout_height="match_parent"
                     android:visibility="gone"/>
 
                 <ImageButton
                     android:id="@+id/ib_camera"
-                    android:layout_width="100dp"
-                    android:layout_height="70dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:onClick="newImagePost"
-                    app:srcCompat="@android:drawable/ic_menu_camera" />
+                    app:srcCompat="@mipmap/camera"
+                    android:background="@color/white"/>
             </LinearLayout>
 
             <Button
@@ -129,13 +156,15 @@
                 android:layout_height="50dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
-                android:background="@color/white"
+                android:background="@color/colorAccent"
                 android:fontFamily="Arial"
                 android:onClick="creatPoster"
                 android:text="@string/creat_poster"
                 android:textColor="@color/colorPrimaryDark"
                 android:textStyle="bold"
-                tools:layout_editor_absoluteX="92dp" />
+                tools:layout_editor_absoluteX="92dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"/>
 
             <ProgressBar
                 android:id="@+id/pb_load_new_poster"

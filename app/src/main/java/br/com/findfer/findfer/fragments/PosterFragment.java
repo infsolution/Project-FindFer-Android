@@ -8,6 +8,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -148,6 +149,7 @@ public class PosterFragment extends Fragment implements RecyclerViewOnClickListe
 
     @Override
     public Map<String, String> doBefore() {
+        //Log.i("MYLOG","abriu o doBefore de Poster");
         pBLoad.setVisibility(View.VISIBLE);
             if(UtilTCM.verifyConnection(getActivity())){
                  Map<String, String> parameters = new HashMap<>();
@@ -163,12 +165,16 @@ public class PosterFragment extends Fragment implements RecyclerViewOnClickListe
                     parameters.put("id_user",Long.toString(user.getCodUser()));
                 }
             return parameters;
-        }
+        }else{
+                pBLoad.setVisibility(View.GONE);
+                Toast.makeText(getActivity(), "Você não está conectado à internet!", Toast.LENGTH_SHORT).show();
+            }
         return null;
     }
-
     @Override
     public void doAfter(String response) {
+        //Log.i("MYLOG","abriu o doAfter poster");
+        //Log.i("MYLOG","Valor do response de poster: "+response);
         pBLoad.setVisibility(View.GONE);
         try {
             Poster post;
@@ -193,12 +199,8 @@ public class PosterFragment extends Fragment implements RecyclerViewOnClickListe
             adapter.setRecyclerViewOnClickListenerHack(this);
             pRecycle.setAdapter(adapter);
         } catch (JSONException e) {
-            Toast.makeText(getActivity(), "Erro Catch: " + e.toString(), Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity(), "Desculpe! houve um erro ao carregar os anúncios, por favor, tente novamente em alguns minutos.", Toast.LENGTH_LONG).show();
         }
-
-
     }
-
-
 }
 

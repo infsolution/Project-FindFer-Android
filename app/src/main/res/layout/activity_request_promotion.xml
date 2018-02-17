@@ -5,12 +5,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/white"
     tools:context="br.com.findfer.findfer.RequestPromotion"
-    android:layout_marginRight="@dimen/fab_margin"
-    android:layout_marginLeft="@dimen/fab_margin"
-    android:layout_marginTop="@dimen/fab_margin"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    android:layout_marginTop="40dp"
+    android:layout_marginBottom="40dp"
     >
-
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_launcher_findfer"
+        android:layout_gravity="center"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -33,7 +39,10 @@
         android:layout_height="wrap_content"
         android:textSize="14dp"
         />
-
+    <View
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"/>
     <Button
         android:id="@+id/bt_request_promotion"
         android:layout_width="match_parent"
@@ -41,6 +50,7 @@
         android:background="@color/colorAccent"
         android:text="@string/ac_request_promotion"
         android:onClick="requestPromotion"
+        android:textColor="@color/colorPrimaryDark"
         />
 
 </LinearLayout>

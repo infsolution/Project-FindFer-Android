@@ -56,7 +56,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
     @Override
     public void onBindViewHolder(UserViewHolder holder, int position) {
         holder.name.setText(users.get(position).getName());
-       // holder.description.setText(users.get(position).getNameUser());
+       holder.description.setText(users.get(position).getDescription());
         ControllerListener listener = new BaseControllerListener(){
             @Override
             public void onFinalImageSet(String id, Object imageInfo, Animatable animatable) {
@@ -128,7 +128,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
             super(itemView);
             imgUser = (SimpleDraweeView)itemView.findViewById(R.id.img_profile_user);
             name = (TextView)itemView.findViewById(R.id.tv_name);
-            //description = (TextView)itemView.findViewById(R.id.tv_detail);
+            description = (TextView)itemView.findViewById(R.id.tv_type_user);
             itemView.setOnClickListener(this);
         }
         @Override

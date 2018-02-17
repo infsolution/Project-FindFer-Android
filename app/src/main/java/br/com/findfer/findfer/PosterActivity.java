@@ -88,7 +88,6 @@ public class PosterActivity extends AppCompatActivity implements Transaction{
         nameMarket = intent.getString("name_market");
         ageValue = 0.0;
         url = "http://www.findfer.com.br/FindFer/control/ObservableRequestPromotion.php";
-
         loadData();
 
     }
@@ -106,8 +105,8 @@ public class PosterActivity extends AppCompatActivity implements Transaction{
         tvDescription.setText(intent.getString("description"));
         tvValue.setText("R$ "+intent.getString("value"));
         tvPosterDate.setText(formatDate(intent.getString("date_time")));
-        tvMarket.setText(intent.getString("name_market"));
-        tvNameUser.setText(intent.getString("name_user"));
+        tvMarket.setText(nameMarket);
+        tvNameUser.setText(nameUser);
         loadImage(mediaUser,imgProfile);
         loadImage(mediaCapa, imgPoster);
     }
@@ -146,7 +145,7 @@ public class PosterActivity extends AppCompatActivity implements Transaction{
         goProfile.putExtra("media_profile",mediaUser);
         goProfile.putExtra("name_user",nameUser);
         goProfile.putExtra("name_market",nameMarket);
-        goProfile.putExtra("date_time","");
+        goProfile.putExtra("date_time",formatDate(intent.getString("date_time")));
         goProfile.putExtra("status_request_relationship",true);
         startActivity(goProfile);
 
@@ -186,17 +185,17 @@ public class PosterActivity extends AppCompatActivity implements Transaction{
     public Map<String, String> doBefore() {
         pbLoad.setVisibility(View.VISIBLE);
         imbtReqPromotion.setVisibility(View.GONE);
-        Log.i("LOG","Abriu o doBefore posterActivity");
+        //Log.i("LOG","Abriu o doBefore posterActivity");
         if(UtilTCM.verifyConnection(this)){
             Map<String, String> parameters = new HashMap<>();
             parameters.put("id_user",Long.toString(user.getCodUser()));
             parameters.put("id_marketer",Long.toString(idMarketer));
             parameters.put("product",tvTitle.getText().toString());
             parameters.put("age_value",Double.toString(ageValue));
-            Log.i("LOG","valor do ageValue: "+ageValue);
+           // Log.i("LOG","valor do ageValue: "+ageValue);
             return parameters;
         }else{
-            Toast.makeText(this, "Sem conexão!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Você não está conectado à internet!", Toast.LENGTH_SHORT).show();
         }
         return null;
     }
@@ -226,7 +225,8 @@ public class PosterActivity extends AppCompatActivity implements Transaction{
                     Toast.makeText(this, "Houve um erro em sua solicitação! Tente novamente.", Toast.LENGTH_SHORT).show();
                 }
             }catch (JSONException e){
-                Log.i("ERRORLOG",e.toString());
+                //Log.i("ERRORLOG",e.toString());
+                Toast.makeText(this, "Houve um erro em sua solicitação! Tente novamente.", Toast.LENGTH_SHORT).show();
             }
         }
     }

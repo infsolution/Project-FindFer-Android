@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="br.com.findfer.findfer.NewMarketer">
+    tools:context="br.com.findfer.findfer.NewMarketer"
+    android:background="@color/white"
+    >
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -47,19 +49,31 @@
                 android:text="@string/question_email"
                 android:visibility="visible"
                 android:textSize="16dp"/>
+            <View
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"/>
 
             <EditText
                 android:id="@+id/et_new_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/et_new_email"
-                android:inputType="textAutoComplete"/>
+                android:inputType="textEmailAddress"/>
+            <View
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"/>
             <EditText
                 android:id="@+id/et_new_passwword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/et_password"
                 android:inputType="textPassword"/>
+            <View
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"/>
             <EditText
                 android:id="@+id/et_confirm_password"
                 android:layout_width="match_parent"
@@ -81,7 +95,10 @@
                 android:entries="@array/spin_market"
                 android:visibility="visible"
                 /-->
-
+            <View
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"/>
             <Button
                 android:id="@+id/bt_new_user"
                 android:layout_width="match_parent"

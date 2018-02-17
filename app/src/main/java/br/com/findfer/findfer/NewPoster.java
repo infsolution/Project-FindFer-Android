@@ -119,13 +119,19 @@ public class NewPoster extends AppCompatActivity implements Transaction{
             }
         });
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
     private User getUser(){
         UserDao uDao = new UserDao(this);
         return uDao.getUser();
     }
     public void creatPoster(View view) {
         callVolleyRequest();
-            }
+    }
     public void callVolleyRequest(){
         NetworkConnection.getInstance(this).execute(this, url);
     }
@@ -154,12 +160,11 @@ public class NewPoster extends AppCompatActivity implements Transaction{
             imgProduct.setImageBitmap(bitmap);
             imgProduct.setVisibility(View.VISIBLE);
             imgBtt.setVisibility(View.GONE);
-
         }
     }
     private String setImageName() {
         String title = etTitle.getText().toString().toLowerCase().replace(" ","");
-        Log.i("LOG",title);
+        //Log.i("LOG",title);
         return title+user.getCodUser()+getValidity()+".jpg";
     }
     private String getValidity(){
@@ -167,17 +172,11 @@ public class NewPoster extends AppCompatActivity implements Transaction{
         SimpleDateFormat dt = new SimpleDateFormat ("yyyy-MM-dd");
         return dt.format(datefor);
     }
-
-
-
-
-
-
     @Override
     public Map<String, String> doBefore() {
         progressBar.setVisibility(View.VISIBLE);
         btCreate.setVisibility(View.GONE);
-        Log.i("MYLOG","doBefore NewPoster");
+        //Log.i("MYLOG","doBefore NewPoster");
         if(UtilTCM.verifyConnection(this)){
             if(encod.equals("") || encod == null){
                 return null;
@@ -190,20 +189,20 @@ public class NewPoster extends AppCompatActivity implements Transaction{
             parameters.put("title",etTitle.getText().toString());
             parameters.put("description",etDescri.getText().toString());
             parameters.put("value",etValue.getText().toString());
-            parameters.put("add_coupon",Integer.toString(optCoupon));
-            parameters.put("desconto",etValueCoupon.getText().toString());
-            parameters.put("validity",getValidity());
+            //parameters.put("add_coupon",Integer.toString(optCoupon));
+            //parameters.put("desconto",etValueCoupon.getText().toString());
+            //parameters.put("validity",getValidity());
             return parameters;
             }
         }else{
-            Toast.makeText(this, "Sem conexão!", Toast.LENGTH_SHORT).show();
+            progressBar.setVisibility(View.GONE);
+            Toast.makeText(this, "Você não está conectado à internet!", Toast.LENGTH_SHORT).show();
         }
         return null;
     }
-
     @Override
     public void doAfter(String response) {
-        Log.i("MYLOG","Valor do response new poster"+response);
+       // Log.i("MYLOG","Valor do response new poster"+response);
         progressBar.setVisibility(View.GONE);
         btCreate.setVisibility(View.VISIBLE);
         int result = 0;
@@ -238,9 +237,9 @@ public class NewPoster extends AppCompatActivity implements Transaction{
                     AlertDialog dialog = builder.create();
                     dialog.show();
                 }
-
             }catch (JSONException e){
-                Log.i("MYLOG","Erro no New Poster: "+e.toString());
+                //Log.i("MYLOG","Erro no New Poster: "+e.toString());
+                Toast.makeText(this, "Desculpe! houve um erro ao criar seu anúncio, por favor, tente novamente em alguns minutos.", Toast.LENGTH_LONG).show();
             }
         }
     }

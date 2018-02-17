@@ -124,32 +124,36 @@ public class UserFragment extends Fragment implements RecyclerViewOnClickListene
 
     @Override
     public void onClickListner(View view, int position) {
-        Log.i("LOG","OnClick User");
+        //Log.i("LOG","OnClick User");
         Intent user = new Intent(getActivity(), ProfileActivity.class);
         user.putExtra("name_user",userList.get(position).getName());
         user.putExtra("name_market","Market");
         user.putExtra("media_profile",userList.get(position).getImage());
         user.putExtra("date_time",userList.get(position).getDateRegister());
         user.putExtra("status_request_relationship",false);
+        user.putExtra("type_account", userList.get(position).getTypeAccount());
         startActivity(user);
         }
 
     @Override
     public Map<String, String> doBefore() {
-        Log.i("LOG","abriu o doBefore User");
+        //Log.i("MYLOG","abriu o doBefore User");
         pbLoad.setVisibility(View.VISIBLE);
         if(UtilTCM.verifyConnection(getActivity())){
             Map<String, String> parameters = new HashMap<>();
             parameters.put("id_user", Long.toString(user.getCodUser()));
             parameters.put("type_account",Long.toString(user.getTypeAccount()));
             return parameters;
+        }else{
+            pbLoad.setVisibility(View.GONE);
+            //Toast.makeText(getActivity(), "Você não está conectado à internet!", Toast.LENGTH_SHORT).show();
         }
         return null;
     }
 
     @Override
     public void doAfter(String response) {
-        Log.i("LOG","abriu o doAfter");
+        //Log.i("MYLOG","abriu o doAfter");
         pbLoad.setVisibility(View.GONE);
             userList = createUsers(response);
             UserAdapter adapter = new UserAdapter(getActivity(),userList);
@@ -168,13 +172,20 @@ public class UserFragment extends Fragment implements RecyclerViewOnClickListene
                 user.setIdUser(jUser.getLong("id_user"));
                 user.setImage("http://www.findfer.com.br/FindFer" + jUser.getString("media"));
                 user.setTypeAccount(jUser.getInt("id_conta"));
+                user.setDescription(getDescription(user.getTypeAccount()));
                 users.add(user);
             }
-
         } catch (JSONException e) {
-            Toast.makeText(getActivity(), "Erro Catch User: " + e.toString(), Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity(), "Desculpe! Houve um erro ao carregar sua lista de amigos", Toast.LENGTH_LONG).show();
         }
         return users;
+    }
+
+    private String getDescription(long typeAccount){
+        if(typeAccount == 1){
+            return "CLIENTE";
+        }
+        return "FEIRANTE";
     }
 }
 

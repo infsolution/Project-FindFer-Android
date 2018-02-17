@@ -20,11 +20,11 @@
         android:orderInCategory="100"
         android:title="@string/ac_manage_poster"
         app:showAsAction="never" />
-    <item
+    <!--item
         android:id="@+id/action_new_user"
         android:orderInCategory="100"
         android:title="@string/ac_update_marketer"
-        app:showAsAction="never" />
+        app:showAsAction="never" /-->
     <item
         android:id="@+id/action_interaction"
         android:orderInCategory="100"
