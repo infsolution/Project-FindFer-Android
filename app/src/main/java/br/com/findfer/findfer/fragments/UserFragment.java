@@ -102,7 +102,6 @@ public class UserFragment extends Fragment implements RecyclerViewOnClickListene
         pRecycle.setAdapter(adapter);
         return view;
     }
-
     @Override
     public void onResume() {
         super.onResume();
@@ -115,13 +114,11 @@ public class UserFragment extends Fragment implements RecyclerViewOnClickListene
     public void callVolleyRequest(){
         NetworkConnection.getInstance(getActivity()).execute(this, url);
     }
-
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
        // outState.putParcelableArrayList("user",(ArrayList<User>) userList);
     }
-
     @Override
     public void onClickListner(View view, int position) {
         //Log.i("LOG","OnClick User");
@@ -134,7 +131,6 @@ public class UserFragment extends Fragment implements RecyclerViewOnClickListene
         user.putExtra("type_account", userList.get(position).getTypeAccount());
         startActivity(user);
         }
-
     @Override
     public Map<String, String> doBefore() {
         //Log.i("MYLOG","abriu o doBefore User");
@@ -150,7 +146,6 @@ public class UserFragment extends Fragment implements RecyclerViewOnClickListene
         }
         return null;
     }
-
     @Override
     public void doAfter(String response) {
         //Log.i("MYLOG","abriu o doAfter");
@@ -160,7 +155,6 @@ public class UserFragment extends Fragment implements RecyclerViewOnClickListene
             adapter.setRecyclerViewOnClickListenerHack(this);
             pRecycle.setAdapter(adapter);
         }
-
     private List<User> createUsers(String response){
         final List<User> users = new ArrayList<>();
         try {

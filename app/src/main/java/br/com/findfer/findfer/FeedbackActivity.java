@@ -77,7 +77,7 @@ public class FeedbackActivity extends AppCompatActivity implements Transaction{
             JSONArray jResponse = new JSONArray(response);
             JSONObject jREs = jResponse.getJSONObject(0);
             int res = jREs.getInt("result");
-            if(res==1){
+            if(res == 1){
                 AlertDialog.Builder builder = new AlertDialog.Builder(FeedbackActivity.this);
                 builder.setMessage("Muito obrigado por sua atenção, mensagem recebida.");
                 builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
